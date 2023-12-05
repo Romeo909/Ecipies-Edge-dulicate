@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  acts_as_favoritor
   has_many :user_recipies
   has_many :user_ingredients
   has_many :ingredients, through: :user_ingredients
