@@ -1,4 +1,14 @@
 class UserRecipesController < ApplicationController
+
+  def index
+    @user_recipes = UserRecipe.where(user_id: current_user)
+  end
+
+  def show
+    user_recipe = UserRecipe.find(params[:id])
+    @recipe = user_recipe.recipe
+  end
+
   def new
     @user_recipe = UserRecipe.new
     @recipe = Recipe.find(params[:recipe_id])
