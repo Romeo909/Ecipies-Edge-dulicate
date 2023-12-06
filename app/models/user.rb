@@ -1,7 +1,7 @@
 class User < ApplicationRecord
-  acts_as_favoritor
-  has_many :user_recipies
-  has_many :user_ingredients
+  # acts_as_favoritor
+  has_many :user_recipes, dependent: :destroy
+  has_many :user_ingredients, dependent: :destroy
   has_many :ingredients, through: :user_ingredients
   has_many :recipes, through: :user_recipes
 
