@@ -1,11 +1,13 @@
 <--! implement gem and categorize recipes by categories -->
-<--! Add option to create new category (lable/folder)
+<--! Add option to create new category (lable/folder) -->
+<br>
+
 <% @user_recipes.each do |user_recipe| %>
   <% recipe = user_recipe.recipe%>
   <ul>
     <li>
       <%= recipe.name %>
-      <%= link_to "details", user_recipe_path(recipe)%>
+      <%= link_to "details", user_recipe_path(user_recipe)%>
     </li>
   </ul>
 <% end %>
