@@ -1,0 +1,13 @@
+<div class="container">
+  <h3> Your ingredient list</h3>
+
+  <%= link_to 'add new ingredient(s)', ingredients_path %>
+
+  <% @user_ingredients.each do |user_ingredient| %>
+    <ul>
+      <li><%= user_ingredient.ingredient.name %></li>
+    </ul>
+  <% end %>
+  <%= link_to "Find recipes", recipes_path %>
+  <%= link_to "back", :back %>
+</div>

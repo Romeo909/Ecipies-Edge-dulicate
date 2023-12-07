@@ -1,6 +1,12 @@
 class UserIngredientsController < ApplicationController
   # before_action :set_ingredient, only: %i[edit]
 
+  def index
+    @user_ingredients = UserIngredient.where(user: current_user)
+    # I am not sure about this instance var down here. It should be use by the _search.html.erb
+    @path = user_ingredients_path
+  end
+
   # def new
   #   @ingredient = Ingredient.new
   # end

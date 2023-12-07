@@ -1,0 +1,40 @@
+<h3>Ingredients</h3>
+<br>
+<div class="container">
+  <%= render "shared/search" %>
+
+  <h4>Vegetables</h4>
+  <% @vegetables.each do |vegetable|%>
+    <%= vegetable.name %>
+  <% end %>
+
+  <h4>Fruits</h4>
+  <%@fruits.each do |fruit|%>
+    <%= fruit.name %>
+  <% end %>
+
+  <h4>Starch</h4>
+  <%@starch.each do |starch|%>
+    <%= starch.name %>
+  <% end %>
+
+  <h4>Vegetables</h4>
+  <%@legumes.each do |legume|%>
+    <%= legume.name %>
+  <% end %>
+
+  <h4>Flour</h4>
+  <%@flour.each do |flour|%>
+    <%= flour.name %>
+  <% end %>
+
+  <h4>Mushrooms</h4>
+  <%@mushrooms.each do |mushroom|%>
+    <%= mushroom.name %>
+  <% end %>
+
+  <h4>Spices</h4>
+  <%@spices.each do |spice| %>
+    <%= spice.name %>
+  <% end %>
+</div>

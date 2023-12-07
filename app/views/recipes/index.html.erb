@@ -1,13 +1,15 @@
-<%@recipes.each do |recipe| %>
 <div class ="container">
-  <div class="cards">
-    <br>
-    <h6><%= recipe.name %></h6>
-        <br>
-
-    <p><%= recipe.instructions%></p>
-    <p><%= recipe.servings %></p>
-    <p><%= recipe.cooking_time %></p>
-  </div>
+  <%= render "shared/search" %>
+  <%@recipes.each do |recipe| %>
+    <div class="cards">
+      <br>
+      <h6><%= recipe.name %></h6>
+          <br>
+      <p><%= recipe.ingredients%></p>
+      <p><%= recipe.instructions%></p>
+      <p><%= recipe.servings %></p>
+      <p><%= recipe.cooking_time %></p>
+    </div>
+  <% end %>
+  <%= link_to "back", :back %>
 </div>
-<% end %>
