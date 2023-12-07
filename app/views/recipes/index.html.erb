@@ -1,13 +1,3 @@
 <%@recipes.each do |recipe| %>
-<div class ="container">
-  <div class="cards">
-    <br>
-    <h6><%= recipe.name %></h6>
-        <br>
-
-    <p><%= recipe.instructions%></p>
-    <p><%= recipe.servings %></p>
-    <p><%= recipe.cooking_time %></p>
-  </div>
-</div>
+<%= render "shared/recipe-card", recipe: %>
 <% end %>
