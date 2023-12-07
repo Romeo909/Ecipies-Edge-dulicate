@@ -10,3 +10,12 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+
+.wrapper {
+  min-height: calc(100vh - (72px + 135.33px))
+  }
+
+  footer {
+    margin-top: auto;
+  }

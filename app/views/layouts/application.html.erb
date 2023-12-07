@@ -12,7 +12,37 @@
 
   <body><%= render "shared/navbar" %>
 <%= render "shared/flashes" %>
-
+<div class="wrapper">
     <%= yield %>
+</div>
+
+<footer class="text-center text-lg-start bg-dark">
+  <div class="container d-flex justify-content-center py-3">
+    <button type="button" class="btn btn-primary btn-lg btn-floating mx-2 bg-dark">
+      <i class="fas fa-house"></i>
+    </button>
+    <button type="button" class="btn btn-primary btn-lg btn-floating mx-2 bg-dark">
+     <i class="far fa-heart"></i>
+    </button>
+    <button type="button" class="btn btn-primary btn-lg btn-floating mx-2 bg-dark">
+     <i class="fas fa-basket-shopping"></i>
+    </button>
+    <button type="button" class="btn btn-primary btn-lg btn-floating mx-2 bg-dark">
+     <i class="fas fa-utensils"></i>
+    </button>
+  </div>
+
+  <!-- Copyright -->
+  <div class="text-center text-white p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2020 Copyright:
+    <a class="text-white" href="#">EcipesEdge</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- End of .container -->
+
+
+
+
   </body>
 </html>
