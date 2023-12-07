@@ -1,33 +1,40 @@
 <h3>Ingredients</h3>
 <br>
-<%= render "shared/search" %>
-<em> Implement cards with ingredients seprated in categories from our DB </em>
+<div class="container">
+  <%= render "shared/search" %>
 
-<%= raise %>
-<% @vegetables.each do |vegetable|%>
-  <%= vegetable.name %>
-<% end %>
+  <h4>Vegetables</h4>
+  <% @vegetables.each do |vegetable|%>
+    <%= vegetable.name %>
+  <% end %>
 
-<%@fruits.each do |fruit|%>
-  <%= fruit.name %>
-<% end %>
+  <h4>Fruits</h4>
+  <%@fruits.each do |fruit|%>
+    <%= fruit.name %>
+  <% end %>
 
-<%@starch.each do |starch|%>
-  <%= frustarchit.name %>
-<% end %>
+  <h4>Starch</h4>
+  <%@starch.each do |starch|%>
+    <%= starch.name %>
+  <% end %>
 
-<%@legumes.each do |legume|%>
-  <%= legume.name %>
-<% end %>
+  <h4>Vegetables</h4>
+  <%@legumes.each do |legume|%>
+    <%= legume.name %>
+  <% end %>
 
-<%@flour.each do |flour|%>
-  <%= flour.name %>
-<% end %>
+  <h4>Flour</h4>
+  <%@flour.each do |flour|%>
+    <%= flour.name %>
+  <% end %>
 
-<%@mushrooms.each do |mushroom|%>
-  <%= mushroom.name %>
-<% end %>
+  <h4>Mushrooms</h4>
+  <%@mushrooms.each do |mushroom|%>
+    <%= mushroom.name %>
+  <% end %>
 
-<%@spices.each do |spice| %>
-  <%= spice.name %>
-<% end %>
+  <h4>Spices</h4>
+  <%@spices.each do |spice| %>
+    <%= spice.name %>
+  <% end %>
+</div>

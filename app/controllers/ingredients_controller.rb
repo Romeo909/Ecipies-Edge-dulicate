@@ -12,7 +12,7 @@ class IngredientsController < ApplicationController
     @legumes = Ingredient.where(category: "legumes")
     @flour = Ingredient.where(category: "flour")
     @mushrooms = Ingredient.where(category: "mushrooms")
-    @spices = Ingredient.where(category: spices)
+    @spices = Ingredient.where(category: "spices")
     # @ = Ingredient.where(category: )
     # @ = Ingredient.where(category: )
     # @ = Ingredient.where(category: )
