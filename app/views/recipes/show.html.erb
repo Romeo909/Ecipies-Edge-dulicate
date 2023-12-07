@@ -1,14 +1,60 @@
-<h3>Recipe details</h3>
-
-<p>
-<%= @recipe.name %>
-<br>
-<%= @recipe.servings %>
-<br>
-<%= @recipe.cooking_time %>
-<br>
-<%= @recipe.instructions %>
-<br>
-<%= @recipe.ingredients %>
-</p>
-<%= link_to 'back', :back %>
+<%# <h3>Recipe details</h3> %>
+<%# <p> %>
+<%# <%= @recipe.name %>
+<%# <br> %>
+<%# <%= @recipe.servings %>
+<%# <br> %>
+<%# <%= @recipe.cooking_time %>
+<%# <br> %>
+<%# <%= @recipe.instructions %>
+<%# <br> %>
+<%# <%= @recipe.ingredients %>
+<%# </p> %>
+<div class="show-page">
+  <div class="recipe_image">
+    <%# image tag with cloudinary %>
+    <%= cl_image_tag @recipe.image.key, height: 300, width: 400, crop: :fill %>
+  </div>
+  <div class="recipe_detail">
+    <div>
+      <h3 class="recipe-title"><%= @recipe.name %></h3>
+      <button class="folder"></button>
+    </div>
+    <div class="recipe-tabs">
+      <%# tab buttons %>
+      <div class="tab-buttons">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="ingredients-tab" data-bs-toggle="tab" data-bs-target="#overview" type="button" role="tab" aria-controls="ingredients" aria-selected="true">Overview</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="overview-tab" data-bs-toggle="tab" data-bs-target="#ingredients" type="button" role="tab" aria-controls="overview" aria-selected="false">Ingredients</button>
+          </li>
+        </ul>
+      </div>
+      <div class="tab-overview" id="overview">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <div class="servings">
+              <p>servings</p>
+              <span><%= @recipe.servings %></span>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="cooking-time">
+              <p>cooking time</p>
+              <span><%= @recipe.cooking_time %></span>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="instructions">
+              <p class="instruction_para">instructions</p>
+              <p class="instruction_details"><%= @recipe.instructions %></p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<%= link_to 'back', root_path %>
