@@ -7,9 +7,23 @@ class UserIngredientsController < ApplicationController
     @path = user_ingredients_path
   end
 
-  # def new
-  #   @ingredient = Ingredient.new
-  # end
+  def create
+    # raise
+    @user_ingredient = UserIngredient.new(user: current_user, ingredient_id: params[:ingredient_id])
+    if @user_ingredient.save
+      redirect_to ingredients_path, notice: "#{@user_ingredient.name} added to your kitchen!"
+    else
+      ingredient = Ingredient.find(params[:ingredient_id])
+      # Should not refresh the page and so that you still have your query in the search bar(witch some JS)
+      # When I use status: :unprocessable_entity, it does not refresh, but there is no error messages!
+      redirect_to ingredients_path, notice: "#{ingredient.name}'s already in kictchen"
+    end
+  end
+
+  def destroy
+    raise
+    @user_ingredient = UserIngredient.find(params[:user_ingredient])
+  end
 
   # def create
   #   @ingredient = Ingredient.new(ingredient_params)
