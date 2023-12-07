@@ -10,7 +10,8 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body><%= render "shared/navbar" %>
+  <body>
+    <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
     <div class="wrapper">
       <%= yield %>
@@ -18,16 +19,22 @@
     <footer class="text-center text-lg-start bg-dark">
       <div class="container d-flex justify-content-center py-3">
         <button type="button" class="btn btn-primary btn-lg btn-floating mx-2 bg-dark">
-          <i class="fas fa-house"></i>
+          <%= link_to root_path, class:"footer-icon" do %>
+            <i class="fas fa-house"></i>
+          <%end %>
         </button>
         <button type="button" class="btn btn-primary btn-lg btn-floating mx-2 bg-dark">
-         <i class="far fa-heart"></i>
+          <%= link_to  recipes_path, class: "bg-transparent" do%>
+            <i class="fas fa-book"></i>
+          <% end %>
         </button>
         <button type="button" class="btn btn-primary btn-lg btn-floating mx-2 bg-dark">
-          <i class="fas fa-basket-shopping"></i>
+          <%= link_to user_recipes_path  do %>
+            <i class="fas fa-basket-shopping"></i>
+          <% end %>
         </button>
         <button type="button" class="btn btn-primary btn-lg btn-floating mx-2 bg-dark">
-          <i class="fas fa-utensils"></i>
+            <i class="fas fa-utensils"></i>
         </button>
       </div>
 

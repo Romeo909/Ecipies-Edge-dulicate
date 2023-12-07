@@ -3,7 +3,7 @@
   height: 120px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
+  display:flex;
   align-items: center;
 }
 
@@ -29,4 +29,22 @@
 
 .card-product .card-product-infos {
   padding: 16px;
+}
+
+.recipe_card {
+  height: 250px;
+  background: white;
+  display: flexbox;
+  margin : auto;
+}
+
+.card-content {
+  height: 100%;
+  width: 100%;
+  background-size:cover;
+  border-radius: 5px;
+}
+
+.fa-folder-plus {
+  size: 40px;
 }
