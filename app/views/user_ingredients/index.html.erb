@@ -1,8 +1,7 @@
 <div class="container">
   <h3> Your ingredient list</h3>
 
-  <%= render "shared/search" %>
-  <em> Implement an autocomplete with ingredient from our DB </em>
+  <%= link_to 'add new ingredient(s)', ingredients_path %>
 
   <% @user_ingredients.each do |user_ingredient| %>
     <ul>
