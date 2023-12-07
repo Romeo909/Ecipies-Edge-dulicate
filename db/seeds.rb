@@ -12,6 +12,13 @@
 # require 'uri'
 # require 'net/http'
 
+
+# Add imgae to recipe
+require "open-uri"
+require 'json'
+require 'uri'
+require 'net/http'
+
 User.destroy_all
 Recipe.destroy_all
 Ingredient.destroy_all
@@ -33,12 +40,6 @@ end
 
 # url = URI("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=10&tags=vegetarian%2Cdessert")
 
-
-require 'json'
-# url = URI("https://tasty.p.rapidapi.com/recipes/auto-complete?prefix=chicken%20soup")
-require 'uri'
-require 'net/http'
-
 url = URI("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?query=vegetarian")
 
 http = Net::HTTP.new(url.host, url.port)
@@ -51,12 +52,17 @@ request["X-RapidAPI-Host"] = 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.co
 response = http.request(request)
 recipes = JSON.parse(response.read_body)["results"]
 
+imageBaseUrl = "https://spoonacular.com/recipeImages/"
+
 recipes.each do |recipe|
     # instruction = "#{baseUrl}/#{recipe["id"]}/information"
    instructions = getInstruction(recipe["id"])
    instruction = instructions["instructions"]
    extendedIngredients = instructions["extendedIngredients"]
-   Recipe.create!(name: recipe["title"], instructions: instruction, servings: recipe["servings"], cooking_time: recipe["readyInMinutes"], ingredients: extendedIngredients.map{|ingredient| ingredient["name"]}.join(", "))
+   newRecipe = Recipe.new(name: recipe["title"], instructions: instruction, servings: recipe["servings"], cooking_time: recipe["readyInMinutes"], ingredients: extendedIngredients.map{|ingredient| ingredient["name"]}.join(", "))
+   file = URI.open("#{imageBaseUrl}#{recipe["image"]}")
+    newRecipe.image.attach(io: file, filename: "#{recipe["title"].strip}.png", content_type: "image/png")
+   newRecipe.save
 end
 
 
