@@ -5,7 +5,9 @@
 
   <% @user_ingredients.each do |user_ingredient| %>
     <ul>
-      <li><%= user_ingredient.ingredient.name %></li>
+      <li><%= user_ingredient.ingredient.name %>
+          <%#= link_to 'remove', ingredient_user_ingredient_path(ingredient_id: user_ingredient.ingredient, user_ingredient_id: user_ingredient)%>
+      </li>
     </ul>
   <% end %>
   <%= link_to "Find recipes", recipes_path %>
