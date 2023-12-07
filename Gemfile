@@ -41,6 +41,12 @@ gem "tzinfo-data", platforms: %i[mswin mswin64 mingw x64_mingw jruby]
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
+gem "pg_search"
+
+gem "cloudinary"
+
+gem "dotenv-rails"
+
 #  acts as favoritor
 gem "acts_as_favoritor"
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
