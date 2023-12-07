@@ -8,7 +8,10 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-# Create 5 users
+# Seed from Rapid API
+# require 'uri'
+# require 'net/http'
+
 User.destroy_all
 Recipe.destroy_all
 Ingredient.destroy_all
@@ -17,13 +20,51 @@ UserIngredient.destroy_all
 UserIngredient.destroy_all
 
 
+def getInstruction(id)
+    instructionURL = URI("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/#{id}/information")
+    instructionHTTP = Net::HTTP.new(instructionURL.host, instructionURL.port)
+    instructionHTTP.use_ssl = true
+    instructionRequest = Net::HTTP::Get.new(instructionURL)
+    instructionRequest["X-RapidAPI-Key"] = '7ccb6132b8mshf9945187788cf15p1732e8jsnd2880a641b78'
+    instructionRequest["X-RapidAPI-Host"] = 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
+    instructionResponse = instructionHTTP.request(instructionRequest)
+    instruction = JSON.parse(instructionResponse.read_body)
+end
+
+# url = URI("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=10&tags=vegetarian%2Cdessert")
+
+
+require 'json'
+# url = URI("https://tasty.p.rapidapi.com/recipes/auto-complete?prefix=chicken%20soup")
+require 'uri'
+require 'net/http'
+
+url = URI("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?query=vegetarian")
+
+http = Net::HTTP.new(url.host, url.port)
+http.use_ssl = true
+
+request = Net::HTTP::Get.new(url)
+request["X-RapidAPI-Key"] = '7ccb6132b8mshf9945187788cf15p1732e8jsnd2880a641b78'
+request["X-RapidAPI-Host"] = 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
+
+response = http.request(request)
+recipes = JSON.parse(response.read_body)["results"]
+
+recipes.each do |recipe|
+    # instruction = "#{baseUrl}/#{recipe["id"]}/information"
+   instructions = getInstruction(recipe["id"])
+   instruction = instructions["instructions"]
+   extendedIngredients = instructions["extendedIngredients"]
+   Recipe.create!(name: recipe["title"], instructions: instruction, servings: recipe["servings"], cooking_time: recipe["readyInMinutes"], ingredients: extendedIngredients.map{|ingredient| ingredient["name"]}.join(", "))
+end
+
+
+
+
 rayane = User.create!(email: "rayane@gmail.com", password: "123456", username: "Rayane")
 lena = User.create!(email: "lena@gmail.com", password: "123456", username: "Lena")
 romar = User.create!(email: "romar@gmail.com", password: "123456", username: "Romar")
-
-Recipe.create!(name: "Pasta", instructions: "Pasta with tomato sauce", servings: 2, cooking_time: 20, ingredients: %(spaghetti, red pepper, oignon))
-Recipe.create!(name: "Vegetable satay curry", instructions: "This creamy vegan curry is packed with plenty of nutritious veggies, warming ginger and chilli for a healthy meat-free meal", servings: 3, cooking_time: 30, ingredients: %(curry, carrot, oignon))
-Recipe.create!(name: "Vegetarian chicken & chorizo jambalaya", instructions: "This Creole one-pot is bursting with spicy chorizo, succulent chicken and tender veg. It's quick to make and packed with flavour - try the vegetarian version for the perfect midweek meal", servings: 4, cooking_time: 40, ingredients: ["oyster mushroom", "red pepper", "oignon", "gusta vegan sausage"])
 
 ingretient_1 = Ingredient.create(name: "aubergine", category: "vegetables")
 ingretient_2 = Ingredient.create(name: "onion", category: "vegetables")
@@ -48,14 +89,14 @@ UserIngredient.create!(user: romar, ingredient: ingretient_4)
 UserIngredient.create!(user: lena, ingredient: ingretient_1)
 
 
-RecipeIngredient.create!(recipe: Recipe.first, ingredient: ingretient_1)
-RecipeIngredient.create!(recipe: Recipe.first, ingredient: ingretient_2)
-RecipeIngredient.create!(recipe: Recipe.first, ingredient: ingretient_3)
-RecipeIngredient.create!(recipe: Recipe.first, ingredient: ingretient_4)
-RecipeIngredient.create!(recipe: Recipe.second, ingredient: ingretient_1)
-RecipeIngredient.create!(recipe: Recipe.second, ingredient: ingretient_2)
-RecipeIngredient.create!(recipe: Recipe.second, ingredient: ingretient_3)
-RecipeIngredient.create!(recipe: Recipe.second, ingredient: ingretient_4)
+# RecipeIngredient.create!(recipe: Recipe.first, ingredient: ingretient_1)
+# RecipeIngredient.create!(recipe: Recipe.first, ingredient: ingretient_2)
+# RecipeIngredient.create!(recipe: Recipe.first, ingredient: ingretient_3)
+# RecipeIngredient.create!(recipe: Recipe.first, ingredient: ingretient_4)
+# RecipeIngredient.create!(recipe: Recipe.second, ingredient: ingretient_1)
+# RecipeIngredient.create!(recipe: Recipe.second, ingredient: ingretient_2)
+# RecipeIngredient.create!(recipe: Recipe.second, ingredient: ingretient_3)
+# RecipeIngredient.create!(recipe: Recipe.second, ingredient: ingretient_4)
 
 UserRecipe.create!(user: rayane, recipe: Recipe.first)
 UserRecipe.create!(user: lena, recipe: Recipe.second)
