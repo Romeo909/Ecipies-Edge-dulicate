@@ -1,13 +1,3 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
-
 # Seed from Rapid API
 # require 'uri'
 # require 'net/http'
@@ -26,16 +16,15 @@ RecipeIngredient.destroy_all
 UserIngredient.destroy_all
 UserIngredient.destroy_all
 
-
 def getInstruction(id)
-    instructionURL = URI("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/#{id}/information")
-    instructionHTTP = Net::HTTP.new(instructionURL.host, instructionURL.port)
-    instructionHTTP.use_ssl = true
-    instructionRequest = Net::HTTP::Get.new(instructionURL)
-    instructionRequest["X-RapidAPI-Key"] = ENV['RAPID_API_KEY']
-    instructionRequest["X-RapidAPI-Host"] = 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
-    instructionResponse = instructionHTTP.request(instructionRequest)
-    instruction = JSON.parse(instructionResponse.read_body)
+  instructionURL = URI("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/#{id}/information")
+  instructionHTTP = Net::HTTP.new(instructionURL.host, instructionURL.port)
+  instructionHTTP.use_ssl = true
+  instructionRequest = Net::HTTP::Get.new(instructionURL)
+  instructionRequest["X-RapidAPI-Key"] = ENV['RAPID_API_KEY']
+  instructionRequest["X-RapidAPI-Host"] = 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
+  instructionResponse = instructionHTTP.request(instructionRequest)
+  instruction = JSON.parse(instructionResponse.read_body)
 end
 
 # url = URI("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=10&tags=vegetarian%2Cdessert")
@@ -46,7 +35,7 @@ http = Net::HTTP.new(url.host, url.port)
 http.use_ssl = true
 
 request = Net::HTTP::Get.new(url)
-request["X-RapidAPI-Key"] = '7ccb6132b8mshf9945187788cf15p1732e8jsnd2880a641b78'
+request["X-RapidAPI-Key"] = ENV['RAPID_API_KEY']
 request["X-RapidAPI-Host"] = 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
 
 response = http.request(request)
@@ -64,8 +53,6 @@ recipes.each do |recipe|
     newRecipe.image.attach(io: file, filename: "#{recipe["title"].strip}.png", content_type: "image/png")
    newRecipe.save
 end
-
-
 
 
 rayane = User.create!(email: "rayane@gmail.com", password: "123456", username: "Rayane")
@@ -94,15 +81,22 @@ UserIngredient.create!(user: rayane, ingredient: ingretient_3)
 UserIngredient.create!(user: romar, ingredient: ingretient_4)
 UserIngredient.create!(user: lena, ingredient: ingretient_1)
 
+# Recipe.create!(name: "Pasta", instructions: "Pasta with tomato sauce", servings: 2, cooking_time: 20)
+# Recipe.create!(name: "Vegetable satay curry", instructions: "This creamy vegan curry is packed with plenty of nutritious veggies, warming ginger and chilli for a healthy meat-free meal", servings: 3, cooking_time: 30)
+# Recipe.create!(name: "Chicken & chorizo jambalaya", instructions: "This Creole one-pot is bursting with spicy chorizo, succulent chicken and tender veg. It's quick to make and packed with flavour - the perfect midweek meal", servings: 4, cooking_time: 40)
+# Recipe.create!(name: "Pasta", instructions: "Pasta with tomato sauce", servings: 2, cooking_time: 20, ingredients: %(spaghetti, red pepper, oignon))
+# Recipe.create!(name: "Vegetable satay curry", instructions: "This creamy vegan curry is packed with plenty of nutritious veggies, warming ginger and chilli for a healthy meat-free meal", servings: 3, cooking_time: 30, ingredients: %(curry, carrot, oignon))
+# Recipe.create!(name: "Vegetarian chicken & chorizo jambalaya", instructions: "This Creole one-pot is bursting with spicy chorizo, succulent chicken and tender veg. It's quick to make and packed with flavour - try the vegetarian version for the perfect midweek meal", servings: 4, cooking_time: 40, ingredients: ["oyster mushroom", "red pepper", "oignon", "gusta vegan sausage"])
 
-# RecipeIngredient.create!(recipe: Recipe.first, ingredient: ingretient_1)
-# RecipeIngredient.create!(recipe: Recipe.first, ingredient: ingretient_2)
-# RecipeIngredient.create!(recipe: Recipe.first, ingredient: ingretient_3)
-# RecipeIngredient.create!(recipe: Recipe.first, ingredient: ingretient_4)
-# RecipeIngredient.create!(recipe: Recipe.second, ingredient: ingretient_1)
-# RecipeIngredient.create!(recipe: Recipe.second, ingredient: ingretient_2)
-# RecipeIngredient.create!(recipe: Recipe.second, ingredient: ingretient_3)
-# RecipeIngredient.create!(recipe: Recipe.second, ingredient: ingretient_4)
+
+RecipeIngredient.create!(recipe: Recipe.first, ingredient: ingretient_1)
+RecipeIngredient.create!(recipe: Recipe.first, ingredient: ingretient_2)
+RecipeIngredient.create!(recipe: Recipe.first, ingredient: ingretient_3)
+RecipeIngredient.create!(recipe: Recipe.first, ingredient: ingretient_4)
+RecipeIngredient.create!(recipe: Recipe.second, ingredient: ingretient_1)
+RecipeIngredient.create!(recipe: Recipe.second, ingredient: ingretient_2)
+RecipeIngredient.create!(recipe: Recipe.second, ingredient: ingretient_3)
+RecipeIngredient.create!(recipe: Recipe.second, ingredient: ingretient_4)
 
 UserRecipe.create!(user: rayane, recipe: Recipe.first)
 UserRecipe.create!(user: lena, recipe: Recipe.second)
