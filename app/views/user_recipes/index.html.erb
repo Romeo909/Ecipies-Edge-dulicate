@@ -1,15 +1,39 @@
-<--! implement gem and categorize recipes by categories -->
-<--! Add option to create new category (lable/folder) -->
-<br>
-
-<% @user_recipes.each do |user_recipe| %>
-  <% recipe = user_recipe.recipe%>
-  <ul>
-    <li>
-      <%= recipe.name %>
-      <%= link_to "details", user_recipe_path(user_recipe)%>
-    </li>
-  </ul>
-<% end %>
-<br>
-<%= link_to "My ingredients list", user_ingredients_path%>
+<%# implement gem and categorize recipes by categories %>
+<%# Add option to create new category (lable/folder) %>
+<div class="wrapper">
+  <h1 class="title">My Cookbook</h1>
+  <%= link_to "Add new recipe", new_user_recipe_path, class: "add-recipe-btn" %>
+  <%# <a class="add-recipe">Add new recipe</a> %>
+  <div class="cookbook-actions">
+    <%= link_to do %>
+      <svg xmlns="http://www.w3.org/2000/svg" width="29" height="27" viewBox="0 0 29 27" fill="none">
+        <path d="M3 1H26.4V25.2537H3V1Z" fill="white" fill-opacity="0.01"/>
+        <path d="M4.95001 6.05281C4.95001 5.49468 5.38653 5.04224 5.92501 5.04224H12.2625L14.7 8.07395H23.475C24.0135 8.07395 24.45 8.52638 24.45 9.08452V21.2114C24.45 21.7695 24.0135 22.2219 23.475 22.2219H5.92501C5.38653 22.2219 4.95001 21.7695 4.95001 21.2114V6.05281Z" fill="#4FA095" stroke="black" stroke-width="8.97237" stroke-linejoin="round"/>
+        <path d="M14.6755 12.3689V18.4323" stroke="white" stroke-width="8.97237" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M11.7505 15.4006H17.6005" stroke="white" stroke-width="8.97237" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      New collection
+    <% end %>
+    <%= render "shared/sort-button" %>
+  </div>
+  <div class="cookbook-items">
+    <div class="cookbook-item">
+      <div class="description">
+        <h3>Breakfast</h3>
+        <p>5 recipes</p>
+      </div>
+      <%= image_tag("img_holder.png") %>
+    </div>
+  </div>
+  <% @user_recipes.each do |user_recipe| %>
+    <% recipe = user_recipe.recipe%>
+    <ul>
+      <li>
+        <%= recipe.name %>
+        <%= link_to "details", user_recipe_path(user_recipe)%>
+      </li>
+    </ul>
+  <% end %>
+  <br>
+  <%= link_to "My ingredients list", user_ingredients_path%>
+</div>

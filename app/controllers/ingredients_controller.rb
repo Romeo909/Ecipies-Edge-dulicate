@@ -1,10 +1,11 @@
 class IngredientsController < ApplicationController
 
   def index
+    # @path = ingredients_path
     if params[:query].present?
       @ingredients = Ingredient.search_ingredient_in_db(params[:query])
     else
-      @ingredients = Ingredient.all
+      @ingredients = []
     end
     @vegetables = Ingredient.where(category: "vegetables")
     @fruits = Ingredient.where(category: "fruits")

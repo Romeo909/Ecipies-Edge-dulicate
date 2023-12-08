@@ -5,15 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
   <body>
     <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
-    <div class="wrapper">
+    <div class="body-content">
       <%= yield %>
     </div>
     <footer class="text-center text-lg-start bg-dark">
@@ -34,11 +32,16 @@
           <% end %>
         </button>
         <button type="button" class="btn btn-primary btn-lg btn-floating mx-2 bg-dark">
-            <i class="fas fa-utensils"></i>
+          <i class="fas fa-utensils"></i>
         </button>
       </div>
-
-  </footer >
-
+      <!-- Copyright -->
+      <%# <div class="text-center text-white p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2020 Copyright:
+        <a class="text-white" href="#">EcipesEdge</a>
+      </div> %>
+      <!-- Copyright -->
+    </footer>
+    <!-- End of .container -->
   </body>
 </html>

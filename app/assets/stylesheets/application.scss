@@ -11,10 +11,37 @@
 @import "components/index";
 @import "pages/index";
 
+.html {
+  font-size: 62.5%;
+}
+body {
+  font-family: 'Nunito', sans-serif;
+  background: #F4F1F1;
+  margin: 0;
+}
+
+p,a {
+  font-size: 1.3rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
 .wrapper {
+  margin: 2em 1em;
+}
+
+.body-content {
   min-height: calc(100vh - 72px - 79.33px)
-  }
+}
 
 footer {
     margin-top: auto;
-  }
+}
