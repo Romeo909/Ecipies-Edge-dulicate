@@ -18,18 +18,18 @@
     </div>
     <footer class="text-center text-lg-start bg-dark">
       <div class="container d-flex justify-content-center py-3">
-        <button type="button" class="btn btn-primary btn-lg btn-floating mx-2 bg-dark">
+        <%# <button type="button" class="btn btn-primary btn-lg btn-floating mx-2 bg-dark">
           <%= link_to root_path, class:"footer-icon" do %>
-            <i class="fas fa-house"></i>
-          <%end %>
+            <%# <i class="fas fa-house"></i> %>
+          <%# <% end %>
         </button>
         <button type="button" class="btn btn-primary btn-lg btn-floating mx-2 bg-dark">
-          <%= link_to  recipes_path, class: "bg-transparent" do%>
+          <%= link_to user_recipes_path, class: "bg-transparent" do%>
             <i class="fas fa-book"></i>
           <% end %>
         </button>
         <button type="button" class="btn btn-primary btn-lg btn-floating mx-2 bg-dark">
-          <%= link_to user_recipes_path  do %>
+          <%= link_to user_ingredients_path  do %>
             <i class="fas fa-basket-shopping"></i>
           <% end %>
         </button>
@@ -38,14 +38,7 @@
         </button>
       </div>
 
-      <!-- Copyright -->
-      <%# <div class="text-center text-white p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-        © 2020 Copyright:
-        <a class="text-white" href="#">EcipesEdge</a>
-      </div> %>
-      <!-- Copyright -->
-    </footer>
-    <!-- End of .container -->
+  </footer >
 
   </body>
 </html>
