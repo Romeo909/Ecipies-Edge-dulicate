@@ -32,7 +32,7 @@ def getInstruction(id)
     instructionHTTP = Net::HTTP.new(instructionURL.host, instructionURL.port)
     instructionHTTP.use_ssl = true
     instructionRequest = Net::HTTP::Get.new(instructionURL)
-    instructionRequest["X-RapidAPI-Key"] = RAPIDAPI_KEY
+    instructionRequest["X-RapidAPI-Key"] = ENV['RAPID_API_KEY']
     instructionRequest["X-RapidAPI-Host"] = 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
     instructionResponse = instructionHTTP.request(instructionRequest)
     instruction = JSON.parse(instructionResponse.read_body)
