@@ -17,17 +17,17 @@
     <%= render "shared/sort-button" %>
   </div>
   <%= render "shared/cookbook-items" %>
-  <%# <br> %>
-  <%# <% @user_recipes.each do |user_recipe| %>
-    <%# <% recipe = user_recipe.recipe%>
-    <%# <ul> %>
-      <%# <li> %>
-        <%# <%= recipe.name %>
-        <%# <br> %>
-        <%# <%= link_to "details", user_recipe_path(user_recipe), class:"btn btn-primary"%>
-      <%# </li> %>
-    <%# </ul> %>
-  <%# <% end %>
-  <%# <br> %>
-  <%# <%= link_to "My ingredients list", user_ingredients_path, class:"btn btn-primary"%>
-<%# </div> %>
+  <br>
+  <% @user_recipes.each do |user_recipe|%>
+    <%recipe = user_recipe.recipe%>
+     <ul>
+      <li>
+       <%= recipe.name %>
+        <br>
+        <%= link_to "details", user_recipe_path(user_recipe), class:"btn btn-primary"%>
+      </li>
+    </ul>
+  <% end%>
+  <br>
+  <%= link_to "My ingredients list", user_ingredients_path, class:"btn btn-primary"%>
+</div>
