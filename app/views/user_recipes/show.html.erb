@@ -1,14 +1,2 @@
-<h3>Recipe details</h3>
-
-<p>
-<%= @recipe.name %>
-<br>
-<%= @recipe.servings %>
-<br>
-<%= @recipe.cooking_time %>
-<br>
-<%= @recipe.instructions %>
-<br>
-<%= @recipe.ingredients %>
-</p>
+<%= render "shared/show-recipe", recipe:@recipe %>
 <%= link_to 'back', :back %>
