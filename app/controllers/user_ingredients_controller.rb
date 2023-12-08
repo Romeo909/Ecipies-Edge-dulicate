@@ -11,7 +11,7 @@ class UserIngredientsController < ApplicationController
     # raise
     @user_ingredient = UserIngredient.new(user: current_user, ingredient_id: params[:ingredient_id])
     if @user_ingredient.save
-      redirect_to ingredients_path, notice: "#{@user_ingredient.name} added to your kitchen!"
+      redirect_to ingredients_path, notice: "#{@user_ingredient.ingredient.name} added to your kitchen!"
     else
       ingredient = Ingredient.find(params[:ingredient_id])
       # Should not refresh the page and so that you still have your query in the search bar(witch some JS)
@@ -21,8 +21,9 @@ class UserIngredientsController < ApplicationController
   end
 
   def destroy
-    raise
-    @user_ingredient = UserIngredient.find(params[:user_ingredient])
+    @user_ingredient = UserIngredient.find(params[:id])
+    @user_ingredient.delete
+    redirect_to user_ingredients_path
   end
 
   # def create
