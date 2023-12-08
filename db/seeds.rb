@@ -35,7 +35,7 @@ http = Net::HTTP.new(url.host, url.port)
 http.use_ssl = true
 
 request = Net::HTTP::Get.new(url)
-request["X-RapidAPI-Key"] = '7ccb6132b8mshf9945187788cf15p1732e8jsnd2880a641b78'
+request["X-RapidAPI-Key"] = ENV['RAPID_API_KEY']
 request["X-RapidAPI-Host"] = 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
 
 response = http.request(request)
