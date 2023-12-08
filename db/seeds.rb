@@ -3,7 +3,7 @@
 # require 'net/http'
 
 
-# # Add imgae to recipe
+# Add imgae to recipe
 require "open-uri"
 require 'json'
 require 'uri'
@@ -53,8 +53,6 @@ recipes.each do |recipe|
     newRecipe.image.attach(io: file, filename: "#{recipe["title"].strip}.png", content_type: "image/png")
    newRecipe.save
 end
-
-
 
 
 rayane = User.create!(email: "rayane@gmail.com", password: "123456", username: "Rayane")
