@@ -39,9 +39,13 @@ ul {
 }
 
 .body-content {
-  min-height: calc(100vh - 72px - 79.33px)
+  min-height: calc(100vh - 72px - 79.33px);
+  margin-bottom: 7em;
 }
 
 footer {
     margin-top: auto;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }

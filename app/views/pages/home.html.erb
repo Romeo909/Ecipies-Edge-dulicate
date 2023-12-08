@@ -6,7 +6,7 @@
         <h3><em>Ecipes Edge</em></h3>
         <p>Tasty Vegetarian Meals</p>
         <div class="my-3">
-          <%= render "shared/button" %>
+          <%= link_to "get started", new_user_registration_path, class: "btn btn-primary" %>
         </div>
       </div>
     </div>
@@ -18,5 +18,3 @@
 <div class="container mt-5">
   <%= render "shared/cards" %>
 </div>
-
-<%= link_to "My cookbook🍳", user_recipes_path %>
