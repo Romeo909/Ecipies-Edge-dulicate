@@ -20,6 +20,6 @@ Rails.application.routes.draw do
     resources :user_recipes, only: [:create]
   end
 
-  resources :user_recipes, only: [:index, :show, :update]
+  resources :user_recipes, only: [:index, :show, :update, :new]
 
 end
