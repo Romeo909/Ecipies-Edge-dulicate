@@ -1,15 +1,51 @@
-<--! implement gem and categorize recipes by categories -->
-<--! Add option to create new category (lable/folder) -->
-<br>
-
-<% @user_recipes.each do |user_recipe| %>
-  <% recipe = user_recipe.recipe%>
-  <ul>
-    <li>
-      <%= recipe.name %>
-      <%= link_to "details", user_recipe_path(user_recipe)%>
-    </li>
-  </ul>
-<% end %>
-<br>
-<%= link_to "My ingredients list", user_ingredients_path%>
+<%# implement gem and categorize recipes by categories %>
+<%# Add option to create new category (lable/folder) %>
+<div class="wrapper">
+  <h1 class="title">My Cookbook</h1>
+  <%= link_to "Add new recipe", new_user_recipe_path, class: "add-recipe-btn" %>
+  <%# <a class="add-recipe">Add new recipe</a> %>
+  <div class="cookbook-actions">
+    <%= link_to do %>
+      <svg xmlns="http://www.w3.org/2000/svg" width="29" height="27" viewBox="0 0 29 27" fill="none">
+        <path d="M3 1H26.4V25.2537H3V1Z" fill="white" fill-opacity="0.01"/>
+        <path d="M4.95001 6.05281C4.95001 5.49468 5.38653 5.04224 5.92501 5.04224H12.2625L14.7 8.07395H23.475C24.0135 8.07395 24.45 8.52638 24.45 9.08452V21.2114C24.45 21.7695 24.0135 22.2219 23.475 22.2219H5.92501C5.38653 22.2219 4.95001 21.7695 4.95001 21.2114V6.05281Z" fill="#4FA095" stroke="black" stroke-width="8.97237" stroke-linejoin="round"/>
+        <path d="M14.6755 12.3689V18.4323" stroke="white" stroke-width="8.97237" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M11.7505 15.4006H17.6005" stroke="white" stroke-width="8.97237" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      New collection
+    <% end %>
+    <button class="btn-sort">Sort <span>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g clip-path="url(#clip0_157_69)">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12.707 15.8348C12.5195 16.0147 12.2652 16.1158 12 16.1158C11.7348 16.1158 11.4805 16.0147 11.293 15.8348L5.63601 10.4051C5.5405 10.3166 5.46431 10.2106 5.41191 10.0935C5.3595 9.97644 5.33191 9.85049 5.33076 9.72304C5.3296 9.5956 5.3549 9.46921 5.40519 9.35125C5.45547 9.23329 5.52972 9.12613 5.62361 9.03601C5.71751 8.94589 5.82916 8.87462 5.95205 8.82636C6.07495 8.7781 6.20663 8.75381 6.33941 8.75492C6.47219 8.75603 6.60341 8.7825 6.72541 8.83281C6.84742 8.88311 6.95776 8.95623 7.05001 9.0479L12 13.799L16.95 9.0479C17.1386 8.87307 17.3912 8.77632 17.6534 8.77851C17.9156 8.78069 18.1664 8.88164 18.3518 9.0596C18.5372 9.23756 18.6424 9.47829 18.6447 9.72995C18.647 9.98161 18.5462 10.2241 18.364 10.4051L12.707 15.8348Z" fill="#796A6A"/>
+          </g>
+          <defs>
+            <clipPath id="clip0_157_69">
+              <rect width="24" height="23.0357" fill="white" transform="translate(0 0.758911)"/>
+            </clipPath>
+          </defs>
+        </svg>
+      </span>
+    </button>
+  </div>
+  <div class="cookbook-items">
+    <div class="cookbook-item">
+      <div class="description">
+        <h3>Breakfast</h3>
+        <p>5 recipes</p>
+      </div>
+      <%= image_tag("img_holder.png") %>
+    </div>
+  </div>
+  <% @user_recipes.each do |user_recipe| %>
+    <% recipe = user_recipe.recipe%>
+    <ul>
+      <li>
+        <%= recipe.name %>
+        <%= link_to "details", user_recipe_path(user_recipe)%>
+      </li>
+    </ul>
+  <% end %>
+  <br>
+  <%= link_to "My ingredients list", user_ingredients_path%>
+</div>
