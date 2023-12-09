@@ -2,7 +2,7 @@
   <%# image tag with cloudinary %>
   <div class="image-container">
     <%= cl_image_tag recipe.image.key, height: 300, width: 400, crop: :fill, class: "recipe-image" %>
-    <button class="btn addcookbook">
+    <button class="btn addcookbook" data-bs-toggle="modal" data-bs-target="#exampleModal">
       Add to my cookbook
     </button>
   </div>
@@ -33,7 +33,39 @@
         <p class="text-start my-content" data-read-more-target="content"><%= recipe.instructions %></p>
         <button class="read" data-action="read-more#toggle">Read more</button>
       </div>
+      <%# <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"></button>
+      Launch demo modal
+    </button> %>
+      <!-- Modal -->
     </div>
   </div>
 </div>
+</div>
+<div class="modal boder-2 fade mt-5" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog rounded"> //modal-dialog-centered
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold" id="exampleModalLabel">ADD TO</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%# Checkbox %>
+        <%= form_with model: recipe, data: { controller: 'checkbox-select-all' } do |f| %>
+          <label>
+            <input type="checkbox" data-checkbox-select-all-target="checkboxAll" />
+            <span>Select All / Deselect All</span>
+          </label>
+          <%= f.collection_check_boxes :collection_ids, Collection.all, :id, :name do |b| %>
+            <%= b.label do %>
+              <%= b.check_box data: { checkbox_select_all_target: 'checkbox' } %>
+              <%= b.text %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-md btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
 </div>
