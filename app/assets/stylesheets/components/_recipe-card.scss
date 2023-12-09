@@ -14,16 +14,11 @@
   border-radius: 8px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 
-  .folder-icon {
+  .info-icon {
     position: absolute;
     bottom: 5px;
     right: 5px;
-  }
-
-  .info-icon{
-    position: absolute;
-    bottom: 5px;
-    left: 5px;
+    // position: relative;
   }
 
 }

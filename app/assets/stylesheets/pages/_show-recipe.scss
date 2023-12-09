@@ -1,57 +1,8 @@
 .show-page {
     .recipe-image {
-        width: 100%;
-        height: 400px;
+        width: 100vw;
+        height: 300px;
         object-fit: cover;
-        // margin-top: -16px;
-    }
-    .recipe_detail {
-        margin: 1em;
-    }
-    .recipe-title {
-        margin-top: 16px;
-        margin-bottom: 16px;
-        font-size: 1.3em;
-        font-weight: 700;
-        letter-spacing: .2rem;
-    }
-
-    .recipe-header {
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .servings,
-    .cooking-time {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 1em;
-        font-size: 1.2rem;
-        font-weight: bold;
-
-    }
-    .instruction_para{
-        margin-top: 1em;
-        font-size: 1.2rem;
-        font-weight: bold;
-    }
-
-    .instructions{
-        margin-top: 1em
-    }
-
-    .instruction_detail{
-        text-align: justify;
-        margin-top: 1.1em;
-    }
-
-    .tab-buttons {
-        margin: 1em 0;
-        font-size: 1.2em;
-        font-weight: 500;
-    }
-
-    li {
-        padding: 0;
+        margin-top: 4em;
     }
 }

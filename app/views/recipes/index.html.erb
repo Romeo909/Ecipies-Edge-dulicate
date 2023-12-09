@@ -1,4 +1,4 @@
-<div class="mt-2" data-controller="search-repices">
+<div class="wrapper" data-controller="search-repices">
   <%= form_with url: recipes_path, method: :get, html: {class: 
       "d-flex, mb-3", data: {search_repices_target: "form"}} do |f| %>
     <%= f.text_field :query,

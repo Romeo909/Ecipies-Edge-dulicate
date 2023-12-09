@@ -17,7 +17,10 @@
 body {
   font-family: 'Nunito', sans-serif;
   background: #F1F8E9;
-  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
 }
 
 p,a {
@@ -35,7 +38,7 @@ ul {
 }
 
 .wrapper {
-  margin: 2em 1em;
+  margin: 4em 1em 6em 1em;
 }
 
 .body-content {
@@ -50,4 +53,5 @@ footer {
     bottom: 0;
     width: 100%;
     background: #455A64;
+    z-index: 1000;
 }
