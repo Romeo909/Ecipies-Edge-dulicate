@@ -1,7 +1,11 @@
 class RecipesController < ApplicationController
   def index
     @recipes = Recipe.all
-    return @recipes = Recipe.search_recipe(params[:query]) if params[:query].present?
+    @recipes = Recipe.search_recipe(params[:query]) if params[:query].present?
+    respond_to do |format|
+      format.html
+      format.text { render partial: 'list', locals: { recipes: @recipes }, formats: [:html] }
+    end
   end
 
   def show

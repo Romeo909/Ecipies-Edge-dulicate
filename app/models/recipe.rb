@@ -7,8 +7,8 @@ class Recipe < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :search_recipe,
-                  against: %i[name instructions name],
+                  against: %i[name instructions],
                   using: {
-                    tsearch: { prefix: true, dictionary: "english", any_word: true }
+                    tsearch: { prefix: true, any_word: true }
                   }
 end

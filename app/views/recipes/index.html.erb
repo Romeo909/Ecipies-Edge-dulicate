@@ -1,6 +1,6 @@
-<%= render "shared/search" %>
-<div class="d-flex flex-column gap-3">
-  <%@recipes.each do |recipe| %>
-    <%= render "shared/recipe-card", recipe: %>
-  <% end %>
+<div data-controller="search-repices">
+  <%= render "shared/search" %>
+  <div class="d-flex flex-column gap-3" data-search-repices-target="recipes">
+    <%= render 'list', recipes: @recipes %>
+  </div>
 </div>

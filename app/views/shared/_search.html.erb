@@ -1,28 +1,14 @@
-<%# <div class="row justify-content-center">
+<div class="row justify-content-center">
   <div class="col-sm-8 my-3">
     <!-- I am not sure this @path will work here. It is definded in the controller -->
-    <%= form_with url: @path, method: :get, class: "d-flex" do %>
-  <%# <%= text_field_tag :query,
-            params[:query],
+    <%= form_with url: recipes_path, method: :get, html: {class: 
+      "d-flex, mb-2", data: {search_repices_target: "form"}} do |f| %>
+      <%= f.text_field :query,
             class: "form-control",
-            placeholder: "Search for recipes",
-            value: params[:query]
+            placeholder: "Search for a recipe",
+            value: params[:query],
+            data: {search_repices_target: "input", action: "keyup->search-repices#search"}
         %>
-  <%# <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
-  <%# <% end %>
-  <%# </div>  %>
-  <%# </div> %>
-  <div class="row justify-content-center">
-    <div class="col-sm-8 my-3">
-      <!-- I am not sure this @path will work here. It is definded in the controller -->
-      <%= form_with url: @path, method: :get, class: "d-flex" do %>
-        <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Search for recipes",
-            value: params[:query]
-        %>
-        <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
-      <% end %>
-    </div>
+    <% end %>
   </div>
+</div>
