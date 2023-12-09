@@ -1,4 +1,6 @@
 <%= render "shared/search" %>
-<%@recipes.each do |recipe| %>
-<%= render "shared/recipe-card", recipe: %>
-<% end %>
+<div class="d-flex flex-column gap-3">
+  <%@recipes.each do |recipe| %>
+    <%= render "shared/recipe-card", recipe: %>
+  <% end %>
+</div>

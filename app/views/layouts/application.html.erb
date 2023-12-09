@@ -12,13 +12,15 @@
     <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
     <div class="body-content">
-      <%= yield %>
+      <div class="wrapper">
+        <%= yield %>
+      </div>
     </div>
     <footer class="text-center text-lg-start bg-dark">
       <div class="container d-flex justify-content-center py-3">
         <%# <button type="button" class="btn btn-primary btn-lg btn-floating mx-2 bg-dark">
           <%= link_to root_path, class:"footer-icon" do %>
-            <%# <i class="fas fa-house"></i> %>
+          <%# <i class="fas fa-house"></i> %>
           <%# <% end %>
         </button>
         <button type="button" class="btn btn-primary btn-lg btn-floating mx-2 bg-dark">
