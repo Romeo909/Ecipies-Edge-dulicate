@@ -68,7 +68,6 @@
 
 # List of 300 vegetarian ingredients
 vegetarian_ingredients = [
-  { name: "Quinoa", category: "Grain" },
   { name: "Lentils", category: "Legume" },
   { name: "Chickpeas", category: "Legume" },
   { name: "Spinach", category: "Leafy Green" },
