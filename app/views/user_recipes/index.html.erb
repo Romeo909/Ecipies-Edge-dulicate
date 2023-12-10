@@ -1,9 +1,15 @@
-<% @user_recipes.each do |recipe|%>
-  <ul>
-    <li>
-      <%= recipe.name %>
-      <br>
-      <%= link_to "details", user_recipe_path(user_recipe), class:"btn btn-primary"
-    </li>
-</ul>
-<% end %>
+<div class="wrapper">
+  <h1>My Recipes</h1>
+  <%= link_to "New recipe", new_user_recipe_path, class:"btn btn-success" %>
+  <div class="mt-2">
+    <ul>
+      <% @user_recipes.each do |recipe|%>
+        <li>
+          <%= recipe.recipe.name %>
+          <br>
+          <%= link_to "details", user_recipe_path(recipe.recipe), class:"btn btn-primary" %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

@@ -41,8 +41,9 @@
   </div>
 </div>
 </div>
+<%# Modal to add a recipe to the cookbook %>
 <div class="modal boder-2 fade mt-5" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog rounded"> //modal-dialog-centered
+  <div class="modal-dialog rounded">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title fw-bold" id="exampleModalLabel">ADD TO</h5>
@@ -50,21 +51,21 @@
       </div>
       <div class="modal-body">
         <%# Checkbox %>
-        <%= form_with model: recipe, data: { controller: 'checkbox-select-all' } do |f| %>
+        <%= form_with url: recipe_recipe_collections_path(recipe), data: { controller: 'checkbox-select-all' } do |f| %>
           <label>
             <input type="checkbox" data-checkbox-select-all-target="checkboxAll" />
             <span>Select All / Deselect All</span>
-          </label>
-          <%= f.collection_check_boxes :collection_ids, Collection.all, :id, :name do |b| %>
+          </label><br>
+          <%= f.collection_check_boxes :collection, Collection.all, :id, :name do |b| %>
             <%= b.label do %>
               <%= b.check_box data: { checkbox_select_all_target: 'checkbox' } %>
               <%= b.text %>
-            <% end %>
+            <% end %> <br>
           <% end %>
+          <div class="modal-footer">
+            <%= f.submit "Confirm", class: "btn btn-primary" %>
+          </div>
         <% end %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-md btn-primary">Save</button>
       </div>
     </div>
   </div>

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :recipes, only: %i[index show create]
+  # resources :recipes, only: %i[index show create]
   devise_for :users
   root to: "pages#home"
   # resources :ingredients, only: [:new, :create, :edit, :update]
@@ -20,10 +20,11 @@ Rails.application.routes.draw do
 
   resources :collections, only: [:index, :new, :create]
 
-  resources :recipes, only: [:index, :show] do
-    resources :user_recipes, only: [:create]
+  resources :recipes, only: [:index, :show, :create] do
+    resources :recipe_collections, only: [:new, :create]
   end
 
-  resources :user_recipes, only: [:index, :show, :update, :new]
+
+  resources :user_recipes, only: [:index, :show, :update, :new, :create, :edit]
 
 end
