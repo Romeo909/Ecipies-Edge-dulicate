@@ -8,23 +8,26 @@
       </div>
       <div class="modal-body">
         <%# Checkbox %>
-        <%= form_with url: recipe_user_recipes_path(@recipe) , data: { controller: 'checkbox-select-all' } do |f| %>
-          <label>
-            <input type="checkbox" data-checkbox-select-all-target="checkboxAll" />
-            <span>Select All / Deselect All</span>
-          </label><br>
-          <%= f.collection_check_boxes :collection_ids, Collection.all, :id, :name do |b| %>
-            <%= b.label do %>
-              <%= b.check_box data: { checkbox_select_all_target: 'checkbox' } %>
-              <%= b.text %>
-            <% end %> <br>
-          <% end %>
-          <div class="modal-footer">
-            <%= f.submit "Confirm", class: "btn btn-primary" %>
-          </div>
-        <% end %>
+        <%# <%= form_with model: [@recipe, @user_recipe], url: recipe_user_recipes_path(@recipe), method: :post, data: { controller: 'checkbox-select-all' } do |f| %>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<%# <%= link_to 'back', root_path %>
+  <%# <%= link_to 'back', root_path %>
+  <div class="wrapper">
+    <%= simple_form_for [@recipe, @user_recipe] do |f| %>
+      <label>
+        <input type="checkbox" />
+        <span>Select All / Deselect All</span>
+      </label><br>
+      <%= f.collection_check_boxes :collection_ids, Collection.all, :id, :name do |b| %>
+        <%= b.label do %>
+          <%= b.check_box %>
+          <%= b.text %>
+        <% end %> <br>
+      <% end %>
+      <div class="modal-footer">
+        <%= f.submit "Confirm", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>

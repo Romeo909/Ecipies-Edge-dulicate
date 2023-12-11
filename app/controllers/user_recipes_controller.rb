@@ -14,14 +14,13 @@ class UserRecipesController < ApplicationController
   end
 
   def create
-    raise
     @user_recipe = UserRecipe.new(user_recipe_params)
     # Userd to be Recipe.new
     @user_recipe.user = current_user
     @user_recipe.recipe = Recipe.find(params[:recipe_id])
 
     if @user_recipe.save
-      redirect_to root_path, notice: 'Recipe was added to your recipes.'
+      redirect_to root_path, notice: 'Recipe was added to your cookbook.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -39,6 +38,6 @@ class UserRecipesController < ApplicationController
   private
 
   def user_recipe_params
-    params.require(:user_recipe).permit(:label, :notes, :recipe_id)
+    params.permit(:recipe_id, collection_ids: [])
   end
 end
