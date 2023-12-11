@@ -9,6 +9,9 @@
         <%= link_to 'add ingredient', ingredient_user_ingredients_path(ingredient),
     data: {turbo_method: :post}%></p>
     <% end %>
+
+    <%= render 'shared/ingredient_category' %>
+
     <h4>Vegetables</h4>
     <% @vegetables.each do |vegetable|%>
       <span class="badge bg-primary"><%= vegetable.name %>
