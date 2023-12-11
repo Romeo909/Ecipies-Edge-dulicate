@@ -15,10 +15,14 @@ class UserRecipesController < ApplicationController
 
   def create
     @user_recipe = UserRecipe.new(user_recipe_params)
-    # Userd to be Recipe.new
     @user_recipe.user = current_user
     @user_recipe.recipe = Recipe.find(params[:recipe_id])
-
+    if params[:collection_ids].present?
+      params[:collection_ids].each do |id|
+        recipeColection = UserRecipeCollection.new(recipe: @user_recipe, collection: Collection.find(id)) if id != ""
+        p recipeColection.save
+      end
+    end
     if @user_recipe.save
       redirect_to root_path, notice: 'Recipe was added to your cookbook.'
     else
@@ -38,6 +42,6 @@ class UserRecipesController < ApplicationController
   private
 
   def user_recipe_params
-    params.permit(:recipe_id, collection_ids: [])
+    params.require(:).permit(:recipe_id, collection_ids: [])
   end
 end

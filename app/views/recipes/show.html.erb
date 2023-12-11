@@ -15,14 +15,14 @@
   </div>
   <%# <%= link_to 'back', root_path %>
   <div class="wrapper">
-    <%= simple_form_for [@recipe, @user_recipe] do |f| %>
+    <%= simple_form_for [@recipe, @user_recipe], html: {data: { controller: 'checkbox-select-all' }} do |f| %>
       <label>
-        <input type="checkbox" />
+        <input type="checkbox" data-checkbox-select-all-target="checkboxAll" />
         <span>Select All / Deselect All</span>
       </label><br>
       <%= f.collection_check_boxes :collection_ids, Collection.all, :id, :name do |b| %>
         <%= b.label do %>
-          <%= b.check_box %>
+          <%= b.check_box data: { checkbox_select_all_targer: "checkbox"} %>
           <%= b.text %>
         <% end %> <br>
       <% end %>
