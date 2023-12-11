@@ -21,10 +21,11 @@ Rails.application.routes.draw do
   resources :collections, only: [:index, :new, :create]
 
   resources :recipes, only: [:index, :show, :create] do
+    resources :user_recipes, only: [:create]
     resources :recipe_collections, only: [:new, :create]
   end
 
 
-  resources :user_recipes, only: [:index, :show, :update, :new, :create, :edit]
+  resources :user_recipes, only: [:index, :show, :update, :new]
 
 end
