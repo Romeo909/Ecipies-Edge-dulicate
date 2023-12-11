@@ -4,16 +4,17 @@ class UserRecipesController < ApplicationController
   end
 
   def show
-    user_recipe = UserRecipe.find(params[:id])
+    @user_recipe = UserRecipe.find(params[:id])
     @recipe = user_recipe.recipe
   end
 
   def new
     @user_recipe = UserRecipe.new
-    @recipe = Recipe.find(params[:recipe_id])
+    # @recipe = Recipe.find(params[:recipe_id])
   end
 
   def create
+    raise
     @user_recipe = UserRecipe.new(user_recipe_params)
     # Userd to be Recipe.new
     @user_recipe.user = current_user
