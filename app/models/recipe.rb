@@ -8,7 +8,7 @@ class Recipe < ApplicationRecord
   validates :name, :instructions, presence: true
 
   include PgSearch::Model
-  pg_search_scope :search_recipe,
+  pg_search_scope :search_recipes,
                   against: %i[name instructions],
                   using: {
                     tsearch: { prefix: true, any_word: true }
