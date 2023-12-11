@@ -1,16 +1,12 @@
-<div class="container">
-  <h3> Your ingredient list</h3>
-
+<div class="wrapper">
+  <h3 class="mb-2">Your ingredient list</h3>
   <%= link_to 'add new ingredient(s)', ingredients_path %>
-
   <% @user_ingredients.each do |user_ingredient| %>
-    <ul>
-      <li><%= user_ingredient.ingredient.name %>
-          <%# <%= link_to 'remove', ingredient_user_ingredient_path(ingredient_id: user_ingredient.ingredient, user_ingredient_id: user_ingredient), %>
-          <%= link_to 'remove', delete_user_ingredient_path(user_ingredient), data: {turbo_method: :delete}%>
-      </li>
-    </ul>
+    <li><%= user_ingredient.ingredient.name %>
+      <%= link_to 'remove', delete_user_ingredient_path(user_ingredient), data: {turbo_method: :delete}%>
+    </li>
   <% end %>
-  <%= link_to "Find recipes", recipes_path %>
-  <%= link_to "back", :back %>
+</ul>
+<%= link_to "Find recipes", recipes_path %>
+<%= link_to "back", :back %>
 </div>

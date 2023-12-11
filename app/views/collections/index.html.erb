@@ -1,0 +1,15 @@
+<div class="wrapper">
+  <h3 class="mb-3"><%= current_user.username %>'s cookbook</h3>
+  <%# <a class="add-recipe">Add new recipe</a> %>
+  <%= link_to new_collection_path do %>
+    New categorie
+  <% end %>
+  <%# <%= render "shared/sort-button" %>
+  <div class="items d-flex flex-column gap-3 mt-3">
+    <%= render "shared/cookbook-item" %>
+    <%= render "shared/cookbook-item" %>
+    <%= render "shared/cookbook-item" %>
+  </div>
+  <br>
+  <%= link_to "My ingredients list", user_ingredients_path%>
+</div>

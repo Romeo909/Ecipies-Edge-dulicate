@@ -1,47 +1,51 @@
-<h3>Ingredients</h3>
-<%= link_to 'My ingredients', user_ingredients_path %>
-<br>
-<div class="container">
-  <%= render "shared/search" %>
-  <% @ingredients.each do |ingredient| %>
-    <p class="d-flex form-control"><%= ingredient.name %>
-    <%= link_to 'add ingredient', ingredient_user_ingredients_path(ingredient),
+<div class="wrapper">
+  <h3>Ingredients</h3>
+  <%= link_to 'My ingredients', user_ingredients_path %>
+  <br>
+  <div class="container">
+    <%= render "shared/search" %>
+    <% @ingredients.each do |ingredient| %>
+      <p class="d-flex form-control"><%= ingredient.name %>
+        <%= link_to 'add ingredient', ingredient_user_ingredients_path(ingredient),
     data: {turbo_method: :post}%></p>
-  <% end %>
-
-
-  <h4>Vegetables</h4>
-  <% @vegetables.each do |vegetable|%>
-    <%= vegetable.name %>
-  <% end %>
-
-  <h4>Fruits</h4>
-  <%@fruits.each do |fruit|%>
-    <%= fruit.name %>
-  <% end %>
-
-  <h4>Starch</h4>
-  <%@starch.each do |starch|%>
-    <%= starch.name %>
-  <% end %>
-
-  <h4>Vegetables</h4>
-  <%@legumes.each do |legume|%>
-    <%= legume.name %>
-  <% end %>
-
-  <h4>Flour</h4>
-  <%@flour.each do |flour|%>
-    <%= flour.name %>
-  <% end %>
-
-  <h4>Mushrooms</h4>
-  <%@mushrooms.each do |mushroom|%>
-    <%= mushroom.name %>
-  <% end %>
-
-  <h4>Spices</h4>
-  <%@spices.each do |spice| %>
-    <%= spice.name %>
-  <% end %>
+    <% end %>
+    <h4>Vegetables</h4>
+    <% @vegetables.each do |vegetable|%>
+      <span class="badge bg-primary"><%= vegetable.name %>
+      </span>
+    <% end %>
+    <h4>Fruits</h4>
+    <%@fruits.each do |fruit|%>
+      <span class="badge bg-primary"><%= fruit.name %>
+      </span>
+    <% end %>
+    <h4>Starch</h4>
+    <%@starch.each do |starch|%>
+      <span class="badge bg-primary"><%= starch.name %>
+      </span>
+    <% end %>
+    <h4>Vegetables</h4>
+    <%@legumes.each do |legume|%>
+      <span class="badge bg-primary"><%= legume.name %>
+      </span>
+    <% end %>
+    <h4>Flour</h4>
+    <%@flour.each do |flour|%>
+      <span class="badge bg-primary">
+        <%= flour.name %>
+      </span>
+    <% end %>
+    <h4>Mushrooms</h4>
+    <%@mushrooms.each do |mushroom|%>
+      <span class="badge bg-primary">
+        <%= mushroom.name %>
+      </span>
+    <% end %>
+    <h4>Spices</h4>
+    <%@spices.each do |spice| %>
+      <span class="badge bg-primary">
+        <%= spice.name %>
+      </span>
+    <% end %>
+  </div>
 </div>

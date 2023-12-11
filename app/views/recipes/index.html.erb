@@ -1,4 +1,14 @@
-<%= render "shared/search" %>
-<%@recipes.each do |recipe| %>
-<%= render "shared/recipe-card", recipe: %>
-<% end %>
+<div class="wrapper" data-controller="search-repices">
+  <%= form_with url: recipes_path, method: :get, html: {class: 
+      "d-flex, mb-3", data: {search_repices_target: "form"}} do |f| %>
+    <%= f.text_field :query,
+            class: "form-control",
+            placeholder: "Search for a recipe",
+            value: params[:query],
+            data: {search_repices_target: "input", action: "keyup->search-repices#search"}
+        %>
+  <% end %>
+  <div class="d-flex flex-column gap-3" data-search-repices-target="recipes">
+    <%= render 'list', recipes: @recipes %>
+  </div>
+</div>

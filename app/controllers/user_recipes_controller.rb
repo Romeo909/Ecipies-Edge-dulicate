@@ -1,7 +1,6 @@
 class UserRecipesController < ApplicationController
-
   def index
-    @user_recipes = UserRecipe.where(user_id: current_user)
+    @user_recipes = UserRecipe.where(user: current_user)
   end
 
   def show
@@ -15,7 +14,8 @@ class UserRecipesController < ApplicationController
   end
 
   def create
-    @user_recipe = Recipe.new(user_recipe_params)
+    @user_recipe = UserRecipe.new(user_recipe_params)
+    # Userd to be Recipe.new
     @user_recipe.user = current_user
     @user_recipe.recipe = Recipe.find(params[:recipe_id])
 

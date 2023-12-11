@@ -1,9 +1,3 @@
-
-.title {
-    font-size: 2.4rem;
-    font-weight: 700;
-    color: black;
-}
 .add-recipe-btn {
     width: 100%;
     height: 52px;
@@ -20,23 +14,6 @@
     
     font-weight: bold;
 };
-
-.cookbook-actions {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 2em;
-    align-items: center;
-}
-
-
-
-.btn-sort {
-    width: 90px;
-    height: 32.634px;
-    border-radius: 25px;
-    border: 1px solid #F4EBEB;
-    background: rgba(188, 210, 186, 0.89);
-}
 
 .cookbook-item {
     border-radius: 8px;
