@@ -10,7 +10,7 @@
   <% end %>
   <div class="d-flex flex-column gap-3" data-search-repices-target="recipes">
     <% if @recipes.blank? %>
-      <p>no recipes found</p>
+      <p>no recipe found</p>
     <% else %>
       <%= render 'list', recipes: @recipes %>
     <% end %>
