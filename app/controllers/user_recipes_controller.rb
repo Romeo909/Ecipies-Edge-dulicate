@@ -14,16 +14,17 @@ class UserRecipesController < ApplicationController
   end
 
   def create
+    raise
     @user_recipe = UserRecipe.new(user_recipe_params)
     @user_recipe.user = current_user
     @user_recipe.recipe = Recipe.find(params[:recipe_id])
-    if params[:collection_ids].present?
-      params[:collection_ids].each do |id|
-        recipeColection = UserRecipeCollection.new(recipe: @user_recipe, collection: Collection.find(id)) if id != ""
-        p recipeColection.save
-      end
-    end
     if @user_recipe.save
+      if params[:collection_ids].present?
+        params[:collection_ids].each do |id|
+          recipe_colection = UserRecipeCollection.new(recipe: @user_recipe, collection: Collection.find(id)) if id != ""
+          recipe_colection.save
+        end
+      end
       redirect_to root_path, notice: 'Recipe was added to your cookbook.'
     else
       render :new, status: :unprocessable_entity
@@ -42,6 +43,6 @@ class UserRecipesController < ApplicationController
   private
 
   def user_recipe_params
-    params.require(:).permit(:recipe_id, collection_ids: [])
+    params.require(:user_recipe).permit(:recipe_id, collection_ids: [])
   end
 end
