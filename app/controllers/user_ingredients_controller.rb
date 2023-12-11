@@ -5,6 +5,11 @@ class UserIngredientsController < ApplicationController
     @user_ingredients = UserIngredient.where(user: current_user)
     # I am not sure about this instance var down here. It should be use by the _search.html.erb
     @path = user_ingredients_path
+
+    # Fetch ingredients list to launch a search with it
+    ingredients_id = UserIngredient.where(user: current_user).pluck(:ingredient_id)
+    # Without the pluck, I would only get an array of user_ingredients instances
+    @ingredients_name = Ingredient.find(ingredients_id).pluck(:name).join(' ')
   end
 
   def create
