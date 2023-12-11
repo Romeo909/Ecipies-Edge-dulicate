@@ -1,5 +1,5 @@
 <div class="wrapper" data-controller="search-repices">
-  <%= form_with url: recipes_path, method: :get, html: {class: 
+  <%= form_with url: recipes_path, method: :get, html: {class:
       "d-flex, mb-3", data: {search_repices_target: "form"}} do |f| %>
     <%= f.text_field :query,
             class: "form-control",
@@ -9,6 +9,10 @@
         %>
   <% end %>
   <div class="d-flex flex-column gap-3" data-search-repices-target="recipes">
-    <%= render 'list', recipes: @recipes %>
+    <% if @recipes.blank? %>
+      <p>no results found</p>
+    <% else %>
+      <%= render 'list', recipes: @recipes %>
+    <% end %>
   </div>
 </div>
