@@ -13,6 +13,7 @@ export default class extends Controller {
       .then(response => response.text())
       .then((data) => {
         this.recipesTarget.innerHTML = data;
+        // history.pushState({}, null, `?query=${this.inputTarget.value}`)
         });
       }
 }
