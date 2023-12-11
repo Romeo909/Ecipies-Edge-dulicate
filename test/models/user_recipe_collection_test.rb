@@ -1,6 +1,6 @@
 require "test_helper"
 
-class RecipeCollectionTest < ActiveSupport::TestCase
+class UserRecipeCollectionTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
