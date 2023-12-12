@@ -1,9 +1,11 @@
 <div class="wrapper">
-  <h3 class="mb-3"><%= current_user.username %>'s cookbook</h3>
+  <h3 class="mb-3 d-flex justify-content-center"><%= current_user.username %>'s cookbook</h3>
   <%# <a class="add-recipe">Add new recipe</a> %>
-  <%= link_to new_collection_path do %>
+  <div class="d-flex justify-content-center mx-5 btn btn-fridge">
+  <%= link_to new_collection_path, class: "text-white" do %>
     New Category
   <% end %>
+  </div>
   <%# <%= render "shared/sort-button" %>
   <div class="items d-flex flex-column gap-3 mt-3">
     <%= render "shared/cookbook-item" %>

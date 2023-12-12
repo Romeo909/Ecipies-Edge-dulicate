@@ -1,12 +1,14 @@
 <%# implement gem and categorize recipes by categories %>
 <%# Add option to create new category (lable/folder) %>
+<div class="d-flex justify-content-center bg-light py-3 mt-4">
+  <h1 class="title">New Collection</h1>
+</div>
 <div class="wrapper">
-  <h1 class="title">New collection</h1>
   <%# simple form with @collection %>
   <%= simple_form_for @collection do |f| %>
     <%= f.input :name %>
     <%# <%= f.input :description %>
-    <%= f.button :submit, "Save", class: "btn btn-primary" %>
+    <%= f.button :submit, "Save", class: "btn btn-fridge text-white" %>
   <% end %>
   <br />
   <%# <%= link_to "My ingredients list", user_ingredients_path%>
