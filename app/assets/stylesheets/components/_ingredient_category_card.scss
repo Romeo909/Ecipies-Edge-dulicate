@@ -1,0 +1,26 @@
+.flexbox {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.card {
+  width: 350px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.card-header {
+  background-color: white;
+}
+
+.badge {
+  margin: 2px auto;
+  color: #625E5E;
+  background-color: #F0EDED;
+  border-radius: 7px;
+}
+
+.fa-circle-plus{
+  color: #625E5E;
+}

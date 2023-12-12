@@ -1,14 +1,23 @@
 <div class="wrapper">
   <h3 class="mb-2">Your ingredient list</h3>
   <%= link_to 'add new ingredient(s)', ingredients_path %>
-  <% @user_ingredients.each do |user_ingredient| %>
-    <li><%= user_ingredient.ingredient.name %>
-      <%= link_to 'remove', delete_user_ingredient_path(user_ingredient), data: {turbo_method: :delete}%>
-    </li>
+
+  <% @categories.each do |category|%>
+    <div class="card border-light mb-3" style="max-width: 18rem;">
+      <div class="card-header"><%= category.name.capitalize %></div>
+        <% @user_ingredients.each do |user_ingredient|%>
+          <% if user_ingredient.category_ids.include?(category.id) %>
+            <%# <div class="card-body"> %>
+              <%# <p class="card-text"> %>
+                <span class="badge"><%= user_ingredient.ingredient.name %>
+                  <%= link_to delete_user_ingredient_path(user_ingredient), data: {turbo_method: :delete} do%>
+                    <i class="fa-solid fa-circle-minus"></i>
+                  <% end %>
+                </span>
+              <%# </p> %>
+            <%# </div> %>
+          <% end %>
+        <% end %>
+    </div>
   <% end %>
-</ul>
-<%#= link_to "Find recipes", recipes_path %>
-<%= link_to 'What can I cook with my fridge?', recipes_path(:fridge => @ingredients_name)%>
-<br>
-<%# <%= link_to "back", :back, class:"btn btn-outline-success mt-2"  %>
 </div>
