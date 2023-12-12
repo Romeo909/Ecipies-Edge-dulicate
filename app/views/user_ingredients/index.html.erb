@@ -9,7 +9,7 @@
         <p class="card-text">
           <% @user_ingredients.each do |user_ingredient|%>
             <% if user_ingredient.category_ids.include?(category.id) %>
-                  <span class="badge"><%= user_ingredient.ingredient.name %>
+                  <span class="badge ingredient-category"><%= user_ingredient.ingredient.name %>
                     <%= link_to delete_user_ingredient_path(user_ingredient), data: {turbo_method: :delete} do%>
                       <i class="fa-solid fa-circle-minus"></i>
                     <% end %>

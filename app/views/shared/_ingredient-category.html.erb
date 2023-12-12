@@ -8,7 +8,7 @@
             <% if ingredient.category == category %>
               <% if @user_ingredient_ids.include?(ingredient.id) %>
               <% else %>
-                <span class="badge"><%= ingredient.name %>
+                <span class="badge ingredient-category"><%= ingredient.name %>
                   <%= link_to ingredient_user_ingredients_path(ingredient), data: {turbo_method: :post} do%>
                     <i class="fa-solid fa-circle-plus"></i>
                   <% end %>
