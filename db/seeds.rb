@@ -189,6 +189,10 @@ Recipe.create!(name: "Vegetarian chicken & chorizo jambalaya", instructions: "Th
 Recipe.create!(name: "Mexican Casserole", instructions: "Small dinner pie made with salsa, tortillas, refried beans, cheese, and onions", servings: 4, cooking_time: 20, ingredients: ["refried beans", "salsa", "onions", "flour tortillas", "shredded cheddar"])
 Recipe.create!(name: "Chickpea Taco", instructions: "Quick healthy tacos that the kids will go crazy for. Use this mixture as you would taco meat in taco shells or tortillas. Add desired toppings and enjoy!", servings: 4, cooking_time: 20, ingredients: ["chickpeas", "taco shells", "taco seasoning mix", "water"])
 Recipe.create!(name: "Eggplant Pasta", instructions: "Easy and quick pasta dish!", servings: 8, cooking_time: 40, ingredients: ["garlic", "eggplant", "tomatoes chapped", "rigaton pasta", "olve oil"])
+Recipe.create!(name: "Curried Carrot Soup", instructions: "Quick, easy, and light ", servings: 6, cooking_time: 25, ingredients: ["carrot chopped", "vegetable broth", "onions chopped", "curry powder", "olve oil"])
+Recipe.create!(name: "Mediterranean Pesto Pizza", instructions: "Quick, easy, and light ", servings: 6, cooking_time: 25, ingredients: ["carrot chopped", "vegetable broth", "onions chopped", "curry powder", "olve oil"])
+Recipe.create!(name: "Guacamole", instructions: "This guacamole recipe gets a tasty kick from cayenne and cilantro", servings: 4, cooking_time: 15, ingredients: ["avocados", "lime", "onion ", "tomatoes", "garlic", "cilantro"])
+
 
 
 
