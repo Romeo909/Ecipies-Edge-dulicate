@@ -10,10 +10,10 @@ class UserIngredientsController < ApplicationController
     ingredients_id = UserIngredient.where(user: current_user).pluck(:ingredient_id)
     # Without the pluck, I would only get an array of user_ingredients instances
     @ingredients_name = Ingredient.find(ingredients_id).pluck(:name).join(' ')
+    @categories = Category.all
   end
 
   def create
-    # raise
     @user_ingredient = UserIngredient.new(user: current_user, ingredient_id: params[:ingredient_id])
     if @user_ingredient.save
       redirect_to ingredients_path, notice: "#{@user_ingredient.ingredient.name} added to your kitchen!"
