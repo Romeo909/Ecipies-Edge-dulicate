@@ -1,8 +1,9 @@
 <div class="flexbox">
   <div class="wrapper">
     <h3 class="mb-2">Your ingredient list</h3>
-    <%= link_to 'add new ingredient(s)', ingredients_path %>
-
+    <%= link_to 'What can I cook with my fridge?', recipes_path(:fridge => @ingredients_name)%>
+    <br>
+    <%= link_to 'add new ingredient(s)', ingredients_path, class: "d-flex justify-content-center" %>
     <% @categories.each do |category|%>
       <div class="card border-light mb-3" style="max-width: 18rem;">
         <div class="card-header"><i class="fa-solid fa-utensils"></i> <%= category.name.capitalize %></div>
@@ -10,7 +11,7 @@
           <p class="card-text">
             <% @user_ingredients.each do |user_ingredient|%>
               <% if user_ingredient.category_ids.include?(category.id) %>
-                    <span class="badge"><%= user_ingredient.ingredient.name %>
+                    <span class="badge ingredient-category"><%= user_ingredient.ingredient.name %>
                       <%= link_to delete_user_ingredient_path(user_ingredient), data: {turbo_method: :delete} do%>
                         <i class="fa-solid fa-circle-minus"></i>
                       <% end %>
