@@ -1,6 +1,6 @@
 <div class="recipe-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path recipe.image.key, crop: :fit %>')">
   <%= recipe.name %>
-  <%= link_to  recipe_path(recipe, redirect_back: params[:query]) do %>
+    <%= link_to recipe_path(recipe, ({return_to: params[:query]} if params[:query])) do %>
     <div class="info-icon">
       <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect width="40" height="40" rx="20" fill="white"/>
