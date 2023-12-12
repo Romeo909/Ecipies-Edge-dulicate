@@ -7,6 +7,8 @@ class IngredientsController < ApplicationController
     else
       @ingredients = []
     end
+    @user_ingredient_ids = UserIngredient.where(user: current_user).pluck(:ingredient_id)
+    # these variable down here should exclude the ingredient with an id included in @user_ingredient_ids
     @vegetables = Ingredient.where(category: "vegetables")
     @fruits = Ingredient.where(category: "fruits")
     @starch = Ingredient.where(category: "starch")
