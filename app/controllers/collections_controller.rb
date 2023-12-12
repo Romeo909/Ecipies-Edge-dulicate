@@ -1,4 +1,8 @@
 class CollectionsController < ApplicationController
+  def index
+    @collections = Collection.where(user: current_user)
+  end
+
   def new
     @collection = Collection.new
   end

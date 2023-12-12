@@ -6,11 +6,10 @@
   <% end %>
   <%# <%= render "shared/sort-button" %>
   <div class="items d-flex flex-column gap-3 mt-3">
-    <%= render "shared/cookbook-item" %>
-    <%= render "shared/cookbook-item" %>
-    <%= render "shared/cookbook-item" %>
+    <% @collections.each do |collection| %>
+      <%= render "shared/cookbook-item", collection: collection %>
+    <% end %>
   </div>
   <br>
   <%# <= link_to "My Pantry", user_ingredients_path, class:"btn btn-outline-success"%>
-
 </div>
