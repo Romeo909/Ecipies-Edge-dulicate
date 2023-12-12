@@ -173,6 +173,10 @@ Recipe.create!(name: "Chicken & chorizo jambalaya", instructions: "This Creole o
 Recipe.create!(name: "Pasta", instructions: "Pasta with tomato sauce", servings: 2, cooking_time: 20, ingredients: %(spaghetti, red pepper, oignon))
 Recipe.create!(name: "Vegetable satay curry", instructions: "This creamy vegan curry is packed with plenty of nutritious veggies, warming ginger and chilli for a healthy meat-free meal", servings: 3, cooking_time: 30, ingredients: %(curry, carrot, oignon))
 Recipe.create!(name: "Vegetarian chicken & chorizo jambalaya", instructions: "This Creole one-pot is bursting with spicy chorizo, succulent chicken and tender veg. It's quick to make and packed with flavour - try the vegetarian version for the perfect midweek meal", servings: 4, cooking_time: 40, ingredients: ["oyster mushroom", "red pepper", "oignon", "gusta vegan sausage"])
+Recipe.create!(name: "Mexican Casserole", instructions: "Small dinner pie made with salsa, tortillas, refried beans, cheese, and onions", servings: 4, cooking_time: 20, ingredients: ["refried beans", "salsa", "onions", "flour tortillas", "shredded cheddar"])
+Recipe.create!(name: "Chickpea Taco", instructions: "Quick healthy tacos that the kids will go crazy for. Use this mixture as you would taco meat in taco shells or tortillas. Add desired toppings and enjoy!", servings: 4, cooking_time: 20, ingredients: ["chickpeas", "taco shells", "taco seasoning mix", "water"])
+Recipe.create!(name: "Eggplant Pasta", instructions: "Easy and quick pasta dish!", servings: 8, cooking_time: 40, ingredients: ["garlic", "eggplant", "tomatoes chapped", "rigaton pasta", "olve oil"])
+
 
 
 RecipeIngredient.create!(recipe: Recipe.first, ingredient: ingretient_1)
