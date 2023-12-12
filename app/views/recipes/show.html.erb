@@ -14,11 +14,13 @@
               <input type="checkbox" data-checkbox-select-all-target="checkboxAll" />
               <span>Select All / Deselect All</span>
             </label><br> %>
-            <%= f.collection_check_boxes :collection_ids, Collection.all, :id, :name do |b| %>
-              <%= b.label do %>
-                <%= b.check_box data: { checkbox_select_all_targer: "checkbox"} %>
-                <%= b.text %>
-              <% end %> <br>
+            <%= f.collection_check_boxes :collection_ids, Collection.where(user: current_user), :id, :name do |b| %>
+              <div class="fs-3 mb-2">
+                <%= b.label do %>
+                  <%= b.check_box data: { checkbox_select_all_targer: "checkbox"}, class: "form-check-input" %>
+                  <%= b.text %>
+                <% end %>
+              </div>
             <% end %>
             <div class="modal-footer">
               <%= f.submit "Confirm", class: "btn btn-primary" %>
