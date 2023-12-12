@@ -7,27 +7,25 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <%# Checkbox %>
-        <%# <%= form_with model: [@recipe, @user_recipe], url: recipe_user_recipes_path(@recipe), method: :post, data: { controller: 'checkbox-select-all' } do |f| %>
-          <%= simple_form_for [@recipe, @user_recipe], data: { controller: 'checkbox-select-all' } do |f| %>
-            <%# <label>
+        <%= simple_form_for [@recipe, @user_recipe], data: { controller: 'checkbox-select-all' } do |f| %>
+          <%# <label>
               <input type="checkbox" data-checkbox-select-all-target="checkboxAll" />
               <span>Select All / Deselect All</span>
             </label><br> %>
-            <%= f.collection_check_boxes :collection_ids, Collection.where(user: current_user), :id, :name do |b| %>
-              <div class="fs-3 mb-2">
-                <%= b.label do %>
-                  <%= b.check_box data: { checkbox_select_all_targer: "checkbox"}, class: "form-check-input" %>
-                  <%= b.text %>
-                <% end %>
-              </div>
-            <% end %>
-            <div class="modal-footer">
-              <%= f.submit "Confirm", class: "btn btn-primary" %>
+          <%= f.collection_check_boxes :collection_ids, Collection.where(user: current_user), :id, :name do |b| %>
+            <div class="fs-3 mb-2">
+              <%= b.label do %>
+                <%= b.check_box data: { checkbox_select_all_targer: "checkbox"}, class: "form-check-input" %>
+                <%= b.text %>
+              <% end %>
             </div>
           <% end %>
-        </div>
+          <div class="modal-footer">
+            <%= f.submit "Confirm", class: "btn btn-primary" %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
-  <%# <%= link_to 'back', root_path %>
+</div>
+<%# <%= link_to 'back', root_path %>

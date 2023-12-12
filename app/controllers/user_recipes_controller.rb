@@ -7,10 +7,6 @@ class UserRecipesController < ApplicationController
     @user_recipe = UserRecipe.find(params[:id])
   end
 
-  # def new
-  #   @user_recipe = Recipe.new
-  # end
-
   def create
     @user_recipe = UserRecipe.new(user_recipe_params)
     @user_recipe.user = current_user
@@ -30,7 +26,6 @@ class UserRecipesController < ApplicationController
   def destroy
     @user_recipe = UserRecipe.find(params[:id])
     @user_recipe.destroy
-    redirect_to user_recipes_path, status: :see_other, notice: 'Recipe was removed from your cookbook.'
   end
 
   def edit
