@@ -4,26 +4,36 @@ class UserRecipesController < ApplicationController
   end
 
   def show
-    user_recipe = UserRecipe.find(params[:id])
+    @user_recipe = UserRecipe.find(params[:id])
     @recipe = user_recipe.recipe
   end
 
   def new
-    @user_recipe = UserRecipe.new
-    @recipe = Recipe.find(params[:recipe_id])
+    # @user_recipe = UserRecipe.new
+    # @recipe = Recipe.find(params[:recipe_id])
   end
 
   def create
     @user_recipe = UserRecipe.new(user_recipe_params)
-    # Userd to be Recipe.new
     @user_recipe.user = current_user
     @user_recipe.recipe = Recipe.find(params[:recipe_id])
-
     if @user_recipe.save
-      redirect_to root_path, notice: 'Recipe was added to your recipes.'
+      # raise
+      if params[:user_recipe][:collection_ids].present?
+        params[:user_recipe][:collection_ids].each do |id|
+          UserRecipeCollection.create!(user_recipe: @user_recipe, collection: Collection.find(id)) if id != ""
+        end
+      end
+      redirect_to recipe_path(params[:recipe_id]), notice: 'Recipe was added to your cookbook.'
     else
-      render :new, status: :unprocessable_entity
+      redirect_to recipe_path(params[:recipe_id]), notice: 'This recipe is already in your cookbook.'
     end
+  end
+
+  def destroy
+    @user_recipe = UserRecipe.find(params[:id])
+    @user_recipe.destroy
+    redirect_to user_recipes_path, status: :see_other, notice: 'Recipe was removed from your cookbook.'
   end
 
   def edit
@@ -38,6 +48,6 @@ class UserRecipesController < ApplicationController
   private
 
   def user_recipe_params
-    params.require(:user_recipe).permit(:label, :notes, :recipe_id)
+    params.require(:user_recipe).permit(collection_ids: [])
   end
 end

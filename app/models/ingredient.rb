@@ -10,6 +10,6 @@ class Ingredient < ApplicationRecord
                   against: [:name],
                   using: {
                     tsearch: { dictionary: "english",
-                              prefix: true } # <-- non-completed word will return something!
+                               prefix: true } # <-- non-completed word will return something!
                   }
 end
