@@ -1,15 +1,7 @@
 <div class="wrapper">
   <h3>Ingredients</h3>
-  <%= link_to 'My ingredients', user_ingredients_path %>
-  <br>
   <div class="container">
     <%= render "shared/search" %>
-    <% @ingredients.each do |ingredient| %>
-      <p class="d-flex form-control"><%= ingredient.name %>
-        <%= link_to 'add ingredient', ingredient_user_ingredients_path(ingredient),
-    data: {turbo_method: :post}, class: "btn btn-fridge"%></p>
-    <% end %>
-
     <%= render "shared/ingredient-category" %>
   </div>
 </div>
