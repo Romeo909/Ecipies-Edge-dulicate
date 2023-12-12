@@ -11,14 +11,6 @@ class UserIngredientsController < ApplicationController
     # Without the pluck, I would only get an array of user_ingredients instances
     @ingredients_name = Ingredient.find(ingredients_id).pluck(:name).join(' ')
     @categories = Category.all
-  #   <% @user_ingredients.each do |user_ingredient| %>
-  #     <li><%= user_ingredient.ingredient.name %>
-  #       <%= link_to 'remove', delete_user_ingredient_path(user_ingredient), data: {turbo_method: :delete}%>
-  #     </li>
-  #   <% end %>
-  # </ul>
-  # <%= link_to 'What can I cook with my fridge?', recipes_path(:fridge => @ingredients_name)%>
-  # </div>
   end
 
   def create
