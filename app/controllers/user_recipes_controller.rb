@@ -4,8 +4,8 @@ class UserRecipesController < ApplicationController
   end
 
   def show
-    @user_recipe = UserRecipe.find(params[:id])
-    @recipe = user_recipe.recipe
+    # @user_recipe = UserRecipe.find(params[:id])
+    # @recipe = user_recipe.recipe
   end
 
   def new
