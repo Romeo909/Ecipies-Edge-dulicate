@@ -5,6 +5,7 @@
 
 User.destroy_all
 Recipe.destroy_all
+Category.desrtoy_all
 Ingredient.destroy_all
 RecipeIngredient.destroy_all
 UserIngredient.destroy_all
