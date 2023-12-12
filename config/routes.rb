@@ -21,9 +21,9 @@ Rails.application.routes.draw do
   resources :collections, only: [:index, :new, :create, :show, :edit, :update, :destroy]
 
 
-  resources :user_recipes, only: [:index, :show, :update, :new, :destroy]
+  resources :user_recipes, only: [:index, :show, :update, :destroy]
 
-  resources :recipes, only: [:index, :show, :create] do
+  resources :recipes, only: [:index, :show, :create, :new] do
     resources :user_recipes, only: [:create]
   end
 end
