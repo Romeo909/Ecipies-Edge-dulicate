@@ -1,13 +1,11 @@
 class RecipesController < ApplicationController
   def index
     @recipes = Recipe.all
-
     # Put a button where you can 'Find recipe with what's left in the fridge'
     # This button should launch the search with the pluck array of ingredient's names, if this params exists
     # So Recipe.search_recipe(pluck_result)
-    @recipes = Recipe.search_recipes(params[:fridge]) if params[:fridge].present?
-
     @recipes = Recipe.search_recipes(params[:query]) if params[:query].present?
+    @recipes = Recipe.search_recipes(params[:fridge]) if params[:fridge].present?
 
     respond_to do |format|
       format.html
@@ -17,7 +15,7 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
-    # @recipe_collection = RecipeCollection.new
+    @user_recipe = UserRecipe.new
   end
 
   def new

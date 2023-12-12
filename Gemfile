@@ -45,8 +45,6 @@ gem "pg_search"
 
 gem "cloudinary"
 
-gem "dotenv-rails"
-
 #  acts as favoritor
 gem "acts_as_favoritor"
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
