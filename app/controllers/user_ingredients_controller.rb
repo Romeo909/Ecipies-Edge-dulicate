@@ -13,7 +13,6 @@ class UserIngredientsController < ApplicationController
   end
 
   def create
-    # raise
     @user_ingredient = UserIngredient.new(user: current_user, ingredient_id: params[:ingredient_id])
     if @user_ingredient.save
       redirect_to ingredients_path, notice: "#{@user_ingredient.ingredient.name} added to your kitchen!"
