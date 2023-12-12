@@ -3,8 +3,6 @@ class Recipe < ApplicationRecord
   has_one_attached :image
   has_many :user_recipes, dependent: :destroy
   has_many :recipe_ingredients, dependent: :destroy
-  has_many :recipe_collections, dependent: :destroy
-  has_many :collections, through: :recipe_collections
   validates :instructions, presence: true
   validates :name, uniqueness: { scope: :user }
 
