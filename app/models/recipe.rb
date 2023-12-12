@@ -3,12 +3,12 @@ class Recipe < ApplicationRecord
   has_one_attached :image
   has_many :user_recipes, dependent: :destroy
   has_many :recipe_ingredients, dependent: :destroy
-  # In the schema, we don't have any :recipe_collection. So I commented the following line and modified the second.
-  # has_many :recipe_collections, dependent: :destroy
-  # has_many :collections, through: :recipe_collections
-  has_many :user_recipe_collections, through: :user_recipes
-  validates :name, :instructions, presence: true
+  has_many :recipe_collections, dependent: :destroy
+  has_many :collections, through: :recipe_collections
+  validates :instructions, presence: true
+  validates :name, uniqueness: { scope: :user }
 
+  belongs_to :user, optional: true
   include PgSearch::Model
   pg_search_scope :search_recipes,
                   against: %i[name instructions],

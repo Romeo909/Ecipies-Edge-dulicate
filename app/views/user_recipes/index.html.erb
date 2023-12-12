@@ -1,24 +1,12 @@
 <div class="wrapper">
-  <h1>My Recipes</h1>
-  <%= link_to "New recipe", new_user_recipe_path, class:"btn btn-success mb-2" %>
-  <div class="d-flex flex-column gap-3" data-search-repices-target="recipes">
-    <% if @user_recipes.blank? %>
-      <p>no recipe found</p>
-    <% else %>
-      <% @user_recipes.each do |user_recipe| %>
-        <%= render 'shared/user-recipe-card', user_recipe: user_recipe %>
-      <% end %>
-    <% end %>
-  </div>
-  <%# <div class="mt-2">
-    <ul>
-      <% @user_recipes.each do |recipe|%>
-    <%# <li> %>
-    <%# <%= recipe.recipe.name %>
-    <%# <br> %>
-    <%# <%= link_to "details", user_recipe_path(recipe.recipe), class:"btn btn-primary" %>
-    <%# </li> %>
-    <%# <% end %>
-    <%# </ul> %>
-    <%# </div> %>
-  </div>
+  <h1 class="title">New recipe</h1>
+  <%= simple_form_for @user_recipe do |f| %>
+    <%= f.input :name %>
+    <%= f.input :instructions %>
+    <%= f.input :servings %>
+    <%= f.input :cooking_time %>
+    <%= f.input :ingredients %>
+    <%= f.input :image, as: :file %>
+    <%= f.button :submit, "Save", class: "btn btn-primary" %>
+  <% end %>
+</div>
