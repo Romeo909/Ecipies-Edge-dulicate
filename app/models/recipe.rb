@@ -3,8 +3,10 @@ class Recipe < ApplicationRecord
   has_one_attached :image
   has_many :user_recipes, dependent: :destroy
   has_many :recipe_ingredients, dependent: :destroy
-  has_many :recipe_collections, dependent: :destroy
-  has_many :collections, through: :recipe_collections
+  # In the schema, we don't have any :recipe_collection. So I commented the following line and modified the second.
+  # has_many :recipe_collections, dependent: :destroy
+  # has_many :collections, through: :recipe_collections
+  has_many :user_recipe_collections, through: :user_recipes
   validates :name, :instructions, presence: true
 
   include PgSearch::Model

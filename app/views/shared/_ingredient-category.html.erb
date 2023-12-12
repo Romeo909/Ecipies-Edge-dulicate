@@ -1,23 +1,25 @@
-<div class="wrapper">
-  <% @categories.each do |category|%>
-    <div class="card border-light mb-3" style="max-width: 18rem;">
-      <div class="card-header"><i class="fa-solid fa-utensils"></i> <%= category.name.capitalize %></div>
-      <div class="card-body">
-        <p class="card-text">
-          <% @ingredients.each do |ingredient|%>
-            <% if ingredient.category == category %>
-              <% if @user_ingredient_ids.include?(ingredient.id) %>
-              <% else %>
-                <span class="badge"><%= ingredient.name %>
-                  <%= link_to ingredient_user_ingredients_path(ingredient), data: {turbo_method: :post} do%>
-                    <i class="fa-solid fa-circle-plus"></i>
-                  <% end %>
-                </span>
+  <div class="flexbox">
+    <div class="wrapper">
+    <% @categories.each do |category|%>
+      <div class="card border-light mb-3" style="max-width: 18rem;">
+        <div class="card-header"><i class="fa-solid fa-utensils"></i> <%= category.name.capitalize %></div>
+        <div class="card-body">
+          <p class="card-text">
+            <% @ingredients.each do |ingredient|%>
+              <% if ingredient.category == category %>
+                <% if @user_ingredient_ids.include?(ingredient.id) %>
+                <% else %>
+                  <span class="badge"><%= ingredient.name %>
+                    <%= link_to ingredient_user_ingredients_path(ingredient), data: {turbo_method: :post} do%>
+                      <i class="fa-solid fa-circle-plus"></i>
+                    <% end %>
+                  </span>
+                <% end %>
               <% end %>
             <% end %>
-          <% end %>
-        </p>
+          </p>
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
