@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   delete 'user_ingredients/:id', to: 'user_ingredients#destroy', as: :delete_user_ingredient
 
-  resources :collections, only: [:index, :new, :create]
+  resources :collections, only: [:index, :new, :create, :show, :edit, :update, :destroy]
 
 
   resources :user_recipes, only: [:index, :show, :update, :new, :destroy]

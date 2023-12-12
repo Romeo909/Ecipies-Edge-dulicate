@@ -1,17 +1,19 @@
-<div class="cookbook-items">
-  <div class="cookbook-item">
-    <div class="description">
-      <% if collection %>
-        <h3><%= collection.name %></h3>
-        <p><%= pluralize(collection.user_recipes.count, 'recipe') %></p>
-      </div>
-      <% if collection && !collection.user_recipes.empty? && collection.user_recipes.last.recipe.image.attached? %>
-        <%= cl_image_tag collection.user_recipes.last.recipe.image.key, class: "img-circle" %>
+<%= link_to collection_path(collection) do %>
+  <div class="cookbook-items">
+    <div class="cookbook-item">
+      <div class="description">
+        <% if collection %>
+          <h3><%= collection.name.capitalize %></h3>
+          <p><%= pluralize(collection.user_recipes.count, 'recipe') %></p>
+        </div>
+        <% if collection && !collection.user_recipes.empty? && collection.user_recipes.last.recipe.image.attached? %>
+          <%= cl_image_tag collection.user_recipes.last.recipe.image.key, class: "img-circle" %>
+        <% else %>
+          <%= image_tag "img-holder.jpg", class: "img-circle" %>
+        <% end %>
       <% else %>
-        <%= image_tag "img-holder.jpg", class: "img-circle" %>
+        <p>Your cookbook is empty</p>
       <% end %>
-    <% else %>
-      <p>Your cookbook is empty</p>
-    <% end %>
+    </div>
   </div>
-</div>
+<% end %>

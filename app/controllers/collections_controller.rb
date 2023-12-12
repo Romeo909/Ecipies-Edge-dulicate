@@ -17,6 +17,32 @@ class CollectionsController < ApplicationController
     end
   end
 
+  def show
+    @collection = Collection.find(params[:id])
+  end
+
+  def edit
+    @collection = Collection.find(params[:id])
+  end
+
+  def update
+    @collection = Collection.find(params[:id])
+    if @collection.update(collection_params)
+      redirect_to collection_path(@collection)
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @collection = Collection.find(params[:id])
+    if @collection.destroy
+      redirect_to collections_path
+    else
+      render :show, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def collection_params
