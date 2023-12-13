@@ -62,7 +62,7 @@ category_5 = Category.create!(name: "grains")
 category_6 = Category.create!(name: "dairy")
 category_7 = Category.create!(name: "flour")
 # category_8 = Category.create!(name: "mushrooms")
-category_9 = Category.create!(name: "hearbs & spices")
+category_9 = Category.create!(name: "herbs & spices")
 # Category.create!(name: "meat substitute")
 category_10 = Category.create!("nuts and seeds")
 
