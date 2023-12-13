@@ -1,5 +1,9 @@
 class CollectionsController < ApplicationController
   def index
+    all_recipes_collection = Collection.new(name: "All", user: current_user)
+    favorite_recipes_collection = Collection.new(name: "Favorites", user: current_user)
+    favorite_recipes_collection.save
+    all_recipes_collection.save
     @collections = Collection.where(user: current_user)
   end
 
