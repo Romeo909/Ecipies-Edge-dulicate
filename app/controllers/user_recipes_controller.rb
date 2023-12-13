@@ -1,16 +1,10 @@
 class UserRecipesController < ApplicationController
   def index
-    @user_recipes = UserRecipe.where(user: current_user)
+    @user_recipe = Recipe.new
   end
 
   def show
-    # @user_recipe = UserRecipe.find(params[:id])
-    # @recipe = user_recipe.recipe
-  end
-
-  def new
-    # @user_recipe = UserRecipe.new
-    # @recipe = Recipe.find(params[:recipe_id])
+    @user_recipe = UserRecipe.find(params[:id])
   end
 
   def create
@@ -18,12 +12,11 @@ class UserRecipesController < ApplicationController
     @user_recipe.user = current_user
     @user_recipe.recipe = Recipe.find(params[:recipe_id])
     if @user_recipe.save
-      # raise
-      if params[:user_recipe][:collection_ids].present?
-        params[:user_recipe][:collection_ids].each do |id|
-          UserRecipeCollection.create!(user_recipe: @user_recipe, collection: Collection.find(id)) if id != ""
-        end
-      end
+      # if params[:user_recipe][:collection_ids].present?
+      #   params[:user_recipe][:collection_ids].each do |id|
+      #     UserRecipeCollection.create!(user_recipe: @user_recipe, collection: Collection.find(id)) if id != ""
+      #   end
+      # end
       redirect_to recipe_path(params[:recipe_id]), notice: 'Recipe was added to your cookbook.'
     else
       redirect_to recipe_path(params[:recipe_id]), notice: 'This recipe is already in your cookbook.'
@@ -33,7 +26,7 @@ class UserRecipesController < ApplicationController
   def destroy
     @user_recipe = UserRecipe.find(params[:id])
     @user_recipe.destroy
-    redirect_to user_recipes_path, status: :see_other, notice: 'Recipe was removed from your cookbook.'
+    redirect_to
   end
 
   def edit
