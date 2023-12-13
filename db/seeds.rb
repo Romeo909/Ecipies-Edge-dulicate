@@ -5,8 +5,8 @@ require 'net/http'
 
 User.destroy_all
 Recipe.destroy_all
-Category.destroy_all
 Ingredient.destroy_all
+Category.destroy_all
 RecipeIngredient.destroy_all
 UserIngredient.destroy_all
 UserIngredient.destroy_all
