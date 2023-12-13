@@ -8,9 +8,11 @@ class UserRecipesController < ApplicationController
   end
 
   def create
+    # raise
     @user_recipe = UserRecipe.new(user_recipe_params)
     @user_recipe.user = current_user
     @user_recipe.recipe = Recipe.find(params[:recipe_id])
+
     if @user_recipe.save
       # if params[:user_recipe][:collection_ids].present?
       #   params[:user_recipe][:collection_ids].each do |id|
