@@ -65,6 +65,15 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_13_142323) do
     t.index ["category_id"], name: "index_ingredients_on_category_id"
   end
 
+  create_table "recipe_collections", force: :cascade do |t|
+    t.bigint "recipe_id", null: false
+    t.bigint "collection_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["collection_id"], name: "index_recipe_collections_on_collection_id"
+    t.index ["recipe_id"], name: "index_recipe_collections_on_recipe_id"
+  end
+
   create_table "recipe_ingredients", force: :cascade do |t|
     t.bigint "recipe_id", null: false
     t.bigint "ingredient_id", null: false
@@ -131,6 +140,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_13_142323) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "collections", "users"
   add_foreign_key "ingredients", "categories"
+  add_foreign_key "recipe_collections", "collections"
+  add_foreign_key "recipe_collections", "recipes"
   add_foreign_key "recipe_ingredients", "ingredients"
   add_foreign_key "recipe_ingredients", "recipes"
   add_foreign_key "recipes", "users"
