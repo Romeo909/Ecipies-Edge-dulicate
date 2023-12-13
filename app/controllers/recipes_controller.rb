@@ -25,6 +25,20 @@ class RecipesController < ApplicationController
   def create
     @recipe = Recipe.new(recipe_params)
     @recipe.user = current_user
-    @recipe.save
+    if @recipe.save
+      @recipe.user_recipes.create(user: current_user)
+      # INFO: If we want to add the recipe to a collection at the same time as creating it
+      # @recipe.user_recipes.create(user: current_user, collection_ids: [])
+
+      redirect_to collections_path, notice: 'Recipe was successfully created.'
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  private
+
+  def recipe_params
+    params.require(:recipe).permit(:name, :instructions, :servings, :cooking_time, :ingredients, :image)
   end
 end
