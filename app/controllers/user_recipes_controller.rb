@@ -11,6 +11,7 @@ class UserRecipesController < ApplicationController
     @user_recipe = UserRecipe.new(user_recipe_params)
     @user_recipe.user = current_user
     @user_recipe.recipe = Recipe.find(params[:recipe_id])
+    # raise
 
     if @user_recipe.save
       # if params[:user_recipe][:collection_ids].present?
@@ -19,7 +20,13 @@ class UserRecipesController < ApplicationController
       #   end
       # end
       redirect_to recipe_path(params[:recipe_id]), notice: 'Recipe was added to your cookbook.'
-      # UserRecipeCollection.new()
+      raise
+      user_recipe_collection = UserRecipeCollection.new(
+        collection_id: params[:user_recipe][:collection_ids],
+        user_recipe_id: @user_recipe.id)
+      user_recipe_collection.save
+
+        # default_collection_id = Collection.where(name: 'All', user: current_user)[0].id
     else
       redirect_to recipe_path(params[:recipe_id]), notice: 'This recipe is already in your cookbook.'
     end
@@ -44,9 +51,7 @@ class UserRecipesController < ApplicationController
   private
 
   def user_recipe_params
-    # default_collection_id = Collection.where(name: 'All', user: current_user)[0].id
-    # params.require(:user_recipe).permit(collection_ids: [default_collection_id])
     params.require(:user_recipe).permit(:user_id, :recipe_id)
-
   end
+
 end
