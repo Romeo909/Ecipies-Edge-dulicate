@@ -1,7 +1,7 @@
-# require "open-uri"
-# require 'json'
-# require 'uri'
-# require 'net/http'
+require "open-uri"
+require 'json'
+require 'uri'
+require 'net/http'
 
 User.destroy_all
 Recipe.destroy_all
@@ -11,43 +11,43 @@ RecipeIngredient.destroy_all
 UserIngredient.destroy_all
 UserIngredient.destroy_all
 
-# def getInstruction(id)
-#   instructionURL = URI("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/#{id}/information")
-#   instructionHTTP = Net::HTTP.new(instructionURL.host, instructionURL.port)
-#   instructionHTTP.use_ssl = true
-#   instructionRequest = Net::HTTP::Get.new(instructionURL)
-#   instructionRequest["X-RapidAPI-Key"] = ENV['RAPID_API_KEY']
-#   instructionRequest["X-RapidAPI-Host"] = 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
-#   instructionResponse = instructionHTTP.request(instructionRequest)
-#   instruction = JSON.parse(instructionResponse.read_body)
-# end
+def getInstruction(id)
+  instructionURL = URI("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/#{id}/information")
+  instructionHTTP = Net::HTTP.new(instructionURL.host, instructionURL.port)
+  instructionHTTP.use_ssl = true
+  instructionRequest = Net::HTTP::Get.new(instructionURL)
+  instructionRequest["X-RapidAPI-Key"] = ENV['RAPID_API_KEY']
+  instructionRequest["X-RapidAPI-Host"] = 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
+  instructionResponse = instructionHTTP.request(instructionRequest)
+  instruction = JSON.parse(instructionResponse.read_body)
+end
 
-# url = URI("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=10&tags=vegetarian%2Cdessert")
+url = URI("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=10&tags=vegetarian%2Cdessert")
 
-# url = URI("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?query=vegetarian")
+url = URI("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?query=vegetarian")
 
-# http = Net::HTTP.new(url.host, url.port)
-# http.use_ssl = true
+http = Net::HTTP.new(url.host, url.port)
+http.use_ssl = true
 
-# request = Net::HTTP::Get.new(url)
-# request["X-RapidAPI-Key"] = ENV['RAPID_API_KEY']
-# request["X-RapidAPI-Host"] = 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
+request = Net::HTTP::Get.new(url)
+request["X-RapidAPI-Key"] = ENV['RAPID_API_KEY']
+request["X-RapidAPI-Host"] = 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
 
-# response = http.request(request)
-# recipes = JSON.parse(response.read_body)["results"]
+response = http.request(request)
+recipes = JSON.parse(response.read_body)["results"]
 
-# imageBaseUrl = "https://spoonacular.com/recipeImages/"
+imageBaseUrl = "https://spoonacular.com/recipeImages/"
 
-# recipes.each do |recipe|
-#     # instruction = "#{baseUrl}/#{recipe["id"]}/information"
-#    instructions = getInstruction(recipe["id"])
-#    instruction = instructions["instructions"]
-#    extendedIngredients = instructions["extendedIngredients"]
-#    newRecipe = Recipe.new(name: recipe["title"], instructions: instruction, servings: recipe["servings"], cooking_time: recipe["readyInMinutes"], ingredients: extendedIngredients.map{|ingredient| ingredient["name"]}.join(", "))
-#    file = URI.open("#{imageBaseUrl}#{recipe["image"]}")
-#     newRecipe.image.attach(io: file, filename: "#{recipe["title"].strip}.png", content_type: "image/png")
-#    newRecipe.save
-# end
+recipes.each do |recipe|
+    # instruction = "#{baseUrl}/#{recipe["id"]}/information"
+   instructions = getInstruction(recipe["id"])
+   instruction = instructions["instructions"]
+   extendedIngredients = instructions["extendedIngredients"]
+   newRecipe = Recipe.new(name: recipe["title"], instructions: instruction, servings: recipe["servings"], cooking_time: recipe["readyInMinutes"], ingredients: extendedIngredients.map{|ingredient| ingredient["name"]}.join(", "))
+   file = URI.open("#{imageBaseUrl}#{recipe["image"]}")
+    newRecipe.image.attach(io: file, filename: "#{recipe["title"].strip}.png", content_type: "image/png")
+   newRecipe.save
+end
 
 
 rayane = User.create!(email: "rayane@gmail.com", password: "123456", username: "Rayane")
