@@ -22,7 +22,8 @@
       <p>no recipe found in this collection</p>
     <% else %>
       <% @collection.user_recipes.each do |user_recipe| %>
-        <%= render 'shared/user-recipe-card', user_recipe: user_recipe %>
+        <% user_collection = UserRecipeCollection.where(collection: @collection, user_recipe: user_recipe) %>
+        <%= render 'shared/user-recipe-card', user_recipe: user_recipe, user_recipe_collection: user_collection.ids  %>
       <% end %>
     <% end %>
   </div>
