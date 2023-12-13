@@ -23,7 +23,9 @@ Rails.application.routes.draw do
   resources :user_recipe_collections, only: [:destroy]
 
 
-  resources :user_recipes, only: [:index, :show, :update, :destroy]
+  resources :user_recipes, only: [:index, :show, :update, :destroy] do
+    resources :user_recipe_collections, only: [:create]
+  end
 
   resources :recipes, only: [:index, :show, :create, :new] do
     resources :user_recipes, only: [:create]
