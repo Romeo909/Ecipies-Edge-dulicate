@@ -15,16 +15,16 @@ class UserRecipesController < ApplicationController
 
     if @user_recipe.save
       # if params[:user_recipe][:collection_ids].present?
-      #   params[:user_recipe][:collection_ids].each do |id|
-      #     UserRecipeCollection.create!(user_recipe: @user_recipe, collection: Collection.find(id)) if id != ""
-      #   end
       # end
-      redirect_to recipe_path(params[:recipe_id]), notice: 'Recipe was added to your cookbook.'
       raise
-      user_recipe_collection = UserRecipeCollection.new(
-        collection_id: params[:user_recipe][:collection_ids],
-        user_recipe_id: @user_recipe.id)
-      user_recipe_collection.save
+      params[:user_recipe][:collection_ids].each do |id|
+        UserRecipeCollection.create!(user_recipe: @user_recipe, collection: Collection.find(id))
+      end
+    # user_recipe_collection = UserRecipeCollection.new(
+    #   collection_id: params[:user_recipe][:collection_ids],
+    #   user_recipe_id: @user_recipe.id)
+    # user_recipe_collection.save
+      redirect_to recipe_path(params[:recipe_id]), notice: 'Recipe was added to your cookbook.'
 
         # default_collection_id = Collection.where(name: 'All', user: current_user)[0].id
     else

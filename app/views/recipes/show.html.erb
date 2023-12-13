@@ -12,7 +12,7 @@
             <input type="checkbox" data-checkbox-select-all-target="checkboxAll" />
             <span>Select All / Deselect All</span>
           </label><br> %>
-          <%= f.collection_check_boxes :collection_ids, Collection.where(user: current_user), :id, :name do |b| %>
+          <%= f.collection_check_boxes :collection_ids, Collection.where(user: current_user), :id, :name, include_hidden: false do |b| %>
             <div class="fs-3 mb-2">
               <%= b.label do %>
                 <%= b.check_box data: { checkbox_select_all_target: "checkbox"}, class: "form-check-input" %>
