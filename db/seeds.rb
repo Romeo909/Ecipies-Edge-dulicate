@@ -3,12 +3,12 @@ require 'json'
 require 'uri'
 require 'net/http'
 
-User.destroy_all
 RecipeIngredient.destroy_all
 Recipe.destroy_all
 UserIngredient.destroy_all
 Ingredient.destroy_all
 Category.destroy_all
+User.destroy_all
 
 def getInstruction(id)
   instructionURL = URI("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/#{id}/information")
