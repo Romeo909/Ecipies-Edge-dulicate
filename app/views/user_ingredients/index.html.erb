@@ -1,7 +1,9 @@
 <div class="flexbox">
   <div class="wrapper">
     <h3 class="mb-2">Your ingredient list</h3>
-    <%= link_to 'What can I cook with my fridge?', recipes_path(:fridge => @ingredients_name)%>
+    <div class= "d-flex justify-content-center" >
+    <%= link_to 'find recipes?', recipes_path(:fridge => @ingredients_name), class:"btn-fridge"%>
+    </div>
     <br>
     <%= link_to 'add new ingredient(s)', ingredients_path, class: "d-flex justify-content-center" %>
     <% @categories.each do |category|%>
