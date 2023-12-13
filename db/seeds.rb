@@ -192,7 +192,13 @@ Recipe.create!(name: "Eggplant Pasta", instructions: "Easy and quick pasta dish!
 Recipe.create!(name: "Curried Carrot Soup", instructions: "Quick, easy, and light ", servings: 6, cooking_time: 25, ingredients: ["carrot chopped", "vegetable broth", "onions chopped", "curry powder", "olve oil"])
 Recipe.create!(name: "Mediterranean Pesto Pizza", instructions: "Quick, easy, and light ", servings: 6, cooking_time: 25, ingredients: ["carrot chopped", "vegetable broth", "onions chopped", "curry powder", "olve oil"])
 Recipe.create!(name: "Guacamole", instructions: "This guacamole recipe gets a tasty kick from cayenne and cilantro", servings: 4, cooking_time: 15, ingredients: ["avocados", "lime", "onion ", "tomatoes", "garlic", "cilantro"])
-
+Recipe.create!(name: "Stuffed Mushrooms", instructions: "These delicious stuffed mushrooms are pretty easy to make and taste just like the ones you'd get in a restaurant!", servings: 4, cooking_time: 20, ingredients: ["mushrooms", "cream cheese", "parmesan ", "seasoning", "oil"])
+Recipe.create!(name: "Orange and Avocado Salad", instructions: "This is one of the easiest salads so it’s a great one for a busy weeknight or a quick lunch!", servings: 2, cooking_time: 10, ingredients: ["avocados", "orange", "almond", "mixed greens", "olive oil"])
+Recipe.create!(name: "Creamy Goat Cheese Pasta", instructions: "This creamy goat cheese pasta uses a simple sauce with just a few ingredients. It’s a quick and easy dinner idea but you’d never know it from the taste!", servings: 4, cooking_time: 15, ingredients: ["pasta", "goat cheese", "asparagus", "olive oil"])
+Recipe.create!(name: "Shaved Brussels Sprouts with Parmesan & Lemon", instructions: "This shaved brussels sprout salad doesn’t require any cooking – you can eat these sprouts raw!", servings: 2, cooking_time: 20, ingredients: ["brussel sprouts", "lemon", "pine nuts ", "olive oil", "parmesan"])
+Recipe.create!(name: "Chocolate Granola Bark", instructions: "This chocolate granola bark recipe is an easy dessert that you can make in just 5 minutes! With plenty of substitution options, you’ll be able to make this with the ingredients you already have in your pantry.", servings: 6, cooking_time: 5, ingredients: ["semi-sweet chocolate", "granola", "pumkin seeds ", "coconut flakes" ])
+Recipe.create!(name: "Potato Soup", instructions: "This easy potato soup is only 4 ingredients and it’s budget-friendly, too! Try this deliciously creamy potato soup for your next weeknight meal.", servings: 8, cooking_time: 30, ingredients: ["potatoess", "milk", "cheddar cheese", "garlic" ])
+Recipe.create!(name: "Black Bean Soup", instructions: "This vegan black bean soup recipe is deliciously spicy", servings: 2, cooking_time: 15, ingredients: ["black beans", "tomatoes", "salsa", "cumin", "fresh cilantro"])
 
 
 
