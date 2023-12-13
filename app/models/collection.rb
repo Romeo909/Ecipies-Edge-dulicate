@@ -3,5 +3,5 @@ class Collection < ApplicationRecord
   has_many :user_recipe_collections, dependent: :destroy
   has_many :user_recipes, through: :user_recipe_collections
 
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: { scope: :user }
 end
