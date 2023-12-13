@@ -8,7 +8,6 @@ class UserRecipesController < ApplicationController
   end
 
   def create
-    # all_recipes_collection = Collection.where(name: "All", user: current_user)
     @user_recipe = UserRecipe.new(user_recipe_params)
     @user_recipe.user = current_user
     @user_recipe.recipe = Recipe.find(params[:recipe_id])
@@ -42,7 +41,6 @@ class UserRecipesController < ApplicationController
   private
 
   def user_recipe_params
-    all_recipes_collection_id = Collection.where(name: "All", user: current_user)
-    params.require(:user_recipe).permit(collection_ids: [all_recipes_collection_id])
+    params.require(:user_recipe).permit(collection_ids: [])
   end
 end
