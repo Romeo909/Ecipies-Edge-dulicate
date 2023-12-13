@@ -5,6 +5,12 @@ class UserRecipesController < ApplicationController
 
   def show
     @user_recipe = UserRecipe.find(params[:id])
+    # @user_recipe_collection = UserRecipeCollection.new
+    # raise
+    # Find UserRecipeCollection where this recipe is stored.
+    # Find all collections of the current user
+    # Pass this collections in the array if they are not equal to the collections find in step 1.
+    # Pass these @collections to the modal
   end
 
   def create
@@ -16,7 +22,7 @@ class UserRecipesController < ApplicationController
     if @user_recipe.save
       # if params[:user_recipe][:collection_ids].present?
       # end
-      raise
+      # raise
       params[:user_recipe][:collection_ids].each do |id|
         UserRecipeCollection.create!(user_recipe: @user_recipe, collection: Collection.find(id))
       end
