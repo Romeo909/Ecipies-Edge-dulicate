@@ -64,7 +64,7 @@ category_7 = Category.create!(name: "flour")
 # category_8 = Category.create!(name: "mushrooms")
 category_9 = Category.create!(name: "herbs & spices")
 # Category.create!(name: "meat substitute")
-category_10 = Category.create!("nuts and seeds")
+category_10 = Category.create!(name: "nuts and seeds")
 
 
 ingretient_1 = Ingredient.create(name: "aubergine", category_id: category_1)
