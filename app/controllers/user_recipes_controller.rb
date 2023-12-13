@@ -22,10 +22,11 @@ class UserRecipesController < ApplicationController
     if @user_recipe.save
       # if params[:user_recipe][:collection_ids].present?
       # end
-      # raise
       params[:user_recipe][:collection_ids].each do |id|
         UserRecipeCollection.create!(user_recipe: @user_recipe, collection: Collection.find(id))
       end
+      all_default_collection = Collection.where(user: current_user, name: "All")[0]
+      UserRecipeCollection.create!(user_recipe: @user_recipe, collection: all_default_collection)
     # user_recipe_collection = UserRecipeCollection.new(
     #   collection_id: params[:user_recipe][:collection_ids],
     #   user_recipe_id: @user_recipe.id)
