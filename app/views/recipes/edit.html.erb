@@ -7,6 +7,9 @@
     <%= f.input :cooking_time %>
     <%= f.input :ingredients %>
     <%= f.input :image, as: :file, input_html: { value: @recipe.image} %>
-    <%= f.button :submit, "Update", class: "btn-save" %>
+    <div class="d-flex align-items-center gap-2">
+      <%= f.button :submit, "Update", class: "btn-save" %>
+      <%= link_to "Cancel", user_recipe_path(), class: "btn-cancel" %>
+    </div>
   <% end %>
 </div>

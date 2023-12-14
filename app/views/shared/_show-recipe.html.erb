@@ -35,11 +35,15 @@
         <p class="text-start my-content" data-read-more-target="content"><%= recipe.instructions %></p>
         <button class="read" data-action="read-more#toggle">Read more</button>
       </div>
-      <div  >
+      <div class="mt-5">
         <% if params[:return_to].present? %>
-          <%= link_to "Back", recipes_path(query: params[:return_to]), class:"btn btn-fridge mt-2 text-dark" %>
+          <%= link_to recipes_path(query: params[:return_to]), class:"btn-back" do %>
+            <i class="fa-solid fa-backward"></i> Back
+          <% end %>
         <% else %>
-          <%= link_to "Back", :back , class:"btn btn-fridge mt-2 text-dark" %>
+          <%= link_to :back , class:"btn-back" do %>
+            <i class="fa-solid fa-backward"></i> Back
+          <% end %>
         <% end %>
       </div>
     </div>

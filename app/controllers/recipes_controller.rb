@@ -42,6 +42,7 @@ class RecipesController < ApplicationController
   def edit
     @recipe = Recipe.find(params[:id])
     # @collections = Collection.where(user: current_user)
+    @user_recipe = UserRecipe.where(recipe: @recipe, user: current_user)[0]
   end
 
   def update

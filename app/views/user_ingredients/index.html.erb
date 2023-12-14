@@ -1,23 +1,24 @@
 <div class="flexbox">
   <div class="wrapper">
     <h3 class="mb-2">Your ingredient list</h3>
+    <hr>
     <div class= "d-flex justify-content-center" >
-    <%= link_to 'find recipes?', recipes_path(:fridge => @ingredients_name), class:"btn-fridge"%>
+      <%= link_to 'find recipes?', recipes_path(:fridge => @ingredients_name), class:"btn-cta"%>
     </div>
     <br>
-    <%= link_to 'add new ingredient(s)', ingredients_path, class: "d-flex justify-content-center" %>
+    <%= link_to 'add new ingredient(s)', ingredients_path, class: "d-flex justify-content-center mb-3 fw-bold fs-4" %>
     <% @categories.each do |category|%>
-      <div class="card border-light mb-3" style="max-width: 18rem;">
+      <div class="card border-light mb-3" style="max-width: 20rem;">
         <div class="card-header"><i class="fa-solid fa-utensils"></i> <%= category.name.capitalize %></div>
         <div class="card-body">
           <p class="card-text">
             <% @user_ingredients.each do |user_ingredient|%>
               <% if user_ingredient.category_ids.include?(category.id) %>
-                    <span class="badge ingredient-category"><%= user_ingredient.ingredient.name %>
-                      <%= link_to delete_user_ingredient_path(user_ingredient), data: {turbo_method: :delete} do%>
-                        <i class="fa-solid fa-circle-minus"></i>
-                      <% end %>
-                    </span>
+                <span class="badge ingredient-category"><%= user_ingredient.ingredient.name %>
+                  <%= link_to delete_user_ingredient_path(user_ingredient), data: {turbo_method: :delete} do%>
+                    <i class="fa-solid fa-circle-minus"></i>
+                  <% end %>
+                </span>
               <% end %>
             <% end %>
           </p>
