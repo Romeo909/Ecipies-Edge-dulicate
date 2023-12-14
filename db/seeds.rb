@@ -64,6 +64,7 @@ category_7 = Category.create!(name: "flour")
 category_9 = Category.create!(name: "herbs & spices")
 # Category.create!(name: "meat substitute")
 category_10 = Category.create!(name: "nuts and seeds")
+category_11 = Category.create!(name: "sweetner")
 
 
 ingretient_1 = Ingredient.create(name: "eggplant", category: category_1)
@@ -176,14 +177,13 @@ ingretient_107 = Ingredient.create(name: "salt", category: category_9)
 ingretient_108 = Ingredient.create(name: "pepper", category: category_9)
 ingretient_109 = Ingredient.create(name: "cumin", category: category_9)
 ingretient_110 = Ingredient.create(name: "chilli flakes", category: category_9)
-ingretient_110 = Ingredient.create(name: "olive oil", category: category_9)
-ingretient_111 = Ingredient.create(name: "tomato", category: category_1)
-ingretient_112 = Ingredient.create(name: "pizza dough", category: category_7)
-ingretient_113 = Ingredient.create(name: "olives", category: category_2)
-ingretient_114 = Ingredient.create(name: "sugar", category: category_9)
-ingretient_115 = Ingredient.create(name: "chocolate", category: category_9)
-ingretient_116 = Ingredient.create(name: "honey", category: category_9)
-
+ingretient_111 = Ingredient.create(name: "olive oil", category: category_9)
+ingretient_112 = Ingredient.create(name: "tomato", category: category_1)
+ingretient_113 = Ingredient.create(name: "pizza dough", category: category_7)
+ingretient_114 = Ingredient.create(name: "olives", category: category_2)
+ingretient_115 = Ingredient.create(name: "sugar", category: category_11)
+ingretient_116 = Ingredient.create(name: "chocolate", category: category_11)
+ingretient_117 = Ingredient.create(name: "honey", category: category_11)
 
 
 
@@ -204,19 +204,11 @@ recipe1.image.attach(io: file, filename: "nes.png", content_type: "image/png")
 # Recipe.create!(name: "Chicken & chorizo jambalaya", instructions: "This Creole one-pot is bursting with spicy chorizo, succulent chicken and tender veg. It's quick to make and packed with flavour - the perfect midweek meal", servings: 4, cooking_time: 40)
 # Recipe.create!(name: "Pasta dish", instructions: "Pasta with tomato sauce", servings: 2, cooking_time: 20, ingredients: %(spaghetti, red pepper, oignon))
 recipe2 = Recipe.create!(name: "Vegetable satay curry", instructions: "Put the coconut milk, curry powder, stock cube, peanut butter and squash in a 3.5ltr slow-cooker. Add 100ml water and mix well.
-<<<<<<< HEAD
- Cook on low for 3½-4 hrs until the squash is tender. Stir in the frozen peas for the final 15 mins, then turn off the slow-cooker and tip in the spinach and gently stir through the curry until it has wilted. Stir in the lime juice and taste for seasoning. Serve with rice, if you like.", servings: 3, cooking_time: 30, ingredients: "curry, chickpea, carrot, squash, oignon" )
-file = URI.open("https://www.theendlessmeal.com/wp-content/uploads/2020/12/Peanut-Curry-3-scaled.jpg")
-recipe2.image.attach(io: file, filename: "nes.png", content_type: "image/png")
-recipe3 = Recipe.create!(name: "Vegetarian chicken & chorizo jambalaya", instructions: "Heat a large skillet & drizzle with olive oilsauté bell peppers for 1 minadd Cajun spice and stir
-Add rice, water and tomatoes mix to combinebring to a boilreduce heat to simmer and covercook for 15 minMix in Kidney beans and cook 2-3 more minutesserve warm", servings: 4, cooking_time: 40, ingredients: "oyster mushroom, red pepper, oignon, gusta vegan sausage")
-=======
  Cook on low for 3½-4 hrs until the squash is tender. Stir in the frozen peas for the final 15 mins, then turn off the slow-cooker and tip in the spinach and gently stir through the curry until it has wilted. Stir in the lime juice and taste for seasoning. Serve with rice, if you like.", servings: 3, cooking_time: 30, ingredients: "curry, chickpea, carrot, squash, oinion")
 file = URI.open("https://www.theendlessmeal.com/wp-content/uploads/2020/12/Peanut-Curry-3-scaled.jpg")
 recipe2.image.attach(io: file, filename: "nes.png", content_type: "image/png")
 recipe3 = Recipe.create!(name: "Vegetarian chicken & chorizo jambalaya", instructions: "Heat a large skillet & drizzle with olive oilsauté bell peppers for 1 minadd Cajun spice and stir
 Add rice, water and tomatoes mix to combinebring to a boilreduce heat to simmer and covercook for 15 minMix in Kidney beans and cook 2-3 more minutesserve warm", servings: 4, cooking_time: 40, ingredients: "oyster mushroom, red pepper, onion, gusta vegan sausage")
->>>>>>> 2385bf230162c332e30f50d2fa5dad417e216087
 file = URI.open("https://veganheaven.org/wp-content/uploads/2018/03/Vegan-Jambalaya-with-Beans-6.jpg")
 recipe3.image.attach(io: file, filename: "nes.png", content_type: "image/png")
 recipe4 = Recipe.create!(name: "Mexican Casserole", instructions: "Preheat oven to 375 degrees F (190 degrees C). Spray a 9-inch pie pan with non-stick cooking spray.In a saucepan, cook refried beans and onions (to soften them) on medium-high heat for about 5 minutes.
@@ -235,24 +227,11 @@ Transfer the eggplant and onions to a blender, season with salt and pepper, and 
 Drain the pasta and mix it with the creamy eggplant sauce. Serve with abundant grated Parmigiano cheese on top.", servings: 8, cooking_time: 40, ingredients: "garlic, eggplant, tomatoes chapped, rigaton pasta, olve oil")
 file = URI.open("https://www.foodandwine.com/thmb/w9SxDtPYuLyM-6qfnC9GqWSIedE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/201001-xl-fusilli-with-roasted-eggplant-and-goat-cheese-1a526bcb477341c19c7b7a4b63d4cb29.jpg")
 recipe6.image.attach(io: file, filename: "nes.png", content_type: "image/png")
-<<<<<<< HEAD
-recipe7 = Recipe.create!(name: "Curried Carrot Soup", instructions: "Sauté the onions.Stir in the spices, carrots, and apples.Add stock and bring to a boil. Then reduce the heat, cover, and simmer.Transfer soup to a blenderReturn the puree back to the pot, season with pepper, and serve. Garnish and ENJOY!", servings: 6, cooking_time: 25, ingredients: "carrot chopped, vegetable broth, onions chopped, curry powder, apples")
-=======
 recipe7 = Recipe.create!(name: "Curried Carrot Soup", instructions: "Sauté the onions.Stir in the spices, carrots, and apples.Add stock and bring to a boil. Then reduce the heat, cover, and simmer.Transfer soup to a blenderReturn the puree back to the pot, season with pepper, and serve. Garnish and ENJOY!", servings: 6, cooking_time: 25, ingredients: "carrot choppe, vegetable broth, onions chopped, curry powder, apples")
->>>>>>> 2385bf230162c332e30f50d2fa5dad417e216087
 file = URI.open("https://s3.amazonaws.com/static.realcaliforniamilk.com/media/recipes_2/real-california-curried-carrot-soup.jpg")
 recipe7.image.attach(io: file, filename: "nes.png", content_type: "image/png")
 recipe8 = Recipe.create!(name: "Mediterranean Pesto Pizza", instructions: "Preheat oven to 350 degrees F (175 degrees C).
 Spread pesto onto each pita; top with feta cheese, tomatoes, and Kalamata olives. Place each pita onto a baking sheet.
-<<<<<<< HEAD
-Bake in the preheated oven until cheese is melted, 6 to 8 minutes. ", servings: 6, cooking_time: 25, ingredients:  "tomatoes, feta cheese, flatbread, olives, olve oil" )
-file = URI.open("https://www.thissavoryvegan.com/wp-content/uploads/2017/03/Vegan-pesto-pizza-2.jpeg")
-recipe8.image.attach(io: file, filename: "nes.png", content_type: "image/png")
-recipe9 = Recipe.create!(name: "Guacamole", instructions: "Mash avocados, lime juice, and salt together in a medium bowl; mix in tomatoes, onion, cilantro, and garlic. Stir in cayenne pepper.Serve immediately, or cover and refrigerate for 1 hour for improved flavor.", servings: 4, cooking_time: 15, ingredients: "avocados, lime, onion , tomatoes, garlic, cilantro")
-file = URI.open("https://www.budgetbytes.com/wp-content/uploads/2022/04/Guacamole-close.jpg")
-recipe9.image.attach(io: file, filename: "nes.png", content_type: "image/png")
-recipe10 = Recipe.create!(name: "Stuffed Mushrooms", instructions: "These delicious stuffed mushrooms are pretty easy to make and taste just like the ones you'd get in a restaurant!", servings: 4, cooking_time: 20, ingredients: "mushrooms, cream cheese, parmesan , seasoning, oil")
-=======
 Bake in the preheated oven until cheese is melted, 6 to 8 minutes. ", servings: 6, cooking_time: 25, ingredients: "carrot chopped, vegetable broth, onions chopped, curry powder, olve oil")
 file = URI.open("https://www.thissavoryvegan.com/wp-content/uploads/2017/03/Vegan-pesto-pizza-2.jpeg")
 recipe8.image.attach(io: file, filename: "nes.png", content_type: "image/png")
@@ -260,7 +239,6 @@ recipe9 = Recipe.create!(name: "Guacamole", instructions: "Mash avocados, lime j
 file = URI.open("https://www.budgetbytes.com/wp-content/uploads/2022/04/Guacamole-close.jpg")
 recipe9.image.attach(io: file, filename: "nes.png", content_type: "image/png")
 recipe10 = Recipe.create!(name: "Stuffed Mushrooms", instructions: "These delicious stuffed mushrooms are pretty easy to make and taste just like the ones you'd get in a restaurant!", servings: 4, cooking_time: 20, ingredients: "mushrooms, cream cheese, parmesan, seasoning, oil")
->>>>>>> 2385bf230162c332e30f50d2fa5dad417e216087
 file = URI.open("https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2021/11/Stuffed-Mushrooms-main-1-1.jpg")
 recipe10.image.attach(io: file, filename: "nes.png", content_type: "image/png")
 recipe11 = Recipe.create!(name: "Orange and Avocado Salad", instructions: "Whisk the olive oil with the orange juice and add salt and pepper to taste.In a large bowl, add the mixed greens and top with orange segments, avocado, and almond slices.
@@ -273,20 +251,12 @@ Add the pasta and asparagus and stir until evenly coated.", servings: 4, cooking
 file = URI.open("https://iheartvegetables.com/wp-content/uploads/2014/03/Goat-Cheese-Pasta-7-of-8.jpg")
 recipe12.image.attach(io: file, filename: "nes.png", content_type: "image/png")
 recipe13 = Recipe.create!(name: "Shaved Brussels Sprouts with Parmesan & Lemon", instructions: "Using a mandoline slicer (or a sharp knife) cut the Brussels sprouts into very thin slices. Discard the ends. You can also buy pre-shredded Brussels sprouts or use a shredding disk of a food processor.In a small dish, combine the olive oil and lemon juice.
-<<<<<<< HEAD
-Toss the shaved Brussels sprouts with the olive oil and lemon juice.Shred the parmesan cheese on top with a fine cheese grater.Sprinkle with pine nuts or sunflower seeds and a pinch of salt.", servings: 2, cooking_time: 20, ingredients: "brussel sprouts, lemon, pine nuts , olive oil, parmesan")
-=======
 Toss the shaved Brussels sprouts with the olive oil and lemon juice.Shred the parmesan cheese on top with a fine cheese grater.Sprinkle with pine nuts or sunflower seeds and a pinch of salt.", servings: 2, cooking_time: 20, ingredients: "brussel sprouts, lemon, pine nuts, olive oil, parmesan")
->>>>>>> 2385bf230162c332e30f50d2fa5dad417e216087
 file = URI.open("https://www.platingsandpairings.com/wp-content/uploads/2018/10/shaved-brussel-sprout-salad-recipe-1-scaled.jpg")
 recipe13.image.attach(io: file, filename: "nes.png", content_type: "image/png")
 recipe14 = Recipe.create!(name: "Chocolate Granola Bark", instructions: " Melt the chocolate chips in a microwave safe bowl by cooking on 50% power, stirring every 30 seconds until smooth.
 Spread the melted chocolate chips onto a sheet of wax paper or parchment paper.Sprinkle the granola evenly across the chocolate.Top with seeds, coconut flakes, and salt.
-<<<<<<< HEAD
-Gently press the toppings into the chocolate so they stick, then place it in the fridge for 30 minutes or until set.Crack into bite size pieces and store in an airtight container in the refrigerator.", servings: 6, cooking_time: 5, ingredients: "semi-sweet chocolate, granola, pumkin seeds , coconut flakes" )
-=======
 Gently press the toppings into the chocolate so they stick, then place it in the fridge for 30 minutes or until set.Crack into bite size pieces and store in an airtight container in the refrigerator.", servings: 6, cooking_time: 5, ingredients: "semi-sweet chocolate, granola, pumkin seeds, coconut flakes")
->>>>>>> 2385bf230162c332e30f50d2fa5dad417e216087
 file = URI.open("https://iheartvegetables.com/wp-content/uploads/2017/07/Granola-Bark-3-of-6-680x1020.jpg")
 recipe14.image.attach(io: file, filename: "nes.png", content_type: "image/png")
 recipe15 = Recipe.create!(name: "Potato Soup", instructions: "Fill a large pot of water with just enough water to cover the potatoes and bring it to a boil.
@@ -302,20 +272,12 @@ recipe16.image.attach(io: file, filename: "nes.png", content_type: "image/png")
 recipe17 = Recipe.create!(name: "Baked Eggs in Tomato Sauce with Kale", instructions: "Preheat oven to 350 degrees F.
 Heat oil in a 10-inch cast-iron skillet or nonstick ovenproof skillet over medium heat. Add kale, season with 1/4 teaspoon salt and 1/8 teaspoon pepper, and sauté for 2 minutes. Stir in marinara (or tomato) sauce and bring to a simmer.
 Make 8 wells in the sauce with the back of a spoon and carefully crack an egg into each well. Season the eggs with the remaining 1/4 teaspoon salt and 1/8 teaspoon pepper.
-<<<<<<< HEAD
-Transfer the pan to the oven and bake until the egg whites are set and the yolks are still soft, about 20 minutes.", servings: 2, cooking_time: 15, ingredients: "eggs, marinara sauce, kale, olive oil",)
-=======
 Transfer the pan to the oven and bake until the egg whites are set and the yolks are still soft, about 20 minutes.", servings: 2, cooking_time: 15, ingredients: "eggs, marinara sauce, kale, olive oil, salt, pepper")
->>>>>>> 2385bf230162c332e30f50d2fa5dad417e216087
 file = URI.open("https://www.eatingwell.com/thmb/K09Abke0bp7cDnJZmMED_r7cqxU=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/5340730-1ae0447154a64d9db31e946fb6f4d78e.jpg")
 recipe17.image.attach(io: file, filename: "nes.png", content_type: "image/png")
 recipe18 = Recipe.create!(name: "Sheet-Pan Caprese Pizza", instructions: "Place a 17- x 12-inch baking sheet in oven; preheat oven to 450 degrees F. Stretch pizza dough into a 15- x 10-inch rectangle on a large sheet of parchment paper. Brush dough evenly with oil; sprinkle with 1/2 teaspoon of the salt and 1/4 teaspoon of the pepper. Transfer to hot baking sheet in preheated oven. Bake until crust starts to brown, about 10 minutes.
   Remove from oven; top evenly with cheese and tomatoes. Return to oven; bake at 450 degrees F until cheese just melts, about 2 minutes.
-<<<<<<< HEAD
-  Remove from oven. Sprinkle with basil and remaining 1/4 teaspoon each salt and pepper; drizzle with glaze. Slice into 6 pieces.", servings: 2, cooking_time: 15, ingredients: "baby heirloom, tomates, basil, mozzarella, balsamic glaze, pizza dough")
-=======
   Remove from oven. Sprinkle with basil and remaining 1/4 teaspoon each salt and pepper; drizzle with glaze. Slice into 6 pieces.", servings: 2, cooking_time: 15, ingredients: "baby heirloom tomates, basil, mozzarella, balsamic glaze, pizza dough")
->>>>>>> 2385bf230162c332e30f50d2fa5dad417e216087
 file = URI.open("https://www.eatingwell.com/thmb/lhjs3JMYKFAmL2bSoCHyjBsWjKc=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/6974157-a02e017c536c4e5d8d9a54671571bfff.jpg")
 recipe18.image.attach(io: file, filename: "nes.png", content_type: "image/png")
 recipe19 = Recipe.create!(name: "White Bean & Pesto Risotto", instructions: "Preheat oven to 425°F and coat a large rimmed baking sheet lightly with olive oil.
@@ -326,11 +288,7 @@ file = URI.open("https://www.eatingwell.com/thmb/SJu8Ht5qcD4c3o9IMyj7LusfWcs=/75
 recipe19.image.attach(io: file, filename: "nes.png", content_type: "image/png")
 recipe20 = Recipe.create!(name: "Cauliflower Gnocchi with Asparagus & Pesto", instructions: "Heat oil in a large nonstick skillet over medium heat. Add gnocchi and cook, stirring frequently, until heated through and golden brown, 6 to 8 minutes.
 Meanwhile, place asparagus in a microwave-safe dish and add 1/4 inch of water. Cover tightly and microwave on High until crisp-tender and bright green, about 2 minutes. Drain and cut into 1-inch pieces.
-<<<<<<< HEAD
-Add the asparagus and pesto to the gnocchi and toss to combine.", servings: 2, cooking_time: 15, ingredients: "cauliflower gnocchi, asparagus, basil, pesto, olive oil")
-=======
 Add the asparagus and pesto to the gnocchi and toss to combine.", servings: 2, cooking_time: 15, ingredients: "cauliflower gnocchi, asparagus, basil, pesto, olive oli")
->>>>>>> 2385bf230162c332e30f50d2fa5dad417e216087
 file = URI.open("https://www.eatingwell.com/thmb/asmp3wYiakUxze5tnKyEgIcKIPE=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/cauliflower-gnocchi-with-asparagus-and-pesto-3e489e08fc6e48eea009294387e91592.jpeg")
 recipe20.image.attach(io: file, filename: "nes.png", content_type: "image/png")
 recipe21 = Recipe.create!(name: "Teriyaki Edamame Sauté", instructions: "Heat oil in a large nonstick skillet over medium heat. Add coleslaw mix and cook, stirring, until the cabbage begins to soften, about 2 minutes. Stir in edamame and teriyaki sauce. Cook, stirring, until the edamame are heated through and the sauce thickens, about 1 minute more.", servings: 2, cooking_time: 15, ingredients: "teriyaki sauce, edamame, cabbage, carrot, olive oil")
@@ -343,11 +301,7 @@ file = URI.open("https://www.eatingwell.com/thmb/0MaNOpe7Gv5Zwir39XTD95ChBWU=/75
 recipe22.image.attach(io: file, filename: "nes.png", content_type: "image/png")
 recipe22 = Recipe.create!(name: "Egg Drop Soup with Instant Noodles, Spinach & Scallions", instructions: "
 Bring water to a boil in a small saucepan. Stir in half of the seasoning packet (discard the remainder or reserve for another use). Add noodles and cook until tender, about 3 minutes. Reduce heat to maintain a simmer.
-<<<<<<< HEAD
-Whisk egg in a small bowl. Slowly pour the egg into the simmering soup, stirring constantly. Fold in spinach until just wilted, about 30 seconds. Transfer to a bowl and sprinkle with scallion.", servings: 2, cooking_time: 15, ingredients: "spinach, rice nooodles, egg, scallion")
-=======
 Whisk egg in a small bowl. Slowly pour the egg into the simmering soup, stirring constantly. Fold in spinach until just wilted, about 30 seconds. Transfer to a bowl and sprinkle with scallion.", servings: 2, cooking_time: 15, ingredients: "spinach,rice nooodles, egg, scallion")
->>>>>>> 2385bf230162c332e30f50d2fa5dad417e216087
 file = URI.open("https://www.eatingwell.com/thmb/TGQd4RbfVhcdzSQv5YjWUc8Hsk0=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/8309319-15065462bbf74d019c7c0f35bbf67526.jpg")
 recipe22.image.attach(io: file, filename: "nes.png", content_type: "image/png")
 recipe22 = Recipe.create!(name: "Grilled Pizza with Summer Squash, Feta & Basil", instructions: "Preheat grill to medium-high.

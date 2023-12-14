@@ -1,17 +1,15 @@
 <div class="wrapper">
   <h3 class="mb-3 d-flex justify-content-center"><%= current_user.username %>'s cookbook</h3>
-  <%# <a class="add-recipe">Add new recipe</a> %>
-  <div class="d-flex justify-content-center mx-5 btn btn-fridge">
-  <%= link_to new_collection_path, class: "text-dark" do %>
-    New Category
-  <% end %>
+  <hr>
+  <div class="d-flex justify-content-center mx-5">
+    <%= link_to new_collection_path, class: "btn-cta" do %>
+      New Category
+    <% end %>
   </div>
-  <%# <%= render "shared/sort-button" %>
   <div class="items d-flex flex-column gap-3 mt-3">
     <% @collections.each do |collection| %>
       <%= render "shared/cookbook-item", collection: collection %>
     <% end %>
   </div>
   <br>
-  <%# <= link_to "My Pantry", user_ingredients_path, class:"btn btn-outline-success"%>
 </div>

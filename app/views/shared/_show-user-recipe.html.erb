@@ -1,6 +1,10 @@
 <div class="show-user-recipe-page">
   <div class="image-container">
-    <%= cl_image_tag user_recipe.recipe.image.key, height: 300, width: 400, crop: :fill, class: "recipe-image" %>
+    <% if user_recipe.recipe.image.attached? %>
+      <%= cl_image_tag user_recipe.recipe.image.key, height: 300, width: 400, crop: :fill, class: "recipe-image" %>
+    <% else %>
+      <%= image_tag "recipe_img_default.webp" , height: 300, width: 400, crop: :fill, class: "recipe-image" %>
+    <% end %>
     <% if user_recipe.recipe.user_id? && user_recipe.recipe.user == current_user %>
       <%= link_to edit_recipe_path(user_recipe.recipe), class: "edit" do %>
         <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -50,12 +54,11 @@
         <p class="text-start my-content" data-read-more-target="content"><%= user_recipe.recipe.instructions %></p>
         <button class="read" data-action="read-more#toggle">Read more</button>
       </div>
-      <%# <div  > %>
-      <%# <% if params[:return_to].present? %>
-      <%# <%= link_to "Back", recipes_path(query: params[:return_to]), class:"btn btn-fridge mt-2 text-dark" %>
-      <%# <% else %>
-      <%# <%= link_to "Back", :back , class:"btn btn-fridge mt-2 text-dark" %>
-      <%# <% end %>
+      <div class="mt-5">
+        <%= link_to :back , class:"btn-back" do %>
+          <i class="fa-solid fa-backward"></i> Back
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
