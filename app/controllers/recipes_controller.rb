@@ -16,6 +16,9 @@ class RecipesController < ApplicationController
   def show
     @recipe = Recipe.find(params[:id])
     @user_recipe = UserRecipe.new
+    collections_all = Collection.where(user: current_user)
+    @collections = collections_all.where.not(name: 'All')
+
   end
 
   def new
