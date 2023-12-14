@@ -7,10 +7,14 @@ class UserIngredientsController < ApplicationController
     @path = user_ingredients_path
 
     # Fetch ingredients list to launch a search with it
-    ingredients_id = UserIngredient.where(user: current_user).pluck(:ingredient_id)
+    ingredients_id = @user_ingredients.pluck(:ingredient_id)
     # Without the pluck, I would only get an array of user_ingredients instances
-    @ingredients_name = Ingredient.find(ingredients_id).pluck(:name).join(' ')
-    @categories = Category.all
+    ingredients = Ingredient.find(ingredients_id)
+    @ingredients_name = ingredients.pluck(:name).join(' ')
+
+    category_ids = ingredients.pluck(:category_id)
+    @categories = Category.find(category_ids)
+    # @categories = Category.all
   end
 
   def create
