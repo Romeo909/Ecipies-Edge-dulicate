@@ -64,6 +64,7 @@ category_7 = Category.create!(name: "flour")
 category_9 = Category.create!(name: "herbs & spices")
 # Category.create!(name: "meat substitute")
 category_10 = Category.create!(name: "nuts and seeds")
+category_11 = Category.create!(name: "sweetner")
 
 
 ingretient_1 = Ingredient.create(name: "eggplant", category: category_1)
@@ -176,6 +177,13 @@ ingretient_107 = Ingredient.create(name: "salt", category: category_9)
 ingretient_108 = Ingredient.create(name: "pepper", category: category_9)
 ingretient_109 = Ingredient.create(name: "cumin", category: category_9)
 ingretient_110 = Ingredient.create(name: "chilli flakes", category: category_9)
+ingretient_111 = Ingredient.create(name: "olive oil", category: category_9)
+ingretient_112 = Ingredient.create(name: "tomato", category: category_1)
+ingretient_113 = Ingredient.create(name: "pizza dough", category: category_7)
+ingretient_114 = Ingredient.create(name: "olives", category: category_2)
+ingretient_115 = Ingredient.create(name: "sugar", category: category_11)
+ingretient_116 = Ingredient.create(name: "chocolate", category: category_11)
+ingretient_117 = Ingredient.create(name: "honey", category: category_11)
 
 
 
