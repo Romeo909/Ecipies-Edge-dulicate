@@ -27,17 +27,16 @@ class UserRecipesController < ApplicationController
       end
       all_default_collection = Collection.where(user: current_user, name: "All")[0]
       UserRecipeCollection.create!(user_recipe: @user_recipe, collection: all_default_collection)
-    # user_recipe_collection = UserRecipeCollection.new(
-    #   collection_id: params[:user_recipe][:collection_ids],
-    #   user_recipe_id: @user_recipe.id)
-    # user_recipe_collection.save
+      # user_recipe_collection = UserRecipeCollection.new(
+      #   collection_id: params[:user_recipe][:collection_ids],
+      #   user_recipe_id: @user_recipe.id)
+      # user_recipe_collection.save
       redirect_to recipe_path(params[:recipe_id]), notice: 'Recipe was added to your cookbook.'
 
-        # default_collection_id = Collection.where(name: 'All', user: current_user)[0].id
+    # default_collection_id = Collection.where(name: 'All', user: current_user)[0].id
     else
       redirect_to recipe_path(params[:recipe_id]), notice: 'This recipe is already in your cookbook.'
     end
-
   end
 
   def destroy
@@ -60,5 +59,4 @@ class UserRecipesController < ApplicationController
   def user_recipe_params
     params.require(:user_recipe).permit(:user_id, :recipe_id)
   end
-
 end

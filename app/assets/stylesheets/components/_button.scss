@@ -1,9 +1,23 @@
 .btn-fridge {
   background-color: #29ad95;
   color: #409283;
-  border: 1px solid #4A4A4A;
+  // border: 1px solid #4A4A4A;
   padding: 8px 24px;
   border-radius: 50px;
   font-weight: bold;
-  opacity: 1;
+}
+
+.btn-modal-save, .btn-save {
+  background: #3b6963;
+  color: white;
+  padding: 8px 24px;
+  border-radius: 8px;
+  font-weight: bold;
+  border: none;
+}
+modal-save 
+
+.btn-modal-save:hover, .btn-save:hover {
+  background: #409283;
+  color: white;
 }

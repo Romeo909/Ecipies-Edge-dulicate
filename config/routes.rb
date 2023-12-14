@@ -25,7 +25,9 @@ Rails.application.routes.draw do
 
   resources :user_recipes, only: [:index, :show, :update, :destroy]
 
-  resources :recipes, only: [:index, :show, :create, :new] do
+  resources :recipes do
     resources :user_recipes, only: [:create]
   end
+
+  # , only: [:index, :show, :create, :new, :edit, :update, :destroy]
 end
