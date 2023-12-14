@@ -24,6 +24,11 @@
     <% else %>
       <% @collection.user_recipes.each do |user_recipe| %>
         <% user_collection = UserRecipeCollection.where(collection: @collection, user_recipe: user_recipe) %>
+        <% if user_recipe.recipe.image.present? %>
+          <% @url = cl_image_path(user_recipe.recipe.image.key) %>
+        <% else %>
+          <% @url = image_path("recipe_img_default.webp") %>
+        <% end %>
         <%= render 'shared/user-recipe-card', user_recipe: user_recipe, user_recipe_collection: user_collection.ids  %>
       <% end %>
     <% end %>
