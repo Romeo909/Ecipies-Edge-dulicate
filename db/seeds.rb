@@ -66,7 +66,7 @@ category_9 = Category.create!(name: "herbs & spices")
 category_10 = Category.create!(name: "nuts and seeds")
 
 
-ingretient_1 = Ingredient.create(name: "aubergine", category: category_1)
+ingretient_1 = Ingredient.create(name: "eggplant", category: category_1)
 ingretient_2 = Ingredient.create(name: "onion", category: category_1)
 ingretient_3 = Ingredient.create(name: "red pepper", category: category_1)
 ingretient_4 = Ingredient.create(name: "spaghetti", category: category_3)
@@ -196,11 +196,11 @@ recipe1.image.attach(io: file, filename: "nes.png", content_type: "image/png")
 # Recipe.create!(name: "Chicken & chorizo jambalaya", instructions: "This Creole one-pot is bursting with spicy chorizo, succulent chicken and tender veg. It's quick to make and packed with flavour - the perfect midweek meal", servings: 4, cooking_time: 40)
 # Recipe.create!(name: "Pasta dish", instructions: "Pasta with tomato sauce", servings: 2, cooking_time: 20, ingredients: %(spaghetti, red pepper, oignon))
 recipe2 = Recipe.create!(name: "Vegetable satay curry", instructions: "Put the coconut milk, curry powder, stock cube, peanut butter and squash in a 3.5ltr slow-cooker. Add 100ml water and mix well.
- Cook on low for 3½-4 hrs until the squash is tender. Stir in the frozen peas for the final 15 mins, then turn off the slow-cooker and tip in the spinach and gently stir through the curry until it has wilted. Stir in the lime juice and taste for seasoning. Serve with rice, if you like.", servings: 3, cooking_time: 30, ingredients: "curry, chickpea, carrot, squash, oignon")
+ Cook on low for 3½-4 hrs until the squash is tender. Stir in the frozen peas for the final 15 mins, then turn off the slow-cooker and tip in the spinach and gently stir through the curry until it has wilted. Stir in the lime juice and taste for seasoning. Serve with rice, if you like.", servings: 3, cooking_time: 30, ingredients: "curry, chickpea, carrot, squash, oinion")
 file = URI.open("https://www.theendlessmeal.com/wp-content/uploads/2020/12/Peanut-Curry-3-scaled.jpg")
 recipe2.image.attach(io: file, filename: "nes.png", content_type: "image/png")
 recipe3 = Recipe.create!(name: "Vegetarian chicken & chorizo jambalaya", instructions: "Heat a large skillet & drizzle with olive oilsauté bell peppers for 1 minadd Cajun spice and stir
-Add rice, water and tomatoes mix to combinebring to a boilreduce heat to simmer and covercook for 15 minMix in Kidney beans and cook 2-3 more minutesserve warm", servings: 4, cooking_time: 40, ingredients: "oyster mushroom, red pepper, oignon, gusta vegan sausage")
+Add rice, water and tomatoes mix to combinebring to a boilreduce heat to simmer and covercook for 15 minMix in Kidney beans and cook 2-3 more minutesserve warm", servings: 4, cooking_time: 40, ingredients: "oyster mushroom, red pepper, onion, gusta vegan sausage")
 file = URI.open("https://veganheaven.org/wp-content/uploads/2018/03/Vegan-Jambalaya-with-Beans-6.jpg")
 recipe3.image.attach(io: file, filename: "nes.png", content_type: "image/png")
 recipe4 = Recipe.create!(name: "Mexican Casserole", instructions: "Preheat oven to 375 degrees F (190 degrees C). Spray a 9-inch pie pan with non-stick cooking spray.In a saucepan, cook refried beans and onions (to soften them) on medium-high heat for about 5 minutes.
@@ -254,7 +254,7 @@ recipe14.image.attach(io: file, filename: "nes.png", content_type: "image/png")
 recipe15 = Recipe.create!(name: "Potato Soup", instructions: "Fill a large pot of water with just enough water to cover the potatoes and bring it to a boil.
   Reduce the heat to a simmer and continue to cook the potatoes for about 15-20 minutes until soft. When poked with a fork, the potato should mostly fall apart.
   Remove from heat and drain most of the water, from the pot, leaving just a half-inch of water at the bottom of the pot. (This doesn’t have to be exact so don’t stress!)
-  Add the milk garlic salt and pepper, then gently mash the potatoes with the back of a fork until the potatoes start to break down. I like my soup chunky, but if you like it smoother, you could use a potato masher or an immersion blender.Continue to cook on low heat for 5 minutes.Divide into bowls and top each bowl with a little cheese, green onions, and additional salt and pepper to taste", servings: 8, cooking_time: 30, ingredients: "potatoess, milk, cheddar cheese, garlic")
+  Add the milk garlic salt and pepper, then gently mash the potatoes with the back of a fork until the potatoes start to break down. I like my soup chunky, but if you like it smoother, you could use a potato masher or an immersion blender.Continue to cook on low heat for 5 minutes.Divide into bowls and top each bowl with a little cheese, green onions, and additional salt and pepper to taste", servings: 8, cooking_time: 30, ingredients: "potatoes, milk, cheddar cheese, garlic")
 file = URI.open("https://www.budgetbytes.com/wp-content/uploads/2023/11/Slow-Cooker-Potato-Soup-Close.jpg")
 recipe15.image.attach(io: file, filename: "nes.png", content_type: "image/png")
 recipe16 = Recipe.create!(name: "Black Bean Soup", instructions: "In a large pot, add in your black beans, including the liquid in the can.
@@ -309,9 +309,9 @@ file = URI.open("https://www.eatingwell.com/thmb/MzCeDXdqiXl2RFRoBkdjafrnfcA=/75
 recipe22.image.attach(io: file, filename: "nes.png", content_type: "image/png")
 
 
-# Recipe.create!(name: "Vegetable satay curry", instructions: "This creamy vegan curry is packed with plenty of nutritious veggies, warming ginger and chilli for a healthy meat-free meal", servings: 3, cooking_time: 30, ingredients: %(curry, carrot, oignon))
+# Recipe.create!(name: "Vegetable satay curry", instructions: "This creamy vegan curry is packed with plenty of nutritious veggies, warming ginger and chilli for a healthy meat-free meal", servings: 3, cooking_time: 30, ingredients: %(curry, carrot, onion))
 
-# Recipe.create!(name: "Pasta", instructions: "Pasta with tomato sauce", servings: 2, cooking_time: 20, ingredients: %(spaghetti, red pepper, oignon))
+# Recipe.create!(name: "Pasta", instructions: "Pasta with tomato sauce", servings: 2, cooking_time: 20, ingredients: %(spaghetti, red pepper, onion))
 # Recipe.create!(name: "Vegetarian chicken & chorizo jambalaya", instructions: "This Creole one-pot is bursting with spicy chorizo, succulent chicken and tender veg. It's quick to make and packed with flavour - try the vegetarian version for the perfect midweek meal", servings: 4, cooking_time: 40, ingredients: ["oyster mushroom", "red pepper", "oignon", "gusta vegan sausage"])
 
 
