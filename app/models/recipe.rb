@@ -4,7 +4,8 @@ class Recipe < ApplicationRecord
   has_many :user_recipes, dependent: :destroy
   has_many :recipe_ingredients, dependent: :destroy
   validates :instructions, presence: true
-  validates :name, uniqueness: { scope: :user }
+  validates :name, presence: true, uniqueness: { scope: :user }
+  validates :ingredients, presence: true
 
   belongs_to :user, optional: true
   include PgSearch::Model
