@@ -1,18 +1,19 @@
-.show-page {
-    .image-container{
+.show-user-recipe-page {
+    .image-container {
         position: relative;
     }
+
     .recipe-image {
         width: 100vw;
         height: 300px;
         object-fit: cover;
-        margin-top: 2em;
+        // margin-top: 2em;
     }
-    .addcookbook {
+
+    .edit, .delete {
         position: absolute;
         bottom: 0;
-        right: 0;
-        // background: #455A64;
+        right: 2.5em;
         color: white;
         font-size: 1.2em;
         font-weight: bold;
@@ -21,7 +22,19 @@
         padding: 0.5em;
     }
 
-    .read{
+    .delete {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        color: white;
+        font-size: 1.2em;
+        font-weight: bold;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        padding: 0.5em;
+    }
+
+    .read {
         background: #455A64;
         color: white;
         border: 0;

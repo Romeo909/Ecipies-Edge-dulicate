@@ -18,7 +18,6 @@ class RecipesController < ApplicationController
     @user_recipe = UserRecipe.new
     collections_all = Collection.where(user: current_user)
     @collections = collections_all.where.not(name: 'All')
-
   end
 
   def new
@@ -30,6 +29,7 @@ class RecipesController < ApplicationController
     @recipe.user = current_user
     if @recipe.save
       user_recipe = @recipe.user_recipes.create(user: current_user)
+      user_recipe.user_recipe_collections.create(collection: Collection.where(user: current_user, name: 'All')[0])
       # INFO: If we want to add the recipe to a collection at the same time as creating it
       # @recipe.user_recipes.create(user: current_user, collection_ids: [])
 
@@ -37,6 +37,31 @@ class RecipesController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def edit
+    @recipe = Recipe.find(params[:id])
+    # @collections = Collection.where(user: current_user)
+  end
+
+  def update
+    @recipe = Recipe.find(params[:id])
+    if @recipe.user_id? && @recipe.user == current_user
+      @recipe.update(recipe_params)
+      redirect_to user_recipe_path(@recipe.user_recipes.where(user: current_user)[0]),
+                  notice: 'Recipe was successfully updated.'
+    else
+      redirect_to user_recipe_path(@recipe.user_recipes.where(user: current_user)[0]),
+                  notice: 'You can only edit your own recipes.'
+    end
+  end
+
+  def destroy
+    @recipe = Recipe.find(params[:id])
+    return unless @recipe.user_id? && @recipe.user == current_user
+
+    @recipe.destroy
+    redirect_to collections_path, notice: 'Recipe was successfully deleted.'
   end
 
   private
