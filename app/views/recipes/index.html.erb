@@ -1,4 +1,6 @@
 <div class="wrapper recipe-index" data-controller="search-repices">
+  <h3 class="mb-3 d-flex justify-content-center">Delicious recipes</h3>
+
   <%= form_with url: recipes_path, method: :get, html: {class:
       "d-flex, mb-3", data: {search_repices_target: "form"}} do |f| %>
     <%= f.text_field :query,
