@@ -12,7 +12,6 @@
             <input type="checkbox" data-checkbox-select-all-target="checkboxAll" />
             <span>Select All / Deselect All</span>
           </label><br> %>
-          <%# <% raise %>
           <%= f.collection_check_boxes :collection_ids, @collections, :id, :name, include_hidden: false do |b| %>
             <div class="fs-3 mb-2">
               <%= b.label do %>
