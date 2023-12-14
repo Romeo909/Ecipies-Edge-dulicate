@@ -83,7 +83,7 @@ ingretient_12 = Ingredient.create(name: "corn", category: category_5)
 ingretient_13 = Ingredient.create(name: "oats", category: category_5)
 ingretient_14 = Ingredient.create(name: "rice", category: category_3)
 ingretient_15 = Ingredient.create(name: "whole wheat flour", category: category_7)
-ingretient_16 = Ingredient.create(name: "potatos", category: category_1)
+ingretient_16 = Ingredient.create(name: "potato", category: category_1)
 ingretient_17 = Ingredient.create(name: "raspberry", category: category_2)
 ingretient_18 = Ingredient.create(name: "strawberry", category: category_2)
 ingretient_19 = Ingredient.create(name: "blueberry", category: category_2)
@@ -267,7 +267,7 @@ recipe15 = Recipe.create!(name: "Potato Soup", instructions: "Fill a large pot o
 file = URI.open("https://www.budgetbytes.com/wp-content/uploads/2023/11/Slow-Cooker-Potato-Soup-Close.jpg")
 recipe15.image.attach(io: file, filename: "nes.png", content_type: "image/png")
 recipe16 = Recipe.create!(name: "Black Bean Soup", instructions: "In a large pot, add in your black beans, including the liquid in the can.
-Add the tomatoes and salsa, cumin, and chili powder.Cook over low heat for 10-15 minutes, then remove from heat and let cool slightly before serving.When ready to serve, top with sliced avocado or a sprinkle of fresh cilantro, if you’re using additional toppings!", servings: 2, cooking_time: 15, ingredients: ["black beans", "tomatoes", "salsa", "cumin", "fresh cilantro"])
+Add the tomatoes and salsa, cumin, and chili powder.Cook over low heat for 10-15 minutes, then remove from heat and let cool slightly before serving.When ready to serve, top with sliced avocado or a sprinkle of fresh cilantro, if you’re using additional toppings!", servings: 2, cooking_time: 15, ingredients: "black beans, tomatoes, salsa, cumin, fresh cilantro")
 file = URI.open("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVBO5P-iHCqWWAfJczFInZoyfGUden3LG7uQ&usqp=CAU")
 recipe16.image.attach(io: file, filename: "nes.png", content_type: "image/png")
 recipe17 = Recipe.create!(name: "Baked Eggs in Tomato Sauce with Kale", instructions: "Preheat oven to 350 degrees F.
