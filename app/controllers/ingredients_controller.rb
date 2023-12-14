@@ -7,10 +7,11 @@ class IngredientsController < ApplicationController
       @ingredients = Ingredient.all
     end
     @user_ingredient_ids = UserIngredient.where(user: current_user).pluck(:ingredient_id)
-    ingredients = Ingredient.find(@user_ingredient_ids)
+    # ingredients = Ingredient.find(@user_ingredient_ids)
 
-    category_ids = ingredients.pluck(:category_id)
-    @categories = Category.where.not(id: category_ids)
+    # category_ids = ingredients.pluck(:category_id)
+    # @categories = Category.where.not(id: category_ids)
+    @categories = Category.all
   end
 
 end
