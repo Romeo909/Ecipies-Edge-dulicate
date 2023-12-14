@@ -9,7 +9,10 @@
     <%= link_to 'add new ingredient(s)', ingredients_path, class: "d-flex justify-content-center mb-3 fw-bold fs-4" %>
     <% @categories.each do |category|%>
       <div class="card border-light mb-3" style="max-width: 20rem;">
-        <div class="card-header"><i class="fa-solid fa-utensils"></i> <%= category.name.capitalize %></div>
+        <div class="card-header">
+          <%= image_tag category.icon, width:27, height:27%>
+          <%= category.name.capitalize %>
+         </div>
         <div class="card-body">
           <p class="card-text">
             <% @user_ingredients.each do |user_ingredient|%>
