@@ -1,6 +1,6 @@
 <div class="show-user-recipe-page">
   <div class="image-container">
-    <% if user_recipe.recipe.image.present? %>
+    <% if user_recipe.recipe.image.attached? %>
       <%= cl_image_tag user_recipe.recipe.image.key, height: 300, width: 400, crop: :fill, class: "recipe-image" %>
     <% else %>
       <%= image_tag "recipe_img_default.webp" , height: 300, width: 400, crop: :fill, class: "recipe-image" %>
