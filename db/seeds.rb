@@ -198,12 +198,6 @@ UserIngredient.create!(user: rayane, ingredient: ingretient_3)
 UserIngredient.create!(user: romar, ingredient: ingretient_4)
 UserIngredient.create!(user: lena, ingredient: ingretient_1)
 
-recipe1 = Recipe.new(name: "Pasta", instructions: "Pasta with tomato sauce", servings: 2, cooking_time: 20, ingredients: "spaghetti, red pepper, oignon, tomato sauce")
-file = URI.open("https://www.foodandwine.com/thmb/tAS-x_IC4ss1cb9EdDpsr0UExdM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/bucatini-with-mushroom-ragu-dandelion-greens-and-tarragon-FT-RECIPE0421-3a5f0d29f7264f5e9952d4a3a51f5f58.jpg")
-recipe1.image.attach(io: file, filename: "nes.png", content_type: "image/png")
-# Recipe.create!(name: "Vegetable satay curry", instructions: "This creamy vegan curry is packed with plenty of nutritious veggies, warming ginger and chilli for a healthy meat-free meal", servings: 3, cooking_time: 30)
-# Recipe.create!(name: "Chicken & chorizo jambalaya", instructions: "This Creole one-pot is bursting with spicy chorizo, succulent chicken and tender veg. It's quick to make and packed with flavour - the perfect midweek meal", servings: 4, cooking_time: 40)
-# Recipe.create!(name: "Pasta dish", instructions: "Pasta with tomato sauce", servings: 2, cooking_time: 20, ingredients: %(spaghetti, red pepper, oignon))
 recipe2 = Recipe.create!(name: "Vegetable satay curry", instructions: "Put the coconut milk, curry powder, stock cube, peanut butter and squash in a 3.5ltr slow-cooker. Add 100ml water and mix well.
  Cook on low for 3½-4 hrs until the squash is tender. Stir in the frozen peas for the final 15 mins, then turn off the slow-cooker and tip in the spinach and gently stir through the curry until it has wilted. Stir in the lime juice and taste for seasoning. Serve with rice, if you like.", servings: 3, cooking_time: 30, ingredients: "curry, chickpea, carrot, squash, oinion")
 file = URI.open("https://www.theendlessmeal.com/wp-content/uploads/2020/12/Peanut-Curry-3-scaled.jpg")
