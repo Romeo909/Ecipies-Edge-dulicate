@@ -20,7 +20,9 @@
   <hr>
   <div class="d-flex flex-column gap-3" >
     <% if @collection.user_recipes.blank? %>
-      <p>no recipe found in this collection</p>
+      <div class="no-result">
+        <p>You have no recipe in this category</p>
+      </div>
     <% else %>
       <% @collection.user_recipes.each do |user_recipe| %>
         <% user_collection = UserRecipeCollection.where(collection: @collection, user_recipe: user_recipe) %>

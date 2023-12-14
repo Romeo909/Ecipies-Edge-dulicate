@@ -1,5 +1,8 @@
-<div class="wrapper">
-  <h1 class="title fw-bold">New recipe</h1>
+<div class="d-flex justify-content-center bg-light py-3 mt-5">
+  <h1 class="title fw-bold mt-1">New recipe</h1>
+  <hr>
+</div>
+<div class="wrapper mt-4">
   <%= simple_form_for @recipe do |f| %>
     <%= f.input :name %>
     <%= f.input :instructions %>
@@ -7,6 +10,9 @@
     <%= f.input :cooking_time %>
     <%= f.input :ingredients %>
     <%= f.input :image, as: :file %>
-    <%= f.button :submit, "Create", class: "btn-save" %>
+    <div class="d-flex align-items-center gap-2">
+      <%= f.button :submit, "Create", class: "btn-save" %>
+      <%= link_to "Cancel", collections_path(@user_recipe), class: "btn-cancel" %>
+    </div>
   <% end %>
 </div>

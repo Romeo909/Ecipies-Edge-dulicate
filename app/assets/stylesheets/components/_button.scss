@@ -7,17 +7,32 @@
   font-weight: bold;
 }
 
-.btn-modal-save, .btn-save {
+.btn-modal-save, .btn-save, .btn-cta, .btn-back {
   background: #3b6963;
   color: white;
   padding: 8px 24px;
   border-radius: 8px;
   font-weight: bold;
+  font-size: 1.3rem;
   border: none;
 }
-modal-save 
 
-.btn-modal-save:hover, .btn-save:hover {
-  background: #409283;
+.btn-cancel {
+  background: #ab2c36;
+  color: white;
+  padding: 8px 24px;
+  border-radius: 8px;
+  font-weight: bold;
+  border: none;
+  font-size: 1.3em;
+}
+
+.btn-modal-save:hover, .btn-save:hover, .btn-cta:hover, .btn-back:hover {
+  background: #409283 !important;
+  color: white;
+}
+
+.btn-cancel:hover {
+  background: #ab2c37be;
   color: white;
 }
