@@ -1,8 +1,11 @@
 <div class="flexbox">
   <div class="wrapper">
     <% @categories.each do |category|%>
-      <div class="card border-light mb-3" style="max-width: 20em;">
-        <div class="card-header"><i class="fa-solid fa-utensils"></i> <%= category.name.capitalize %></div>
+      <div class="card border-light mb-3" style="max-width: 20rem;">
+        <div class="card-header">
+          <%= image_tag category.icon, width:27, height:27%>
+          <%= category.name.capitalize %>
+        </div>
         <div class="card-body">
           <p class="card-text">
             <% @ingredients.each do |ingredient|%>

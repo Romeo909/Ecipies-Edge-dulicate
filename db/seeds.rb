@@ -3,12 +3,13 @@ require 'json'
 require 'uri'
 require 'net/http'
 
-RecipeIngredient.destroy_all
-Recipe.destroy_all
-UserIngredient.destroy_all
-Ingredient.destroy_all
-Category.destroy_all
 User.destroy_all
+Category.destroy_all
+Recipe.destroy_all
+Ingredient.destroy_all
+RecipeIngredient.destroy_all
+UserIngredient.destroy_all
+
 
 def getInstruction(id)
   instructionURL = URI("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/#{id}/information")
@@ -53,17 +54,18 @@ rayane = User.create!(email: "rayane@gmail.com", password: "123456", username: "
 lena = User.create!(email: "lena@gmail.com", password: "123456", username: "Lena")
 romar = User.create!(email: "romar@gmail.com", password: "123456", username: "Romar")
 
-category_1 = Category.create!(name: "vegetables")
-category_2 = Category.create!(name: "fruits")
-category_3 = Category.create!(name: "starch")
-category_4 = Category.create!(name: "legumes")
-category_5 = Category.create!(name: "grains")
-category_6 = Category.create!(name: "dairy")
-category_7 = Category.create!(name: "flour")
-# category_8 = Category.create!(name: "mushrooms")
-category_9 = Category.create!(name: "herbs & spices")
-# Category.create!(name: "meat substitute")
-category_10 = Category.create!(name: "nuts and seeds")
+category_1 = Category.create!(name: "vegetables", icon: "category/vegetable.png")
+category_2 = Category.create!(name: "fruits", icon: "category/fruits.png")
+category_3 = Category.create!(name: "starch", icon: "category/starch.png")
+category_4 = Category.create!(name: "legumes", icon: "category/legumes.png")
+category_5 = Category.create!(name: "grains", icon: "category/grains.png")
+category_6 = Category.create!(name: "dairy", icon: "category/dairy.png")
+category_7 = Category.create!(name: "flour", icon: "category/flour.png")
+# category_8 = Category.create!(name: "mushrooms", icon: "category/")
+category_9 = Category.create!(name: "herbs & spices", icon: "category/spices.png")
+# Category.create!(name: "meat substitute", icon: "category/")
+category_10 = Category.create!(name: "nuts and seeds", icon: "category/nuts.png")
+category_11 = Category.create!(name: "sweetener", icon: "category/sweetener.png")
 
 
 ingretient_1 = Ingredient.create(name: "eggplant", category: category_1)
@@ -81,7 +83,7 @@ ingretient_12 = Ingredient.create(name: "corn", category: category_5)
 ingretient_13 = Ingredient.create(name: "oats", category: category_5)
 ingretient_14 = Ingredient.create(name: "rice", category: category_3)
 ingretient_15 = Ingredient.create(name: "whole wheat flour", category: category_7)
-ingretient_16 = Ingredient.create(name: "potatos", category: category_1)
+ingretient_16 = Ingredient.create(name: "potato", category: category_1)
 ingretient_17 = Ingredient.create(name: "raspberry", category: category_2)
 ingretient_18 = Ingredient.create(name: "strawberry", category: category_2)
 ingretient_19 = Ingredient.create(name: "blueberry", category: category_2)
@@ -176,6 +178,13 @@ ingretient_107 = Ingredient.create(name: "salt", category: category_9)
 ingretient_108 = Ingredient.create(name: "pepper", category: category_9)
 ingretient_109 = Ingredient.create(name: "cumin", category: category_9)
 ingretient_110 = Ingredient.create(name: "chilli flakes", category: category_9)
+ingretient_111 = Ingredient.create(name: "olive oil", category: category_9)
+ingretient_112 = Ingredient.create(name: "tomato", category: category_1)
+ingretient_113 = Ingredient.create(name: "pizza dough", category: category_7)
+ingretient_114 = Ingredient.create(name: "olives", category: category_2)
+ingretient_115 = Ingredient.create(name: "sugar", category: category_11)
+ingretient_116 = Ingredient.create(name: "chocolate", category: category_11)
+ingretient_117 = Ingredient.create(name: "honey", category: category_11)
 
 
 
@@ -258,7 +267,7 @@ recipe15 = Recipe.create!(name: "Potato Soup", instructions: "Fill a large pot o
 file = URI.open("https://www.budgetbytes.com/wp-content/uploads/2023/11/Slow-Cooker-Potato-Soup-Close.jpg")
 recipe15.image.attach(io: file, filename: "nes.png", content_type: "image/png")
 recipe16 = Recipe.create!(name: "Black Bean Soup", instructions: "In a large pot, add in your black beans, including the liquid in the can.
-Add the tomatoes and salsa, cumin, and chili powder.Cook over low heat for 10-15 minutes, then remove from heat and let cool slightly before serving.When ready to serve, top with sliced avocado or a sprinkle of fresh cilantro, if you’re using additional toppings!", servings: 2, cooking_time: 15, ingredients: ["black beans", "tomatoes", "salsa", "cumin", "fresh cilantro"])
+Add the tomatoes and salsa, cumin, and chili powder.Cook over low heat for 10-15 minutes, then remove from heat and let cool slightly before serving.When ready to serve, top with sliced avocado or a sprinkle of fresh cilantro, if you’re using additional toppings!", servings: 2, cooking_time: 15, ingredients: "black beans, tomatoes, salsa, cumin, fresh cilantro")
 file = URI.open("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVBO5P-iHCqWWAfJczFInZoyfGUden3LG7uQ&usqp=CAU")
 recipe16.image.attach(io: file, filename: "nes.png", content_type: "image/png")
 recipe17 = Recipe.create!(name: "Baked Eggs in Tomato Sauce with Kale", instructions: "Preheat oven to 350 degrees F.
