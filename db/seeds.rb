@@ -3,12 +3,13 @@ require 'json'
 require 'uri'
 require 'net/http'
 
-RecipeIngredient.destroy_all
-Recipe.destroy_all
-UserIngredient.destroy_all
-Ingredient.destroy_all
-Category.destroy_all
 User.destroy_all
+Category.destroy_all
+Recipe.destroy_all
+Ingredient.destroy_all
+RecipeIngredient.destroy_all
+UserIngredient.destroy_all
+
 
 def getInstruction(id)
   instructionURL = URI("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/#{id}/information")
@@ -53,17 +54,18 @@ rayane = User.create!(email: "rayane@gmail.com", password: "123456", username: "
 lena = User.create!(email: "lena@gmail.com", password: "123456", username: "Lena")
 romar = User.create!(email: "romar@gmail.com", password: "123456", username: "Romar")
 
-category_1 = Category.create!(name: "vegetables")
-category_2 = Category.create!(name: "fruits")
-category_3 = Category.create!(name: "starch")
-category_4 = Category.create!(name: "legumes")
-category_5 = Category.create!(name: "grains")
-category_6 = Category.create!(name: "dairy")
-category_7 = Category.create!(name: "flour")
-# category_8 = Category.create!(name: "mushrooms")
-category_9 = Category.create!(name: "herbs & spices")
-# Category.create!(name: "meat substitute")
-category_10 = Category.create!(name: "nuts and seeds")
+category_1 = Category.create!(name: "vegetables", icon: "category/vegetable.png")
+category_2 = Category.create!(name: "fruits", icon: "category/fruits.png")
+category_3 = Category.create!(name: "starch", icon: "category/starch.png")
+category_4 = Category.create!(name: "legumes", icon: "category/legumes.png")
+category_5 = Category.create!(name: "grains", icon: "category/grains.png")
+category_6 = Category.create!(name: "dairy", icon: "category/dairy.png")
+category_7 = Category.create!(name: "flour", icon: "category/flour.png")
+# category_8 = Category.create!(name: "mushrooms", icon: "category/")
+category_9 = Category.create!(name: "herbs & spices", icon: "category/spices.png")
+# Category.create!(name: "meat substitute", icon: "category/")
+category_10 = Category.create!(name: "nuts and seeds", icon: "category/nuts.png")
+category_11 = Category.create!(name: "sweetener", icon: "category/sweetener.png")
 
 
 ingretient_1 = Ingredient.create(name: "eggplant", category: category_1)
@@ -176,6 +178,13 @@ ingretient_107 = Ingredient.create(name: "salt", category: category_9)
 ingretient_108 = Ingredient.create(name: "pepper", category: category_9)
 ingretient_109 = Ingredient.create(name: "cumin", category: category_9)
 ingretient_110 = Ingredient.create(name: "chilli flakes", category: category_9)
+ingretient_111 = Ingredient.create(name: "olive oil", category: category_9)
+ingretient_112 = Ingredient.create(name: "tomato", category: category_1)
+ingretient_113 = Ingredient.create(name: "pizza dough", category: category_7)
+ingretient_114 = Ingredient.create(name: "olives", category: category_2)
+ingretient_115 = Ingredient.create(name: "sugar", category: category_11)
+ingretient_116 = Ingredient.create(name: "chocolate", category: category_11)
+ingretient_117 = Ingredient.create(name: "honey", category: category_11)
 
 
 

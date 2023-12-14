@@ -1,4 +1,4 @@
-<div class="recipe-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path user_recipe.recipe.image.key, crop: :fit %>')">
+<div class="recipe-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= @url %>')">
   <%= user_recipe.recipe.name %>
   <div class="info-icon">
     <%= link_to  user_recipe_path(user_recipe, redirect_back: params[:query]) do %>
