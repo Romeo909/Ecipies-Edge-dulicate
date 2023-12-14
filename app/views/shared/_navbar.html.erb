@@ -12,7 +12,7 @@
               <% if current_user.avatar.attached?  %>
                 <%= cl_image_tag current_user.avatar.key, class: "avatar-bordered", alt: "dropdown menu" %>
               <% else %>
-                <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-bordered", alt: "dropdown menu" %>
+                <%= image_tag "default-user.jpg", class: "avatar-bordered", alt: "dropdown menu" %>
               <% end %>
             </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
