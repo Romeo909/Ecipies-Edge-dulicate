@@ -1,5 +1,4 @@
 class IngredientsController < ApplicationController
-
   def index
     if params[:query].present?
       @ingredients = Ingredient.search_ingredient_in_db(params[:query])
@@ -13,5 +12,4 @@ class IngredientsController < ApplicationController
     # @categories = Category.where.not(id: category_ids)
     @categories = Category.all
   end
-
 end

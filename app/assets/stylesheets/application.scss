@@ -31,8 +31,6 @@ a {
   text-decoration: none;
 }
 
-
-
 ul {
   list-style-type: none;
   margin: 0;
@@ -40,7 +38,7 @@ ul {
 }
 
 .wrapper {
-  margin: 4em 1em 6em 1em;
+  margin: 5em 1em 6em 1em;
 }
 
 .body-content {
@@ -87,4 +85,9 @@ footer {
   background: #F1F8E9;
   height: 8px;
   font-weight: bold;
+}
+
+.bg-image {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
