@@ -7,8 +7,9 @@ class IngredientsController < ApplicationController
       @ingredients = Ingredient.all
     end
     @user_ingredient_ids = UserIngredient.where(user: current_user).pluck(:ingredient_id)
-
-    @categories = Category.all
+    category_ids = @ingredients.pluck(:category_id)
+    @categories = Category.find(category_ids)
+    # @categories = Category.all
   end
 
 end
