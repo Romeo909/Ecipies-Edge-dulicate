@@ -1,0 +1,63 @@
+<div class="show-user-recipe-page">
+  <div class="image-container">
+    <%= cl_image_tag user_recipe.recipe.image.key, height: 300, width: 400, crop: :fill, class: "recipe-image" %>
+    <% if user_recipe.recipe.user_id? && user_recipe.recipe.user == current_user %>
+      <%= link_to edit_recipe_path(user_recipe.recipe), class: "edit" do %>
+        <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="42" height="42" rx="21" fill="white"/>
+          <path d="M27.988 11.012L30.988 14.012L28.701 16.3L25.701 13.3L27.988 11.012ZM17 25H20L27.287 17.713L24.287 14.713L17 22V25Z" fill="#FFC700"/>
+          <path d="M28 28H17.158C17.132 28 17.105 28.01 17.079 28.01C17.046 28.01 17.013 28.001 16.979 28H14V14H20.847L22.847 12H14C12.897 12 12 12.896 12 14V28C12 29.104 12.897 30 14 30H28C28.5304 30 29.0391 29.7893 29.4142 29.4142C29.7893 29.0391 30 28.5304 30 28V19.332L28 21.332V28Z" fill="#FFC700"/>
+        </svg>
+      <% end %>
+      <%= link_to recipe_path(user_recipe.recipe), class: "delete", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+        <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="42" height="42" rx="21" fill="white"/>
+          <path d="M16 30C15.45 30 14.9793 29.8043 14.588 29.413C14.1967 29.0217 14.0007 28.5507 14 28V15H13V13H18V12H24V13H29V15H28V28C28 28.55 27.8043 29.021 27.413 29.413C27.0217 29.805 26.5507 30.0007 26 30H16ZM26 15H16V28H26V15ZM18 26H20V17H18V26ZM22 26H24V17H22V26Z" fill="#F24E1E"/>
+        </svg>
+      <% end %>
+    <% end %>
+    <%# <button class="btn addcookbook rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="40" height="40" rx="20" fill="white"/>
+        <path d="M20 26C20 26.34 20.04 26.67 20.09 27H11C10.4696 27 9.96086 26.7893 9.58579 26.4142C9.21071 26.0391 9 25.5304 9 25V13C9 11.89 9.89 11 11 11H17L19 13H27C27.5304 13 28.0391 13.2107 28.4142 13.5858C28.7893 13.9609 29 14.4696 29 15V20.81C28.12 20.3 27.1 20 26 20C22.69 20 20 22.69 20 26ZM27 25V22H25V25H22V27H25V30H27V27H30V25H27Z" fill="#4FA095"/>
+      </svg>
+    </button> %>
+  </div>
+  <div class="wrapper mt-3">
+    <div class="">
+      <h3 class=""><%= user_recipe.recipe.name %></h3>
+      <hr>
+      <div class="d-flex justify-content-between fw-bold">
+        <p>servings</p>
+        <p><%= user_recipe.recipe.servings %></p>
+      </div>
+      <div class="d-flex justify-content-between fw-bold">
+        <p>cooking time</p>
+        <p><%= user_recipe.recipe.cooking_time %> min</p>
+      </div>
+      <hr>
+      <div class="">
+        <p class="fw-bold">ingredients</p>
+        <% user_recipe.recipe.ingredients.split(',').each do |ingredient| %>
+          <span class="badge bg-secondary fs-4 mb-1"><%= ingredient %>
+          </span></h4>
+      <% end %>
+    </div>
+    <hr>
+    <div class="mt-3">
+      <p class="fs-4 fw-bold">instructions</p>
+      <div data-controller="read-more" data-read-more-more-text-value="Read more" data-read-more-less-text-value="Read less">
+        <p class="text-start my-content" data-read-more-target="content"><%= user_recipe.recipe.instructions %></p>
+        <button class="read" data-action="read-more#toggle">Read more</button>
+      </div>
+      <%# <div  > %>
+      <%# <% if params[:return_to].present? %>
+      <%# <%= link_to "Back", recipes_path(query: params[:return_to]), class:"btn btn-fridge mt-2 text-dark" %>
+      <%# <% else %>
+      <%# <%= link_to "Back", :back , class:"btn btn-fridge mt-2 text-dark" %>
+      <%# <% end %>
+    </div>
+  </div>
+</div>
+</div>
+</div>

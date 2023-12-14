@@ -6,7 +6,7 @@
     <%= f.input :servings %>
     <%= f.input :cooking_time %>
     <%= f.input :ingredients %>
-    <%= f.input :image, as: :file %>
-    <%= f.button :submit, "Create", class: "btn-save" %>
+    <%= f.input :image, as: :file, input_html: { value: @recipe.image} %>
+    <%= f.button :submit, "Update", class: "btn-save" %>
   <% end %>
 </div>

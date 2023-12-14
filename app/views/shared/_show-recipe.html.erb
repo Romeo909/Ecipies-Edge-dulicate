@@ -23,7 +23,7 @@
       <hr>
       <div class="">
         <p class="fw-bold">ingredients</p>
-        <% recipe.ingredients.split(',').sort.each do |ingredient| %>
+        <% recipe.ingredients.split(',').each do |ingredient| %>
           <span class="badge bg-secondary fs-4 mb-1"><%= ingredient %>
           </span></h4>
       <% end %>
@@ -36,11 +36,11 @@
         <button class="read" data-action="read-more#toggle">Read more</button>
       </div>
       <div  >
-      <% if params[:return_to].present? %>
-        <%= link_to "Back", recipes_path(query: params[:return_to]), class:"btn btn-fridge mt-2 text-dark" %>
-      <% else %>
-        <%= link_to "Back", :back , class:"btn btn-fridge mt-2 text-dark" %>
-      <% end %>
+        <% if params[:return_to].present? %>
+          <%= link_to "Back", recipes_path(query: params[:return_to]), class:"btn btn-fridge mt-2 text-dark" %>
+        <% else %>
+          <%= link_to "Back", :back , class:"btn btn-fridge mt-2 text-dark" %>
+        <% end %>
       </div>
     </div>
   </div>
