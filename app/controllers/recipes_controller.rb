@@ -29,11 +29,11 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
     @recipe.user = current_user
     if @recipe.save
-      @recipe.user_recipes.create(user: current_user)
+      user_recipe = @recipe.user_recipes.create(user: current_user)
       # INFO: If we want to add the recipe to a collection at the same time as creating it
       # @recipe.user_recipes.create(user: current_user, collection_ids: [])
 
-      redirect_to collections_path, notice: 'Recipe was successfully created.'
+      redirect_to user_recipe_path(user_recipe), notice: 'Recipe was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end
