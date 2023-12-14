@@ -1,24 +1,24 @@
 <div class="flexbox">
   <div class="wrapper">
-    <h3 class="mb-2">Your ingredient list</h3>
+    <h3 class="mb-2 d-flex justify-content-center">Your ingredient list</h3>
     <hr>
-    <div class="d-flex justify-content-center gap-2 align-items-center mb-3" >
+    <div class="d-flex justify-content-center gap-3 align-items-center mb-3" >
       <%= link_to 'find recipes?', recipes_path(:fridge => @ingredients_name), class:"btn-cta"%>
-    <%= link_to 'add', ingredients_path, class: "fw-bold fs-4 btn-cta" %>
+      <%= link_to '+', ingredients_path, class: "fw-bold fs-4 btn-cta" %>
     </div>
     <% @categories.each do |category|%>
-      <div class="card border-light mb-3" style="max-width: 20rem;">
+      <div class="card border-light mb-3" style="max-width: 100%;">
         <div class="card-header">
           <%= image_tag category.icon, width:27, height:27%>
           <%= category.name.capitalize %>
-         </div>
+        </div>
         <div class="card-body">
           <p class="card-text">
             <% @user_ingredients.each do |user_ingredient|%>
               <% if user_ingredient.category_ids.include?(category.id) %>
                 <span class="badge ingredient-category"><%= user_ingredient.ingredient.name %>
                   <%= link_to delete_user_ingredient_path(user_ingredient), data: {turbo_method: :delete} do%>
-                    <i class="fa-solid fa-circle-minus"></i>
+                    <i class="fa-solid fa-circle-minus text-danger"></i>
                   <% end %>
                 </span>
               <% end %>
