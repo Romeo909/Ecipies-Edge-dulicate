@@ -1,16 +1,15 @@
-<div class="bg-white bg-image p-5" style="background-image: url('https://www.liveinhomecare.com/wp-content/uploads/2020/09/vegetables-that-are-healthier-for-you-cooked-than-raw.jpg')">
-  <div class="container p-3">
-    <div class="row ailgn-text-center">
-      <div class="col-12  text-center text-white text-bold">
-        <h3><em>Ecipes Edge</em></h3>
-        <p>Tasty Vegetarian Meals</p>
-        <div class="my-3">
-          <%= link_to "get started",new_user_session_path, class: "btn btn-primary" %>
-        </div>
-      </div>
+<div class="bg-white bg-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path 'home-img.jpg' %>); height: 100vh; background-size: cover
+
+; background-position: center;">
+  <div class="home-page-content">
+    <h1 class="heading mb-3">ECIPESEDGE</h1>
+    <div class="home-page-card">
+      <p>Tasty vegetarian recipes with</p>
+      <p>WHATS LEFT IN YOUR FRIDGE</p>
     </div>
+    <%= link_to new_user_session_path do %>
+      <button class="btn-cta mt-3">GET STARTED
+      </button>
+    <% end %>
   </div>
-</div>
-<div class="container mt-5">
-  <%= render "shared/home_page_content" %>
 </div>
