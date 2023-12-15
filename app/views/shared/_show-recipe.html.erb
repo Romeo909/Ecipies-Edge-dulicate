@@ -37,7 +37,7 @@
       <p class="fs-4 fw-bold">instructions</p>
       <div data-controller="read-more" data-read-more-more-text-value="Read more" data-read-more-less-text-value="Read less">
         <p class="text-start my-content" data-read-more-target="content"><%= recipe.instructions %></p>
-        <% if recipe.ingredients.chars.count >= 200 %>
+        <% if recipe.instructions.chars.count >= 500 %>
           <button class="read" data-action="read-more#toggle">Read more</button>
         <% end %>
       </div>
