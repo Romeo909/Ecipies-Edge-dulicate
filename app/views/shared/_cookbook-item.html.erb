@@ -3,7 +3,7 @@
     <div class="cookbook-item">
       <div class="description">
         <% if collection %>
-          <h3 class="mb-3 d-flex justify-content-center"><%= collection.name.capitalize %></h3>
+          <h3 class="mb-3"><%= collection.name.capitalize %></h3>
           <p><%= pluralize(collection.user_recipes.count, 'recipe') %></p>
         </div>
         <% if collection && !collection.user_recipes.empty? && collection.user_recipes.last.recipe.image.attached? %>
