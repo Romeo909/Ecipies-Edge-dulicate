@@ -3,12 +3,12 @@ require 'json'
 require 'uri'
 require 'net/http'
 
-User.destroy_all
-Category.destroy_all
-Recipe.destroy_all
-Ingredient.destroy_all
 RecipeIngredient.destroy_all
 UserIngredient.destroy_all
+Recipe.destroy_all
+Ingredient.destroy_all
+Category.destroy_all
+User.destroy_all
 
 
 def getInstruction(id)
@@ -327,11 +327,11 @@ RecipeIngredient.create!(recipe: Recipe.second, ingredient: ingretient_2)
 RecipeIngredient.create!(recipe: Recipe.second, ingredient: ingretient_3)
 RecipeIngredient.create!(recipe: Recipe.second, ingredient: ingretient_4)
 
-UserRecipe.create!(user: rayane, recipe: Recipe.first)
-UserRecipe.create!(user: lena, recipe: Recipe.second)
-UserRecipe.create!(user: romar, recipe: Recipe.third)
-UserRecipe.create!(user: rayane, recipe: Recipe.second)
-UserRecipe.create!(user: lena, recipe: Recipe.third)
-UserRecipe.create!(user: romar, recipe: Recipe.first)
-UserRecipe.create!(user: rayane, recipe: Recipe.third)
-UserRecipe.create!(user: lena, recipe: Recipe.first)
+# UserRecipe.create!(user: rayane, recipe: Recipe.first)
+# UserRecipe.create!(user: lena, recipe: Recipe.second)
+# UserRecipe.create!(user: romar, recipe: Recipe.third)
+# UserRecipe.create!(user: rayane, recipe: Recipe.second)
+# UserRecipe.create!(user: lena, recipe: Recipe.third)
+# UserRecipe.create!(user: romar, recipe: Recipe.first)
+# UserRecipe.create!(user: rayane, recipe: Recipe.third)
+# UserRecipe.create!(user: lena, recipe: Recipe.first)
