@@ -10,6 +10,8 @@ class IngredientsController < ApplicationController
 
     # category_ids = ingredients.pluck(:category_id)
     # @categories = Category.where.not(id: category_ids)
-    @categories = Category.all
+    category_ids = @ingredients.pluck(:category_id)
+    @categories = Category.where(id: category_ids)
+    # @categories = Category.all
   end
 end
