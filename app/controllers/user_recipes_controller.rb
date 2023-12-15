@@ -17,26 +17,17 @@ class UserRecipesController < ApplicationController
     @user_recipe = UserRecipe.new(user_recipe_params)
     @user_recipe.user = current_user
     @user_recipe.recipe = Recipe.find(params[:recipe_id])
-    # raise
-
     if @user_recipe.save
-      # if params[:user_recipe][:collection_ids].present?
-      # end
-      params[:user_recipe][:collection_ids].each do |id|
-        UserRecipeCollection.create!(user_recipe: @user_recipe, collection: Collection.find(id))
-      end
-      all_default_collection = Collection.where(user: current_user, name: "All")[0]
-      UserRecipeCollection.create!(user_recipe: @user_recipe, collection: all_default_collection)
-      # user_recipe_collection = UserRecipeCollection.new(
-      #   collection_id: params[:user_recipe][:collection_ids],
-      #   user_recipe_id: @user_recipe.id)
-      # user_recipe_collection.save
-      redirect_to recipe_path(params[:recipe_id]), notice: 'Recipe was added to your cookbook.'
-
-    # default_collection_id = Collection.where(name: 'All', user: current_user)[0].id
+      save_to_collections(params[:user_recipe][:collection_ids], @user_recipe)
+      save_to_all_collection(@user_recipe)
     else
-      redirect_to recipe_path(params[:recipe_id]), notice: 'This recipe is already in your cookbook.'
+      save_to_collections(params[:user_recipe][:collection_ids],
+                          Recipe.find(params[:recipe_id]).user_recipes.where(user: current_user,
+                                                                             recipe: params[:recipe_id])[0])
+      save_to_all_collection(Recipe.find(params[:recipe_id]).user_recipes.where(user: current_user,
+                                                                                recipe: params[:recipe_id])[0])
     end
+    redirect_to recipe_path(params[:recipe_id]), notice: 'Recipe added to your cookbook.'
   end
 
   def destroy
@@ -57,6 +48,17 @@ class UserRecipesController < ApplicationController
   private
 
   def user_recipe_params
-    params.require(:user_recipe).permit(:user_id, :recipe_id)
+    params.require(:user_recipe).permit(:user_id, :recipe_id, :collection_ids)
+  end
+
+  def save_to_all_collection(user_recipe)
+    all_default_collection = Collection.where(user: current_user, name: "All")[0]
+    UserRecipeCollection.create!(user_recipe:, collection: all_default_collection)
+  end
+
+  def save_to_collections(collection_ids, u_recipe)
+    collection_ids.each do |id|
+      UserRecipeCollection.create!(user_recipe: u_recipe, collection: Collection.find(id))
+    end
   end
 end

@@ -1,19 +1,21 @@
 <div class="wrapper">
   <div class="d-flex justify-content-between mb-3">
-    <h1 class="fw-bold"><%= @collection.name %></h1>
+  <h3 class=" title mb-3"><%= @collection.name %></h3>
     <div>
-      <%= link_to edit_collection_path(@collection) do %>
-        <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="42" height="42" rx="21" fill="white"/>
-          <path d="M27.988 11.012L30.988 14.012L28.701 16.3L25.701 13.3L27.988 11.012ZM17 25H20L27.287 17.713L24.287 14.713L17 22V25Z" fill="#FFC700"/>
-          <path d="M28 28H17.158C17.132 28 17.105 28.01 17.079 28.01C17.046 28.01 17.013 28.001 16.979 28H14V14H20.847L22.847 12H14C12.897 12 12 12.896 12 14V28C12 29.104 12.897 30 14 30H28C28.5304 30 29.0391 29.7893 29.4142 29.4142C29.7893 29.0391 30 28.5304 30 28V19.332L28 21.332V28Z" fill="#FFC700"/>
-        </svg>
-      <% end %>
-      <%= link_to collection_path(@collection), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-        <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="42" height="42" rx="21" fill="white"/>
-          <path d="M16 30C15.45 30 14.9793 29.8043 14.588 29.413C14.1967 29.0217 14.0007 28.5507 14 28V15H13V13H18V12H24V13H29V15H28V28C28 28.55 27.8043 29.021 27.413 29.413C27.0217 29.805 26.5507 30.0007 26 30H16ZM26 15H16V28H26V15ZM18 26H20V17H18V26ZM22 26H24V17H22V26Z" fill="#F24E1E"/>
-        </svg>
+      <% if @collection.name != 'All' && @collection.name != 'Favorites' %>
+        <%= link_to edit_collection_path(@collection) do %>
+          <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="42" height="42" rx="21" fill="white"/>
+            <path d="M27.988 11.012L30.988 14.012L28.701 16.3L25.701 13.3L27.988 11.012ZM17 25H20L27.287 17.713L24.287 14.713L17 22V25Z" fill="#FFC700"/>
+            <path d="M28 28H17.158C17.132 28 17.105 28.01 17.079 28.01C17.046 28.01 17.013 28.001 16.979 28H14V14H20.847L22.847 12H14C12.897 12 12 12.896 12 14V28C12 29.104 12.897 30 14 30H28C28.5304 30 29.0391 29.7893 29.4142 29.4142C29.7893 29.0391 30 28.5304 30 28V19.332L28 21.332V28Z" fill="#FFC700"/>
+          </svg>
+        <% end %>
+        <%= link_to collection_path(@collection), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+          <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="42" height="42" rx="21" fill="white"/>
+            <path d="M16 30C15.45 30 14.9793 29.8043 14.588 29.413C14.1967 29.0217 14.0007 28.5507 14 28V15H13V13H18V12H24V13H29V15H28V28C28 28.55 27.8043 29.021 27.413 29.413C27.0217 29.805 26.5507 30.0007 26 30H16ZM26 15H16V28H26V15ZM18 26H20V17H18V26ZM22 26H24V17H22V26Z" fill="#F24E1E"/>
+          </svg>
+        <% end %>
       <% end %>
     </div>
   </div>
