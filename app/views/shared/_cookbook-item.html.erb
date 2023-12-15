@@ -9,7 +9,11 @@
         <% if collection && !collection.user_recipes.empty? && collection.user_recipes.last.recipe.image.attached? %>
           <%= cl_image_tag collection.user_recipes.last.recipe.image.key, class: "img-circle" %>
         <% else %>
-          <%= image_tag "cookbook-img-holder.png", class: "img-circle" %>
+          <% if collection.name == "Favorites" %>
+            <%= image_tag "heart.png", class: "img-circle" %>
+          <% else %>
+            <%= image_tag "cookbook-img-holder.png", class: "img-circle" %>
+          <% end %>
         <% end %>
       <% else %>
         <p>Your cookbook is empty</p>
