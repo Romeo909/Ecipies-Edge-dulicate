@@ -11,15 +11,19 @@
   <div class="wrapper mt-3">
     <div class="">
       <h3 class=""><%= recipe.name %></h3>
-      <hr>
-      <div class="d-flex justify-content-between fw-bold">
-        <p>servings</p>
-        <p><%= recipe.servings %></p>
-      </div>
-      <div class="d-flex justify-content-between fw-bold">
-        <p>cooking time</p>
-        <p><%= recipe.cooking_time %> min</p>
-      </div>
+      <% if !recipe.servings.blank? %>
+        <hr>
+        <div class="d-flex justify-content-between fw-bold">
+          <p>servings</p>
+          <p><%= recipe.servings %></p>
+        </div>
+      <% end %>
+      <% if !recipe.cooking_time.blank? %>
+        <div class="d-flex justify-content-between fw-bold">
+          <p>cooking time</p>
+          <p><%= recipe.cooking_time %> min</p>
+        </div>
+      <% end %>
       <hr>
       <div class="">
         <p class="fw-bold">ingredients</p>
