@@ -4,16 +4,15 @@
   <title>The page you were looking for doesn't exist (404)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
+    body {
+      background-color: #EFEFEF;
+      width: 100vw;
+      height: 100vh;
+    }
   .container-page-not-found {
    font-family: 'Nunito', sans-serif;
-  background: #F1F8E9;
   box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 100vw;
-  margin-top: 8em;
+  margin: 4em auto;
   }
   .image-not-found{
     width: 20em;
@@ -28,9 +27,9 @@
   </style>
 </head>
 
-<body class="container-page-not-found">
+<body>
   <!-- This file lives in public/404.html -->
-  <div class="">
+  <div class="container-page-not-found">
     <div>
       <img src="404-error.png" class="image-not-found" alt="" srcset="">
       <h3 class="title">TPage not found.</h3>
