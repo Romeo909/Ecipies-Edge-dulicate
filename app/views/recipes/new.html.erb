@@ -1,9 +1,6 @@
-<div class="d-flex justify-content-center bg-light py-3 mt-5">
+<div class="wrapper">
   <h3 class="mb-3 d-flex justify-content-center">New recipe</h3>
-
   <hr>
-</div>
-<div class="wrapper mt-4">
   <%= simple_form_for @recipe do |f| %>
     <%= f.input :name %>
     <%= f.input :instructions %>

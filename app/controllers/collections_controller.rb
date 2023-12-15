@@ -4,7 +4,7 @@ class CollectionsController < ApplicationController
     favorite_recipes_collection = Collection.new(name: "Favorites", user: current_user)
     favorite_recipes_collection.save
     all_recipes_collection.save
-    @collections = Collection.where(user: current_user)
+    @collections = Collection.where(user: current_user).order(:name)
   end
 
   def new

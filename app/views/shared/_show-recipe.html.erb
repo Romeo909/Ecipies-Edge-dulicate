@@ -11,20 +11,24 @@
   <div class="wrapper mt-3">
     <div class="">
       <h3 class=""><%= recipe.name %></h3>
-      <hr>
-      <div class="d-flex justify-content-between fw-bold">
-        <p>servings</p>
-        <p><%= recipe.servings %></p>
-      </div>
-      <div class="d-flex justify-content-between fw-bold">
-        <p>cooking time</p>
-        <p><%= recipe.cooking_time %> min</p>
-      </div>
+      <% if !recipe.servings.blank? %>
+        <hr>
+        <div class="d-flex justify-content-between fw-bold">
+          <p>servings</p>
+          <p><%= recipe.servings %></p>
+        </div>
+      <% end %>
+      <% if !recipe.cooking_time.blank? %>
+        <div class="d-flex justify-content-between fw-bold">
+          <p>cooking time</p>
+          <p><%= recipe.cooking_time %> min</p>
+        </div>
+      <% end %>
       <hr>
       <div class="">
         <p class="fw-bold">ingredients</p>
         <% recipe.ingredients.split(',').each do |ingredient| %>
-          <span class="badge bg-secondary fs-4 mb-1"><%= ingredient %>
+          <span class="badge bg-success fs-4 mb-1"><%= ingredient %>
           </span></h4>
       <% end %>
     </div>
@@ -38,11 +42,11 @@
       <div class="mt-5">
         <% if params[:return_to].present? %>
           <%= link_to recipes_path(query: params[:return_to]), class:"btn-back" do %>
-            <i class="fa-solid fa-backward"></i> Back
+            <i class="fa-solid fa-backward"></i>
           <% end %>
         <% else %>
           <%= link_to :back , class:"btn-back" do %>
-            <i class="fa-solid fa-backward"></i> Back
+            <i class="fa-solid fa-backward"></i>
           <% end %>
         <% end %>
       </div>
