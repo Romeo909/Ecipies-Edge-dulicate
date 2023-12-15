@@ -26,6 +26,21 @@
   border: none;
   font-size: 1.3em;
 }
+.ingredient-cta {
+  background: white;
+  // color: white;
+  padding: 8px 24px;
+  border-radius: 8px;
+  border: 1px solid orangered;
+  color: orangered;
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+.ingredient-cta:hover {
+  background: rgb(211, 200, 196);
+  color: white;
+}
 
 .btn-modal-save:hover, .btn-save:hover, .btn-cta:hover, .btn-back:hover {
   background: #409283 !important;

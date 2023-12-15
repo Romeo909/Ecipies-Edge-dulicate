@@ -4,7 +4,10 @@
     <hr>
     <div class="d-flex justify-content-center gap-3 align-items-center mb-3" >
       <%= link_to 'find recipes?', recipes_path(:fridge => @ingredients_name), class:"btn-cta"%>
-      <%= link_to '+', ingredients_path, class: "fw-bold fs-4 btn-cta" %>
+      <%= link_to ingredients_path, class: "fw-bold fs-4 ingredient-cta" do %>
+        <%= image_tag "ingredients", width:30, height:30 %>
+        <i class="fa-solid fa-plus"></i>
+      <% end %>
     </div>
     <% @categories.each do |category|%>
       <div class="card border-light mb-3" style="max-width: 100%;">
