@@ -1,14 +1,16 @@
-<div class="wrapper">
-  <h1 class="title">Edit : <%= @collection.name %></h1>
+<div class="d-flex justify-content-center bg-light py-3 mt-5">
+  <h1 class="title fw-bold mt-1">Edit category</h1>
+  <hr>
+</div>
+<div class="wrapper mt-4">
   <%= simple_form_for @collection do |f| %>
     <%= f.input :name %>
     <%# <%= f.input :description %>
-    <%= f.button :submit, "Update", class: "btn btn-primary" %>
-    <%= link_to collection_path(@collection) do %>
-      <button class="btn btn-warning">
-        Cancel
-      </button>
-    <% end %>
+    <div class="d-flex align-items-center gap-2">
+      <%= f.button :submit, "Update", class: "btn-save" %>
+      <%# cancel button %>
+      <%= link_to "Cancel", collections_path, class: "btn-cancel" %>
+    </div>
   <% end %>
   <br />
   <%# <%= link_to "My ingredients list", user_ingredients_path%>
