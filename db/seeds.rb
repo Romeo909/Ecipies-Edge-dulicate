@@ -185,7 +185,7 @@ ingretient_114 = Ingredient.create(name: "olives", category: category_2)
 ingretient_115 = Ingredient.create(name: "sugar", category: category_11)
 ingretient_116 = Ingredient.create(name: "chocolate", category: category_11)
 ingretient_117 = Ingredient.create(name: "honey", category: category_11)
-ingretient_118 = Ingredient.create(name: "white bean", category: category_7)
+ingretient_118 = Ingredient.create(name: "white bean", category: category_4)
 
 
 
