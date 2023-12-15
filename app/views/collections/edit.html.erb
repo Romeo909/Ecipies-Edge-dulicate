@@ -1,8 +1,6 @@
-<div class="d-flex justify-content-center bg-light py-3 mt-5">
-  <h1 class="title fw-bold mt-1">Edit category</h1>
+<div class="wrapper">
+  <h3 class="mb-3 d-flex justify-content-center">Edit : <%= @collection.name %></h3>
   <hr>
-</div>
-<div class="wrapper mt-4">
   <%= simple_form_for @collection do |f| %>
     <%= f.input :name %>
     <%# <%= f.input :description %>
@@ -12,6 +10,5 @@
       <%= link_to "Cancel", collections_path, class: "btn-cancel" %>
     </div>
   <% end %>
-  <br />
   <%# <%= link_to "My ingredients list", user_ingredients_path%>
 </div>

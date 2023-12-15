@@ -1,6 +1,6 @@
 <div class="wrapper">
   <div class="d-flex justify-content-between mb-3">
-    <h1 class="fw-bold"><%= @collection.name %></h1>
+  <h3 class=" title mb-3"><%= @collection.name %></h3>
     <div>
       <% if @collection.name != 'All' && @collection.name != 'Favorites' %>
         <%= link_to edit_collection_path(@collection) do %>
