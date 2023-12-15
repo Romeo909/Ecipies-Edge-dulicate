@@ -7,9 +7,16 @@
       <p>Tasty vegetarian recipes with</p>
       <p>WHATS LEFT IN YOUR FRIDGE</p>
     </div>
-    <%= link_to new_user_session_path do %>
-      <button class="btn-cta mt-3">GET STARTED
-      </button>
+    <% if current_user %>
+      <%= link_to collections_path do %>
+        <button class="btn-cta mt-3">GET STARTED
+        </button>
+      <% end %>
+    <% else %>
+      <%= link_to new_user_session_path do %>
+        <button class="btn-cta mt-3">GET STARTED
+        </button>
+      <% end %>
     <% end %>
   </div>
 </div>
