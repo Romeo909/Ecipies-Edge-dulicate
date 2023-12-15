@@ -20,15 +20,14 @@ class UserRecipesController < ApplicationController
     if @user_recipe.save
       save_to_collections(params[:user_recipe][:collection_ids], @user_recipe)
       save_to_all_collection(@user_recipe)
-      redirect_to recipe_path(params[:recipe_id]), notice: 'Recipe was added to your cookbook.'
     else
       save_to_collections(params[:user_recipe][:collection_ids],
                           Recipe.find(params[:recipe_id]).user_recipes.where(user: current_user,
                                                                              recipe: params[:recipe_id])[0])
       save_to_all_collection(Recipe.find(params[:recipe_id]).user_recipes.where(user: current_user,
                                                                                 recipe: params[:recipe_id])[0])
-      redirect_to recipe_path(params[:recipe_id]), notice: 'Recipe save in you categorie.'
     end
+    redirect_to recipe_path(params[:recipe_id]), notice: 'Recipe added to your cookbook.'
   end
 
   def destroy
