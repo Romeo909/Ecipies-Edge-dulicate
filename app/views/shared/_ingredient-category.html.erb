@@ -13,7 +13,7 @@
               <% else %>
                 <span class="badge ingredient-category"><%= ingredient.name %>
                   <%= link_to ingredient_user_ingredients_path(ingredient), data: {turbo_method: :post} do%>
-                    <i class="fa-solid fa-circle-plus text-warning"></i>
+                    <i class="fa-solid fa-circle-plus" style="color: rgb(137, 172, 144);"></i>
                   <% end %>
                 </span>
               <% end %>

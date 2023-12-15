@@ -37,7 +37,9 @@
       <p class="fs-4 fw-bold">instructions</p>
       <div data-controller="read-more" data-read-more-more-text-value="Read more" data-read-more-less-text-value="Read less">
         <p class="text-start my-content" data-read-more-target="content"><%= recipe.instructions %></p>
-        <button class="read" data-action="read-more#toggle">Read more</button>
+        <% if recipe.ingredients.chars.count >= 200 %>
+          <button class="read" data-action="read-more#toggle">Read more</button>
+        <% end %>
       </div>
       <div class="mt-5">
         <% if params[:return_to].present? %>
