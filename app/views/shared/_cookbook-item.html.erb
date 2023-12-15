@@ -3,11 +3,11 @@
     <div class="cookbook-item">
       <div class="description">
         <% if collection %>
-          <h3 class="mb-3 d-flex justify-content-center"><%= collection.name.capitalize %></h3>
+          <h3 class="mb-3"><%= collection.name.capitalize %></h3>
           <p><%= pluralize(collection.user_recipes.count, 'recipe') %></p>
         </div>
-        <% if collection && !collection.user_recipes.empty? && collection.user_recipes.last.recipe.image.attached? %>
-          <%= cl_image_tag collection.user_recipes.last.recipe.image.key, class: "img-circle" %>
+        <% if collection && !collection.user_recipes.empty? && collection.user_recipe_collections.last.user_recipe.recipe.image.attached? %>
+          <%= cl_image_tag collection.user_recipe_collections.last.user_recipe.recipe.image.key, class: "img-circle" %>
         <% else %>
           <% if collection.name == "Favorites" %>
             <%= image_tag "heart.png", class: "img-circle" %>

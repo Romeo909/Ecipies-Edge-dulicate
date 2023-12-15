@@ -189,15 +189,15 @@ ingretient_118 = Ingredient.create(name: "white bean", category: category_4)
 
 
 
-UserIngredient.create!(user: rayane, ingredient: ingretient_1)
-UserIngredient.create!(user: romar, ingredient: ingretient_2)
-UserIngredient.create!(user: lena, ingredient: ingretient_3)
-UserIngredient.create!(user: rayane, ingredient: ingretient_4)
-UserIngredient.create!(user: romar, ingredient: ingretient_1)
-UserIngredient.create!(user: lena, ingredient: ingretient_2)
-UserIngredient.create!(user: rayane, ingredient: ingretient_3)
-UserIngredient.create!(user: romar, ingredient: ingretient_4)
-UserIngredient.create!(user: lena, ingredient: ingretient_1)
+# UserIngredient.create!(user: rayane, ingredient: ingretient_1)
+# UserIngredient.create!(user: romar, ingredient: ingretient_2)
+# UserIngredient.create!(user: lena, ingredient: ingretient_3)
+# UserIngredient.create!(user: rayane, ingredient: ingretient_4)
+# UserIngredient.create!(user: romar, ingredient: ingretient_1)
+# UserIngredient.create!(user: lena, ingredient: ingretient_2)
+# UserIngredient.create!(user: rayane, ingredient: ingretient_3)
+# UserIngredient.create!(user: romar, ingredient: ingretient_4)
+# UserIngredient.create!(user: lena, ingredient: ingretient_1)
 
 recipe2 = Recipe.create!(name: "Vegetable satay curry", instructions: "Put the coconut milk, curry powder, stock cube, peanut butter and squash in a 3.5ltr slow-cooker. Add 100ml water and mix well.
  Cook on low for 3½-4 hrs until the squash is tender. Stir in the frozen peas for the final 15 mins, then turn off the slow-cooker and tip in the spinach and gently stir through the curry until it has wilted. Stir in the lime juice and taste for seasoning. Serve with rice, if you like.", servings: 3, cooking_time: 30, ingredients: "curry, chickpea, carrot, squash, oinion")
